@@ -22,12 +22,14 @@ articles = fs.readdirSync(main_dir + 'articles/md')
     var article = {};
     
     article.text = fs.readFileSync(main_dir + '/articles/md/' + path, 'utf8');
-    article.html = marked(article.text);
     article.path = 'articles/' + path.replace('.md', '.html');
 
     article.title = article.text.split('\n')[0].replace(/#/g, '').trim();
     article.date_str = article.text.split('\n')[1].replace(/#/g, '').trim();
     article.date = moment(article.date_str, "MMMM D YYYY", 'en').toDate();
+
+    article.text = article.text.split('\n').slice(2).join('\n');
+    article.html = marked(article.text);
 
     return article;
   })

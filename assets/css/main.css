@@ -1,14 +1,124 @@
+@font-face {
+  font-family: "Consolas";
+  src: url("../fonts/Consolas.ttf");
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url("../fonts/ProximaNovaRegular.otf");
+}
+@font-face {
+  font-family: "ProximaNova-Bold";
+  src: url("../fonts/ProximaNovaBold.otf");
+}
+body {
+  border-top: 2px solid #3EA154;
+  margin: 0px;
+  font-family: "ProximaNova";
+  font-size: 1.125em;
+  line-height: 1.5em;
+  color: #373737;
+}
+h1,
+h2,
+h3 {
+  font-family: "ProximaNova-Bold";
+}
+h1 {
+  font-size: 2.250em;
+  color: #373737;
+  line-height: 1em;
+  width: 12.88889em;
+}
+h2 {
+  font-size: 1.313em;
+  width: 22.08682em;
+  color: #222;
+}
+a {
+  color: #c74949;
+  text-decoration: none;
+}
+#container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+header {
+  width: 100%;
+  margin: 0 auto;
+}
+header #logo {
+  width: 20%;
+  float: left;
+}
+header #logo img {
+  width: 60%;
+  border-radius: 50%;
+  margin-top: 8%;
+  margin-left: 18%;
+}
+header #about {
+  width: 80%;
+  float: right;
+}
+#posts {
+  margin-top: 7%;
+  margin-left: 20%;
+}
+#posts ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#post {
+  margin-top: 4%;
+}
+#post #title,
+#post #date {
+  margin-bottom: 15px;
+}
+#post p,
+#post h1,
+#post h2,
+#post h3,
+#post h4 {
+  width: 50%;
+  margin: 0 auto;
+}
+#post pre {
+  background: #fafafd;
+  border: 2px solid #E9E9E9;
+  border-right: 0em solid #fff;
+  border-left: 0em solid #fff;
+}
+.clear {
+  clear: both;
+}
+.hide {
+  display: none;
+}
 .hljs {
   font-family: Consolas;
   color: #333;
-  z-index: -1;
   background: #fafafd;
-  border: 0.063em solid #dedede;
-  border-right: 0em solid #fff;
-  border-left: 0em solid #fff;
+  z-index: -1;
   line-height: 1.5em;
   padding-top: 1em;
   padding-bottom: 1em;
   left: 0;
   right: 0;
+  width: 50%;
+  margin: 0 auto;
+}
+.label {
+  padding: .2em .8em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background: #3EA154;
+  margin-right: 11px;
 }

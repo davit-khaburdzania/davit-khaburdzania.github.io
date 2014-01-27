@@ -2,19 +2,39 @@
 <html>
 <head>
   <title>Davit Khaburdzania</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-  <header>
-    <h2> Ramblings of a random programmer guy </h2>
-  </header>
-  <section id="posts">
-    <ul>
-      {{#each articles}}
-        <li>
-          <a href="{{this.path}}"> {{this.title}} </a>
-        </li>
-      {{/each}}
-    </ul>
+  <section id="container">
+    <header>
+      <div id="logo">
+        <img src="/assets/img/me.jpeg">
+      </div>
+      <div id="about">
+        <h2> Ramblings of a random programmer guy </h2>
+        <p>
+          I am Davit Khaburdzania, freelance Web Developer from <a href="http://en.wikipedia.org/wiki/Georgia_(country)">Georgia</a>. Currently studing Computer Science in <a href="http://www.tsu.edu.ge/en">Tbilisi State University</a> and working on different fun projects.
+          <br>
+          I love learning new things, hiking in strange places and riding my bicycle.
+        </p>
+        <a href="https://github.com/davit-khaburdzania" class="label" target="_blank">GITHUB</a>
+        <a href="https://twitter.com/dkhaburdzania" class="label" target="_blank">TWITTER</a>
+        <a href="mailto:davit.khaburdzania@gmail.com" class="label" target="_blank">EMAIL</a>
+      </div>
+    </header>
+    
+    <div class="clear"></div>
+
+    <section id="posts">
+      <h2> Articles </h2>
+      <ul>
+        {{#each articles}}
+          <li>
+            <a href="{{this.path}}"> {{this.title}} </a>
+          </li>
+        {{/each}}
+      </ul>
+    </section>
   </section>
 </body>
 </html>
