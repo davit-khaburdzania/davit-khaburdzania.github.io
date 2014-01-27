@@ -7,18 +7,16 @@ var fs = require('fs'),
     main_dir = __dirname + '/../',
     articles = template = compiled = null;
 
+//configure highlight.js
 hljs.configure({classPrefix: ''});
 marked.setOptions({
   highlight: function (code, lang) {
-    if (lang) {
-      if (lang === 'c') lang = 'cpp';
-      return hljs.highlight(lang, code).value;
-    } else {
-      return hljs.highlightAuto(code).value;
-    }
+    if (lang === 'c') lang = 'cpp';
+    return lang ? hljs.highlight(lang, code).value : hljs.highlightAuto(code).value;
   }
-})
+});
 
+//transform raw articles to usable objects
 articles = fs.readdirSync(main_dir + 'articles/md')
   .map(function (path) {
     var article = {};
