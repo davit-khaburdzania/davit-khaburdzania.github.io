@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Setting Up Scheme </title>
+</head>
+<body>
+  <section id="post">
+    <h1 id="setting-up-scheme">Setting Up Scheme</h1>
+<h2 id="january-23th-2014">January 23th 2014</h2>
+<p>I have decided to start studing one of the old and famous courses of MIT <a href="http://bit.ly/1hBkxTi">SICP</a> which uses scheme as programming language and it took me some time to setup things and it would help someone or me in the future.</p>
+<p>I used MIT-SCHEME as implementation of scheme: First we need to download <a href="http://www.gnu.org/software/mit-scheme/">binarys</a>, 
+after that we need to move package to Applications folder and create links so i can just type scheme in terminal</p>
+<pre><code class="lang-bash">sudo ln -s /Applications/MIT\:GNU\ Scheme.app/Contents/Resources /usr/local/lib/mit-scheme-x86-64
+sudo ln -s /usr/local/lib/mit-scheme-x86-64/mit-scheme /usr/bin/scheme
+</code></pre>
+<p>after that i wanted to execute scheme inside my sublime text so created new built system</p>
+<pre><code class="lang-javascript">{
+  &quot;cmd&quot;: [&quot;scheme&quot;, &quot;--silent&quot;, &quot;--load&quot;, &quot;$file&quot;],
+  &quot;file_regex&quot;: &quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;,
+  &quot;selector&quot;: &quot;source.sch&quot;,
+  &quot;path&quot;: &quot;/usr/bin&quot;
+}
+</code></pre>
+<p>uhuu and everything is ready.</p>
+
+  </section>
+</body>
+</html>

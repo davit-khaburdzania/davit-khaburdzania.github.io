@@ -4,7 +4,7 @@ var fs = require('fs'),
     handlebars = require('handlebars'),
     marked = require('marked'),
     main_dir = __dirname + '/../',
-    articles = index_tmp = compiled = null;
+    articles = template = compiled = null;
 
 articles = fs.readdirSync(main_dir + 'articles/md')
   .map(function (path) {
@@ -24,9 +24,18 @@ articles = fs.readdirSync(main_dir + 'articles/md')
     return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
   });
 
-// generate index.html file
-index_tmp = fs.readFileSync(main_dir + 'templates/index.html', 'utf8');
-index_tmp = handlebars.compile(index_tmp);
-compiled = index_tmp({ articles: articles });
+//generate articles
+articles.forEach(function (article) {
+  template = fs.readFileSync(main_dir + 'templates/article.html', 'utf8');
+  template = handlebars.compile(template);
 
+  compiled = template(article);
+  fs.writeFileSync(main_dir + article.path, compiled);
+});
+
+// generate index.html file
+template = fs.readFileSync(main_dir + 'templates/index.html', 'utf8');
+template = handlebars.compile(template);
+
+compiled = template({ articles: articles });
 fs.writeFileSync(main_dir + '/index.html', compiled);
