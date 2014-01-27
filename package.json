@@ -10,5 +10,8 @@
     "marked": "~0.3.0",
     "moment": "~2.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-nodestatic": "~0.1.2"
+  }
 }
