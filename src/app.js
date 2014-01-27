@@ -3,8 +3,21 @@ var fs = require('fs'),
     moment = require('moment'),
     handlebars = require('handlebars'),
     marked = require('marked'),
+    hljs = require('highlight.js');
     main_dir = __dirname + '/../',
     articles = template = compiled = null;
+
+hljs.configure({classPrefix: ''});
+marked.setOptions({
+  highlight: function (code, lang) {
+    if (lang) {
+      if (lang === 'c') lang = 'cpp';
+      return hljs.highlight(lang, code).value;
+    } else {
+      return hljs.highlightAuto(code).value;
+    }
+  }
+})
 
 articles = fs.readdirSync(main_dir + 'articles/md')
   .map(function (path) {
