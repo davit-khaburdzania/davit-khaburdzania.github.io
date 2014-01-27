@@ -23,8 +23,17 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      files: 'assets/less/*.less',
-      tasks: ['less']
+      less: {
+        files: 'assets/less/*.less',
+        tasks: 'less'
+      },
+      articles: {
+        files: [
+          'articles/md/*.md',
+          'templates/*.html'
+        ],
+        tasks: 'build'
+      }
     }
   });
 
@@ -36,6 +45,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', 'build blog', function () {
     require(__dirname + '/src/app.js');
-
   });
 };
