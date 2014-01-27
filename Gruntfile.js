@@ -10,15 +10,15 @@ module.exports = function (grunt) {
     },
     
     less: {
-      options: {
-        path: 'assets'
-      },
-      src: {
-        expand: true,
-        cwd:    'assets/less/',
-        src:    ['*.less'],
-        dest:   'assets/css/', 
-        ext:    '.css'
+      development: {
+        options: {
+          compress: true,
+          yuicompress: true,
+          optimization: 2
+        },
+        files: {
+          'assets/css/main.css': 'assets/less/main.less'
+        }
       }
     },
 

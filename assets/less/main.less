@@ -1,17 +1,4 @@
-@font-face {
-  font-family: "Consolas";
-  src: url("../fonts/Consolas.ttf"); 
-}
-
-@font-face {
-  font-family: "ProximaNova";
-  src: url("../fonts/ProximaNovaRegular.otf");
-}
-
-@font-face {
-  font-family: "ProximaNova-Bold";
-  src: url("../fonts/ProximaNovaBold.otf");
-}
+@import 'common.less';
 
 body {
   border-top: 2px solid #3EA154;
@@ -48,39 +35,39 @@ a {
   width: 70%;
   margin: 0 auto;
   margin-top: 5%;
-}
 
-header {
-  width: 100%;
-  margin: 0 auto;
+  header {
+    width: 100%;
+    margin: 0 auto;
 
-  #logo {
-    width: 20%;
-    float: left;
+    #logo {
+      width: 20%;
+      float: left;
 
-    img {
-      width: 60%;
-      border-radius: 50%;
-      margin-top: 8%;
-      margin-left: 18%;
+      img {
+        width: 60%;
+        border-radius: 50%;
+        margin-top: 8%;
+        margin-left: 18%;
+      }
+    }
+
+    #about {
+      width: 80%;
+      float: right;
     }
   }
 
-  #about {
-    width: 80%;
-    float: right;
+  #posts {
+    margin-top: 7%;
+    margin-left: 20%;
+
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+    } 
   }
-}
-
-#posts {
-  margin-top: 7%;
-  margin-left: 20%;
-
-  ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-  } 
 }
 
 #post {
@@ -101,40 +88,4 @@ header {
     border-right: 0em solid #fff;
     border-left: 0em solid #fff;
   }
-}
-
-.clear {
-  clear: both;
-}
-
-.hide {
-  display: none;
-}
-
-.hljs {
-  font-family: Consolas;
-  color: #333;
-  background: #fafafd;
-  z-index: -1;
-  line-height: 1.5em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  left: 0;
-  right: 0;
-  width: 50%;
-  margin: 0 auto;
-}
-
-
-.label {
-  padding: .2em .8em .3em;
-  font-size: 75%;
-  font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  background: #3EA154;
-  margin-right: 11px;
 }
