@@ -166,8 +166,9 @@ function Game () {
   };
 
   this.gameOver = function () {
-    // alert('game over');
-    // stop animation;
+    self.stop = true;
+    self.clear();
+    console.log('game is over')
   };
 
   this.isWinner = function () {
@@ -177,7 +178,9 @@ function Game () {
       if (alians[i]) return;
     }
 
-    // console.log('uhuum you won');
+    self.clear();
+    self.stop = true;
+    console.log('uhuum you won');
   } 
   this.render = function () {
     self.clear();
@@ -185,9 +188,9 @@ function Game () {
 
     self.cannon.render();
     self.alians.render();
-    self.alians.lastAliansRowY += 0.3;
-
-    requestAnimationFrame(self.render);
+    self.alians.lastAliansRowY += 0.8;
+    
+    if (!self.stop) requestAnimationFrame(self.render);
   };
 };
 
