@@ -1,4 +1,2 @@
-davit-khaburdzania.github.io
+[Public Blog](http://davit.io)
 ============================
-
-public blog
