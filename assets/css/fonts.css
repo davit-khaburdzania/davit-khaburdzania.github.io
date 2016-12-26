@@ -1,24 +1,14 @@
 @font-face{
-  font-family:"Avenir-Medium";
-  src:url("../fonts/Avenir-Medium.ttf")
+  font-family:"OpenSans-Bold";
+  src:url("../fonts/OpenSans-Bold.ttf")
 }
 
 @font-face{
-  font-family:"Avenir-Roman";
-  src:url("../fonts/Avenir-Roman.ttf")
+  font-family:"OpenSans-Semibold";
+  src:url("../fonts/OpenSans-Semibold.ttf")
 }
 
 @font-face{
-  font-family:"Roboto-Regular";
-  src:url("../fonts/Roboto-Regular.ttf")
-}
-
-@font-face{
-  font-family:"Roboto-Medium";
-  src:url("../fonts/Roboto-Medium.ttf")
-}
-
-@font-face{
-  font-family:"Roboto-Bold";
-  src:url("../fonts/Roboto-Bold.ttf")
+  font-family:"OpenSans-Regular";
+  src:url("../fonts/OpenSans-Regular.ttf")
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="117px" viewBox="0 0 220 117" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Hello</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="83.7300034">
+        <g id="Desktop" transform="translate(-56.000000, -70.000000)" fill="#000000">
+            <g id="Header">
+                <g id="Hello" transform="translate(50.000000, 50.000000)">
+                    <text font-family="Avenir-Heavy, Avenir" font-weight="600">
+                        <tspan x="0" y="84">Hello</tspan>
+                    </text>
+                    <text font-family="Avenir-Heavy, Avenir" font-weight="600">
+                        <tspan x="0" y="136">Hello</tspan>
+                    </text>
+                    <text id="‘" transform="translate(220.124742, 76.861306) rotate(182.000000) translate(-220.124742, -76.861306) " font-family="AndaleMono, Andale Mono" font-weight="normal">
+                        <tspan x="194.624742" y="105.861306">‘</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

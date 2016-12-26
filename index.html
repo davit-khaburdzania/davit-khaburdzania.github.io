@@ -6,79 +6,80 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <section id="card">
-      <section class="card-left">
-        <img class="avatar" src="https://s.gravatar.com/avatar/79855cc68a0ea3280059bd3288272327?s=500" alt="avatar" />
-        <span class="full-name">Davit Khaburdzania</span>
-        <div class="line"></div>
-        <span class='about'>Self taught developer from tiny Georgia, driven by desire to make simple things crafted till perfection. Minimalism lover, always excited to try and live up with new technologies and approaches.</span>
+  <div class="header-bg"></div>
+  <header>
+    <div class="wrapper">
+      <section class="logos">
+        <img src="/assets/images/hello.svg" />
+        <img src="/assets/images/box.svg" />
+      </section>
 
+      <section class="texts">
+        <span class="about">I am <span class="strong">Davit Khaburdzania</span>, self taught developer from tiny Georgia, driven by desire to make simple things crafted till perfection. Minimalism lover, always excited to try and live up with new technologies and approaches.</span>
         <div class="links">
-          <a class="link" href="https://medium.com/@dkhaburdzania">Blog</a>
-          <a class="link" href="https://github.com/davit-khaburdzania/">Github</a>
-          <a class="link" href="https://twitter.com/dkhaburdzania">Twitter</a>
-          <a class="link" href="mailto:davit.khaburdzania@gmail.com">Contact</a>
+          <div class="link mod-header-link">
+            <span class="link-label strong">Email:</span>
+            <a class="link-destination" href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a>
+          </div>
+          <div class="link mod-header-link">
+            <span class="link-label strong">Github:</span>
+            <a class="link-destination" href="http://github.com/davit-khaburdzania">http://github.com/davit-khaburdzania</a>
+          </div>
+          <div class="link mod-header-link">
+            <span class="link-label strong">Blog:</span>
+            <a class="link-destination" href="http://medium.com/@dkhaburdzania">http://medium.com/@dkhaburdzania</a>
+          </div>
+          <div class="link mod-header-link">
+            <span class="link-label strong">Twitter:</span>
+            <a class="link-destination" href="http://twitter.com/dkhaburdzania">@dkhaburdzania</a>
+          </div>
         </div>
       </section>
-
-      <section class="you-shall-not-pass"></section>
-
-      <section class="card-right">
-        <section class="experience">
-          <div class="header">
-            <a href="http://spacelab.team" class="name">Spacelab</a>
-            <div class="circle"> </div>
-            <span class="position">Founder</span>
-          </div>
-          <div class="description">
-            After 6 years of wondering around in web industry, Started his own agency, Services include: UI/UX Design and Application Development.
-          </div>
-        </section>
-
-        <section class="experience">
-          <div class="header">
-            <a href="http:/digitalclipboard.com" class="name">Digital Clipboard</a>
-            <div class="circle"> </div>
-            <span class="position">Web Developer</span>
-          </div>
-          <div class="description">
-            To help doctors kill paperwork usage, rewrote whole application and made it Blasingly fast.
-          </div>
-        </section>
-
-        <section class="experience">
-          <div class="header">
-            <a href="http://meetcloe.co" class="name">Cloe</a>
-            <div class="circle"> </div>
-            <span class="position">Full Stack Developer</span>
-          </div>
-          <div class="description">
-            To help users get their answers faster made inhouse application realtime and automated lots of things.
-          </div>
-        </section>
-
-        <section class="experience">
-          <div class="header">
-            <a href="#" class="name">Uprise</a>
-            <div class="circle"> </div>
-            <span class="position">Web Developer</span>
-          </div>
-          <div class="description">
-            Built e-commerce site from scratch using Node.js with heavy optimizations and security.
-          </div>
-        </section>
-
-        <section class="experience">
-          <div class="header">
-            <a href="https://www.getairhelp.com/en" class="name">Airhelp</a>
-            <div class="circle"> </div>
-            <span class="position">CTO</span>
-          </div>
-          <div class="description">
-            Wrote first version of application to help stuff automate many things they were doing by hand.
-          </div>
-        </section>
-      </section>
+    </div>
+  </header>
+  <section class="body wrapper">
+    <section class="experiences">
+      <h2>Experience</h2>
+      <div class="project">
+        <h1><a class="project-header" href="http://scrubpay.com">Scrubpay - Full stack Developer</a></h1>
+        <span class="project-description">Scrubpay is a texting and payments application that makes it easy for patients to pay their medical bills from their mobile device.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://digitalclipboard.com">Digital Clipboard - Mobile Developer</a></h1>
+        <span class="project-description">To help doctors kill paperwork usage, rewrote whole application and made it Blasingly fast.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://meetcloe.co/">Cloe - Senior Software Developer</a></h1>
+        <span class="project-description">To help users get their answers faster made in-house application realtime and automated lots of things.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="https://www.airhelp.com/en/">Airhelp - CTO</a></h1>
+        <span class="project-description">Wrote first version of application to help stuff automate many things they were doing by hand.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://www.moh.gov.ge/index.php?sec_id=10&lang_id=ENG">Ministry of health - Senior Developer</a></h1>
+        <span class="project-description">we built some projects to help more then one million person to get their insurances as fast as possible.</span>
+      </div>
+    </section>
+    <section class="projects">
+      <h2>Side Projects</h2>
+      <div class="project">
+        <h1><a class="project-header" href="http://bundle.spacelab.team">Bundle</a></h1>
+        <span class="project-description">Bundle up all your links in one secure place, and share with your friends easily.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://spacelab.team">Spacelab - Founder</a></h1>
+        <span class="project-description">We are group of enthusiastic people, friends working together, pushing our limits to create amazing products</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://yresolution.com">Yresolution</a></h1>
+        <span class="project-description">Lets make a promise to do something awesome for new year.</span>
+      </div>
+      <div class="project">
+        <h1><a class="project-header" href="http://ssanta.co">Ssanta</a></h1>
+        <span class="project-description">Create new Secret Santa events, invite friends and have fun.</span>
+      </div>
+    </section>
   </section>
 </body>
 </html>
