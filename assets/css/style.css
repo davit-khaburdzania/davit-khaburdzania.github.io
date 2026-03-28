@@ -1,67 +1,122 @@
+/* ============================================
+   Design System
+   ============================================ */
+
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --text-muted: #999;
+  --accent: #FFFE6D;
+  --border: #e5e5e0;
+  --dark: #111;
+  --font-display: "Bricolage Grotesque", "OpenSans-Bold", sans-serif;
+  --font-body: "DM Sans", "OpenSans-Regular", sans-serif;
+}
+
+
+/* ============================================
+   Base
+   ============================================ */
+
+html {
+  background: var(--bg);
+}
+
 body, html {
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: "OpenSans-Regular";
+  font-family: var(--font-body);
   margin: 0;
   max-width: 100%;
   overflow-x: hidden;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  isolation: isolate;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ============================================
+   Typography
+   ============================================ */
+
 .strong {
-  color: #000;
-  font-family: "OpenSans-Bold";
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 18px;
 }
+
+
+/* ============================================
+   Layout
+   ============================================ */
 
 .wrapper {
   width: 1024px;
   margin: 0 auto;
 }
 
+
+/* ============================================
+   Header
+   ============================================ */
+
 .header-bg {
-  position: absolute;
-  top: -40px;
-  left: -15px;
-  z-index: -1;
-  height: 290px;
-  width: 105%;
-  padding-bottom: 100px;
-  background-color: #FFFE6D;
-  transform: rotate(-3deg);
+  display: none;
 }
 
 header {
   min-height: 280px;
   padding: 50px;
   padding-top: 20px;
+  animation: fadeInUp 0.6s ease both;
 }
 
-  header .logo-list, header .texts {
-    display: flex;
-    justify-content: space-between;
-  }
+header .logo-list,
+header .texts {
+  display: flex;
+  justify-content: space-between;
+}
 
-  header .texts {
-    margin-top: 40px;
-  }
+header .texts {
+  margin-top: 40px;
+}
 
-    header .texts .about {
-      font-size: 19px;
-      color: #424242;
-      width: 460px;
-    }
+header .texts .about {
+  font-size: 18px;
+  color: var(--text-secondary);
+  width: 460px;
+  line-height: 1.65;
+}
 
-      header .texts .about .strong {
-        font-size: 21px;
-      }
+header .texts .about .strong {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--text);
+  background: linear-gradient(to top, var(--accent) 28%, transparent 28%);
+  padding: 0 2px;
+}
 
-    header .texts .links {
-      width: 410px;
-    }
+header .texts .links {
+  width: 410px;
+}
 
 .logo-list-hello {
   width: 180px;
+  filter: drop-shadow(3px 3px 0 var(--accent));
 }
 
 .logo-list-close {
@@ -69,48 +124,73 @@ header {
 }
 
 .link.mod-header-link {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
-  .link-label {
-    width: 90px;
-    display: inline-block;
-  }
+.link-label {
+  width: 90px;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
 
-  .link-destination {
-    font-size: 16px;
-    color: #424242;
-    text-decoration: none;
-  }
+.link-destination {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a.link-destination:hover {
+  color: var(--text-secondary);
+}
 
 
-/* Tech Stack */
+/* ============================================
+   Tech Stack
+   ============================================ */
 
 .tech-stack {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeInUp 0.6s ease 0.08s both;
 }
 
 .tech-stack h2 {
-  font-family: "OpenSans-Semibold";
-  font-size: 28px;
-  color: #424242;
-  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
 }
 
 .stack-category {
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #757575;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
 }
 
 .stack-label {
-  font-family: "OpenSans-Bold";
-  color: #424242;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
 }
 
 
-/* Main Body */
+/* ============================================
+   Main Body
+   ============================================ */
 
 .body {
   display: flex;
@@ -118,78 +198,192 @@ header {
   margin-top: 10px;
 }
 
-  .body h2 {
-    font-family: "OpenSans-Semibold";
-    font-size: 28px;
-    color: #424242;
-    margin-bottom: 45px;
-  }
+.body h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 40px;
+}
 
 .experiences {
   width: 560px;
+  animation: fadeInUp 0.6s ease 0.14s both;
 }
 
 .projects {
   width: 380px;
+  animation: fadeInUp 0.6s ease 0.2s both;
 }
 
 
-/* Project Cards */
+/* ============================================
+   Experience Cards
+   ============================================ */
 
 .project {
-  border-left: 4px solid #000;
-  padding-left: 17px;
-  margin-bottom: 35px;
+  border-left: 3px solid var(--border);
+  padding-left: 22px;
+  margin-bottom: 34px;
+  transition: border-color 0.25s ease;
 }
 
-  .project-header {
-    font-family: "OpenSans-Semibold";
-    font-size: 18px;
-    color: #424242;
-    margin-bottom: 20px;
-    text-decoration: none;
-    border-bottom: 4px solid transparent;
-    padding-bottom: 2px;
-    transition: all .1s ease 0s;
-  }
-
-  .project-header:hover {
-    border-bottom: 3px solid #424242;
-  }
-
-  .project-date {
-    font-family: "OpenSans-Regular";
-    font-size: 14px;
-    color: #9e9e9e;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .project-description {
-    font-size: 16px;
-    color: #757575;
-  }
-
-
-/* Why You Should Hire Me */
-
-.hire-me {
-  margin-top: 10px;
+.project:hover {
+  border-left-color: var(--accent);
 }
 
-.hire-me h2 {
-  font-family: "OpenSans-Semibold";
-  font-size: 28px;
-  color: #424242;
-  margin-bottom: 45px;
+.project-header {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: none;
+  padding-bottom: 0;
+  transition: color 0.15s ease;
 }
 
-.hire-me-grid {
+.project-header:hover {
+  color: var(--text-secondary);
+  border-bottom: none;
+}
+
+.project-date {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.project-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   What I Build — Feature Cards
+   ============================================ */
+
+.build-card {
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.build-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.build-card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.build-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
 }
 
-.hire-me-grid .project {
-  width: 46%;
+.build-card-arrow {
+  font-size: 20px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  color: var(--text-muted);
+}
+
+.build-card:hover .build-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.build-card-year {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.build-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: block;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   Why Hire Me — Full-Width Dark Section
+   ============================================ */
+
+.hire-section {
+  background: var(--dark);
+  padding: 80px 0 90px;
+  margin-top: 70px;
+}
+
+.hire-section-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.hire-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+}
+
+.hire-card {
+  border-top: 2px solid var(--accent);
+  padding-top: 24px;
+}
+
+.hire-card-metric {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hire-card-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #bbb;
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.hire-card-desc {
+  font-size: 14px;
+  color: #666;
+  display: block;
+  line-height: 1.6;
 }
