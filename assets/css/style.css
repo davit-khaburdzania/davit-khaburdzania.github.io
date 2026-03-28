@@ -32,7 +32,7 @@ body, html {
 }
 
 header {
-  height: 300px;
+  min-height: 280px;
   padding: 50px;
   padding-top: 20px;
 }
@@ -84,6 +84,34 @@ header {
   }
 
 
+/* Tech Stack */
+
+.tech-stack {
+  margin-bottom: 40px;
+}
+
+.tech-stack h2 {
+  font-family: "OpenSans-Semibold";
+  font-size: 28px;
+  color: #424242;
+  margin-bottom: 20px;
+}
+
+.stack-category {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #757575;
+}
+
+.stack-label {
+  font-family: "OpenSans-Bold";
+  color: #424242;
+  font-size: 16px;
+}
+
+
+/* Main Body */
+
 .body {
   display: flex;
   justify-content: space-between;
@@ -97,10 +125,16 @@ header {
     margin-bottom: 45px;
   }
 
-.experiences, .projects {
-  width: 410px;
+.experiences {
+  width: 560px;
 }
 
+.projects {
+  width: 380px;
+}
+
+
+/* Project Cards */
 
 .project {
   border-left: 4px solid #000;
@@ -123,7 +157,39 @@ header {
     border-bottom: 3px solid #424242;
   }
 
+  .project-date {
+    font-family: "OpenSans-Regular";
+    font-size: 14px;
+    color: #9e9e9e;
+    display: block;
+    margin-bottom: 4px;
+  }
+
   .project-description {
     font-size: 16px;
     color: #757575;
   }
+
+
+/* Why You Should Hire Me */
+
+.hire-me {
+  margin-top: 10px;
+}
+
+.hire-me h2 {
+  font-family: "OpenSans-Semibold";
+  font-size: 28px;
+  color: #424242;
+  margin-bottom: 45px;
+}
+
+.hire-me-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hire-me-grid .project {
+  width: 46%;
+}

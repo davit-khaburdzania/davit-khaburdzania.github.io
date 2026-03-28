@@ -1,148 +1,224 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-      <meta charset="utf-8">
-      <title>CV - Davit Khaburdzania</title>
-      <style type="text/css">
-          * {
-              margin:0;
-              padding:0;
-          }
-          body{
-              background:#EEE;
-              font-family:Arial, Verdana, Helvetica, sans-serif;
-              font-size:15px;
-              color:#555;
-          }
-          section#cv{
-              width:55%;
-              padding:40px;
-              margin:0 auto;
-              margin-top:20px;
-              margin-bottom:40px;
-              box-shadow:0 5px 10px #CCC;
-              -webkit-box-shadow:0 5px 10px #CCC;
-              -moz-box-shadow:0 5px 10px #CCC;
-              -o-box-shadow:0 5px 10px #CCC;
-              background:#FFF;
-          }
-          a{
-              text-decoration: none;
-              color: #C55959;
-          }
-          p{
-              text-align:justify;
-              text-indent:20px;
-          }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CV - Davit Khaburdzania</title>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+        body{
+            background:#EEE;
+            font-family:Arial, Verdana, Helvetica, sans-serif;
+            font-size:15px;
+            color:#555;
+        }
+        section#cv{
+            width:55%;
+            padding:40px;
+            margin:0 auto;
+            margin-top:20px;
+            margin-bottom:40px;
+            box-shadow:0 5px 10px #CCC;
+            background:#FFF;
+        }
+        a{
+            text-decoration: none;
+            color: #C55959;
+        }
+        p{
+            text-align:justify;
+            text-indent:20px;
+        }
 
-          header {
-              margin-bottom: 30px;
-              border-bottom: 2px solid #CBE4C3;
-          }
+        header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #CBE4C3;
+        }
 
+        h1{
+            text-align: center;
+            padding-bottom: 5px;
+            font-size: 40px;
+        }
 
-          h1{
-              text-align: center;
-              padding-bottom: 10px;
-              font-size: 40px;
-          }
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            padding-bottom: 10px;
+        }
 
-          h2{
-              padding-bottom: 8px;
-          }
+        h2{
+            padding-bottom: 8px;
+        }
 
-          p{
-              padding-bottom: 4px;
-              font-size: 16px;
-          }
+        h3 {
+            font-size: 16px;
+            padding-bottom: 2px;
+        }
 
-          .bordered {
-              margin-bottom: 30px;
-              border-bottom: 1px solid #CBE4C3;
-          }
+        p{
+            padding-bottom: 4px;
+            font-size: 16px;
+        }
 
-          .padded{
-              margin-bottom: 20px;
-              margin-left: 20px;
-              text-indent: 0px;
-          }
-          .centered {
-              text-align: center;
-          }
-      </style>
-    </head>
-    <body>
-        <section id="cv">
-            <header>
-                <h1>Davit Khaburdzania</h1>
-                <p class="padded centered">
-                    <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a> | <a href="tel:+99555239961">+995 55 239961</a> | <a href="http://github.com/davit-khaburdzania">GITHUB</a> | <a href="http://davit.io">Blog</a>
-                </p>
-            </header>
+        .bordered {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #CBE4C3;
+        }
 
-            <section class="bordered">
-                <h2> Education</h2>
-                <p class="padded">Started studing at Tbilisi State University faculty of Computer Science </p>
-            </section>
+        .padded{
+            margin-bottom: 20px;
+            margin-left: 20px;
+            text-indent: 0px;
+        }
 
+        .centered {
+            text-align: center;
+        }
 
-            <section class="bordered">
-                <h2>Skills</h2>
-                <p>Languages - Elixir, Ruby, Node.js, Javascript, C++</p>
-                <p>Frameworks - Phoenix, Ruby On Rails, Express.js</p>
-                <p>Mobile Development(React Native)</p>
-                <p>NOSQL and SQL Databases</p>
-                <p>Git(Github, Bitbucket)</p>
-            </section>
+        .date {
+            font-size: 14px;
+            color: #999;
+        }
 
-            <section class="bordered">
-                <h2>Work Experience</h2>
+        .highlight {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-                <p><a href="http://www.spacelab.team">Arcade City - Backend Developer(Elixir, GraphQL)</a> </p>
-                <p class="padded">
-                  Peer-to-peer ride sharing app based on cryptocurrencies.
-                </p>
+        .download {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 20px;
+            background: #C55959;
+            color: #FFF;
+            border-radius: 4px;
+            font-size: 14px;
+        }
 
-                <p><a href="https://myeden.com">Eden - Mobile Developer(React Native)</a> </p>
-                <p class="padded">
-                  Real Estate client platform.
-                </p>
+        .download:hover {
+            background: #a84848;
+            color: #FFF;
+        }
 
-                <p><a href="http://www.getshogun.com">Shogun - Full stack Developer(React.js, Rails)</a> </p>
-                <p class="padded">
-                  Page builder and content management platform for eCommerce websites.
-                </p>
+        ul {
+            margin-left: 40px;
+            margin-bottom: 15px;
+        }
 
-                <p><a href="http://scrubpay.com">Scrubpay - Full stack Developer</a> </p>
-                <p class="padded">
-                  Scrubpay is a texting and payments application that makes it easy for patients to pay their medical bills from their mobile device.
-                </p>
+        li {
+            padding-bottom: 4px;
+            font-size: 15px;
+        }
+    </style>
+  </head>
+  <body>
+      <section id="cv">
+          <header>
+              <h1>Davit Khaburdzania</h1>
+              <p class="subtitle">Senior Software Engineer | Technical Lead</p>
+              <p class="padded centered">
+                  <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a> |
+                  <a href="https://github.com/davit-khaburdzania">GitHub</a> |
+                  <a href="https://www.linkedin.com/in/dkhaburdzania">LinkedIn</a> |
+                  Tbilisi, Georgia | Remote | GMT+4
+              </p>
+              <p class="centered">
+                  <a class="download" href="v3.pdf">Download PDF</a>
+              </p>
+          </header>
 
-                <p><a href="http://www.digitalclipboard.com">Digital Clipboard</a> </p>
-                <p class="padded">
-                    As a full stack developer rewrote part of the system to make it blasingly fast
-                </p>
+          <section class="bordered">
+              <h2>Tech Stack</h2>
+              <p><strong>Backend:</strong> Ruby on Rails, Elixir, Phoenix, Node.js, TypeScript</p>
+              <p><strong>Frontend:</strong> React, React Native, TypeScript, Vite</p>
+              <p><strong>AI/ML:</strong> LLM Integration (OpenAI, Anthropic), Image Generation, Voice & Video AI, AI Agent Systems</p>
+              <p><strong>Infrastructure:</strong> PostgreSQL, Redis, AWS, Docker, Git, CI/CD</p>
+          </section>
 
-                <p><a href="http://www.meetcloe.co">Cloe</a> </p>
-                <p class="padded">
-                    As a lead developer created realtime backend for team
-                </p>
+          <section class="bordered">
+              <h2>What I Build</h2>
+              <p><a href="https://rillow.ai"><strong>Rillow.ai</strong></a> | 2026 — AI-powered keyword research SaaS</p>
+              <p class="padded"><a href="https://seo-checklist.app"><strong>SEO-Checklist.app</strong></a> | 2024 — Built and shipped in 2 weeks. 1,500+ organic signups from Reddit without paid marketing</p>
+          </section>
 
-                <p><a href="http://nodejs.ge">Nodejs.Ge</a> </p>
-                <p class="padded">
-                    Founded Node.js and Ruby community in Georgia.
-                </p>
+          <section class="bordered">
+              <h2>Experience</h2>
 
-                <p><a href="http://airhelp.org/">AirHelp(CTO)</a></p>
-                <p class="padded">
-                    As a Backend Developer developed whole site from scratch added many features and automated many jobs they were doing by hand.
-                </p>
+              <h3><a href="https://turbamedia.ai">Senior Full-Stack Engineer | TurbaMedia.ai</a> | Remote</h3>
+              <p class="date">2025 - 2026</p>
+              <p class="highlight">Built advertising platform from zero to $24M+ annual ad spend in 6 months with small team</p>
+              <ul>
+                  <li>Architected multi-platform ad system integrating Meta, Google, and Reddit APIs handling $2-3M monthly ad spend</li>
+                  <li>Built AI-powered creative generation pipeline using multiple AI models (text-to-image, image-to-text)</li>
+                  <li>Developed complete campaign management system: backend APIs → React UI → deployment</li>
+                  <li>Owned entire technical stack: architecture decisions, implementation, and rapid feature delivery</li>
+              </ul>
 
-                <p><a href="http://moh.gov.ge/">Ministry of Health, Labour and Social Affairs(Georgia) </a></ps>
-                <p class="padded">
-                    Created many projects to help more than 2 million  person to get their Insurances as soon as possible.
-                </p>
-            </section>
-    </body>
+              <h3><a href="https://everai.ai">Founding Engineer | EverAI</a> | Remote</h3>
+              <p class="date">2023 - 2025</p>
+              <p class="highlight">First engineering hire at AI companion platform that grew from 0 to 20M users and $5M monthly revenue</p>
+              <ul>
+                  <li>Joined as founding engineer and built the majority of core product features from scratch</li>
+                  <li>Pioneered integration of multiple AI technologies including LLMs, image generation, voice synthesis, and video generation</li>
+                  <li>Solved critical scaling challenges as user base grew exponentially from zero to 20 million</li>
+                  <li>Directly contributed to revenue growth from $0 to $5M/month through feature development and platform reliability</li>
+              </ul>
+
+              <h3><a href="https://blocks.app">Full-Stack Developer | Blocks (Politech)</a> | Remote</h3>
+              <p class="date">2021 - 2023</p>
+              <ul>
+                  <li>Transitioned major application from Rails to Elixir, improving performance and scalability for voter engagement tools</li>
+                  <li>Built real-time phone banking system for voter registration and organizing</li>
+              </ul>
+
+              <h3>Founder & CEO | Spacelab | Tbilisi</h3>
+              <p class="date">2018 - 2021</p>
+              <ul>
+                  <li>Founded and scaled digital agency to 20+ professionals, managing multiple engineering teams</li>
+                  <li>Led client acquisition, hiring, technical strategy, and cross-team delivery across concurrent projects</li>
+              </ul>
+
+              <h3><a href="https://getshogun.com">First Engineering Hire | Shogun (YC-Backed)</a> | Remote</h3>
+              <p class="date">Jun 2016 - Aug 2018</p>
+              <p class="highlight">Founding engineer at Y Combinator startup that became leading page builder with thousands of merchants</p>
+              <ul>
+                  <li>First engineering hire working directly with CTO to build product from early stage to thousands of active merchants</li>
+                  <li>Built major portions of drag-and-drop page builder, optimizing performance and smoothness</li>
+                  <li>Expanded platform beyond Shopify with BigCommerce integration, doubling potential market</li>
+                  <li>Helped scale engineering team from 2 to 6 during hypergrowth phase</li>
+              </ul>
+
+              <h3><a href="https://www.airhelp.com/en/">CTO | AirHelp</a> | Remote</h3>
+              <p class="date">2013 - 2014</p>
+              <ul>
+                  <li>Led 4-person engineering team from concept to first release in 5 months for flight delay compensation platform</li>
+                  <li>Built product that became a major consumer service helping millions claim flight compensation</li>
+              </ul>
+          </section>
+
+          <section class="bordered">
+              <h2>Earlier Career</h2>
+              <p><strong>Senior Mobile Developer</strong> | Digital Clipboard (2015-2016) — Cross-platform AI mobile app for financial advisors</p>
+              <p class="padded"><strong>Lead Software Engineer</strong> | Ministry of Health, Georgia (2011-2013) — Insurance data pipelines and real-time processing</p>
+          </section>
+
+          <section>
+              <h2>Why You Should Hire Me</h2>
+              <ul>
+                  <li><strong>Proven founding engineer:</strong> Three times founding/first engineer: EverAI (0 → 20M users), Shogun (YC-backed), AirHelp CTO</li>
+                  <li><strong>I scale products:</strong> EverAI to 20M users/$5M MRR, TurbaMedia to $24M ad spend, Spacelab to 20+ employees</li>
+                  <li><strong>Deep AI experience:</strong> Built and shipped across LLMs, image gen, voice, video, and complex AI agent systems</li>
+                  <li><strong>Technical breadth:</strong> Full-stack from iOS to backend to infrastructure, with 13+ years across Ruby, Elixir, React, and Node.js</li>
+                  <li><strong>Leadership & ownership:</strong> Founded a company, led teams as CTO, and thrive in ambiguous early-stage environments</li>
+                  <li><strong>I don't need hand-holding:</strong> Solo shipped entire products, thrive in ambiguous environments without hand-holding</li>
+              </ul>
+          </section>
+      </section>
+  </body>
 </html>
