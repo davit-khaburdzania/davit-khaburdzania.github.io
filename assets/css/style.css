@@ -9,6 +9,7 @@
   --text-secondary: #555;
   --text-muted: #999;
   --accent: #FFFE6D;
+  --accent-hover: rgba(255, 254, 109, 0.06);
   --border: #e5e5e0;
   --dark: #111;
   --font-display: "Bricolage Grotesque", "OpenSans-Bold", sans-serif;
@@ -22,6 +23,7 @@
 
 html {
   background: var(--bg);
+  scroll-behavior: smooth;
 }
 
 body, html {
@@ -44,6 +46,16 @@ body {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { border-left-color: var(--accent); }
+  50% { border-left-color: #e8e048; }
 }
 
 
@@ -80,7 +92,8 @@ body {
 header {
   min-height: 280px;
   padding: 50px;
-  padding-top: 20px;
+  padding-top: 24px;
+  padding-bottom: 40px;
   animation: fadeInUp 0.6s ease both;
 }
 
@@ -91,7 +104,7 @@ header .texts {
 }
 
 header .texts {
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 header .texts .about {
@@ -117,10 +130,20 @@ header .texts .links {
 .logo-list-hello {
   width: 180px;
   filter: drop-shadow(3px 3px 0 var(--accent));
+  transition: filter 0.3s ease;
+}
+
+.logo-list-hello:hover {
+  filter: drop-shadow(4px 4px 0 var(--accent)) drop-shadow(0 0 8px rgba(255, 254, 109, 0.3));
 }
 
 .logo-list-close {
   width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.logo-list-close:hover {
+  transform: rotate(90deg);
 }
 
 .link.mod-header-link {
@@ -151,14 +174,28 @@ a.link-destination:hover {
   color: var(--text-secondary);
 }
 
+/* CV download link — accent CTA */
+.link.mod-header-link:last-child .link-destination {
+  color: var(--text);
+  font-weight: 600;
+  background: linear-gradient(to top, var(--accent) 35%, transparent 35%);
+  padding: 0 3px;
+  transition: background 0.2s ease;
+}
+
+.link.mod-header-link:last-child .link-destination:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
 
 /* ============================================
    Tech Stack
    ============================================ */
 
 .tech-stack {
-  margin-bottom: 50px;
-  padding-bottom: 40px;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
   border-bottom: 1px solid var(--border);
   animation: fadeInUp 0.6s ease 0.08s both;
 }
@@ -189,12 +226,13 @@ a.link-destination:hover {
 
 
 /* ============================================
-   Main Body
+   Main Body — Two Column
    ============================================ */
 
 .body {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin-top: 10px;
 }
 
@@ -213,6 +251,8 @@ a.link-destination:hover {
 
 .projects {
   width: 380px;
+  position: sticky;
+  top: 30px;
   animation: fadeInUp 0.6s ease 0.2s both;
 }
 
@@ -266,7 +306,7 @@ a.link-destination:hover {
 
 
 /* ============================================
-   What I Build — Feature Cards
+   What I Build — Feature Card
    ============================================ */
 
 .build-card {
@@ -274,13 +314,15 @@ a.link-destination:hover {
   background: var(--surface);
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
-  padding: 24px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 28px 26px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+  animation: subtlePulse 4s ease-in-out infinite;
 }
 
 .build-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  animation: none;
 }
 
 .build-card-link {
@@ -291,7 +333,7 @@ a.link-destination:hover {
 .build-card-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -299,10 +341,10 @@ a.link-destination:hover {
 }
 
 .build-card-arrow {
-  font-size: 20px;
+  font-size: 22px;
   opacity: 0;
-  transform: translateX(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
   color: var(--text-muted);
 }
 
@@ -317,28 +359,28 @@ a.link-destination:hover {
   font-weight: 500;
   color: var(--text-muted);
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
 .build-card-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-secondary);
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
   line-height: 1.6;
 }
 
 
 /* ============================================
-   Why Hire Me — Full-Width Dark Section
+   Why You Should Hire Me — Dark Section
    ============================================ */
 
 .hire-section {
   background: var(--dark);
-  padding: 80px 0 90px;
-  margin-top: 70px;
+  padding: 88px 0 96px;
+  margin-top: 80px;
 }
 
 .hire-section-title {
@@ -346,13 +388,13 @@ a.link-destination:hover {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 56px;
 }
 
 .hire-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px 30px;
+  gap: 44px 32px;
 }
 
 .hire-card {
@@ -368,6 +410,7 @@ a.link-destination:hover {
   display: block;
   line-height: 1;
   margin-bottom: 10px;
+  transition: color 0.25s ease;
 }
 
 .hire-card-label {
