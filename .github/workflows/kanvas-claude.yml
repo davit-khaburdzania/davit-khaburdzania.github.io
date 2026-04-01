@@ -1,0 +1,94 @@
+name: Kanvas Claude Code
+
+on:
+  # Kanvas task automation (triggered by Kenny)
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: "Kanvas Task ID"
+        required: true
+      task_display_id:
+        description: "Task display ID (e.g. KANV-123)"
+        required: true
+      task_title:
+        description: "Task title"
+        required: true
+      task_description:
+        description: "Full task description"
+        required: true
+      session_id:
+        description: "Kenny coding session ID"
+        required: true
+  # @claude mentions in PR and issue comments
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  # Job for @claude mentions in comments
+  claude-comments:
+    if: >
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --model claude-opus-4-6
+            --allowedTools Bash,Read,Write,Edit,Glob,Grep
+
+  # Job for Kanvas task automation
+  kanvas-task:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          show_full_output: "true"
+          claude_args: |
+            --model claude-opus-4-6
+            --allowedTools Bash,Read,Write,Edit,Glob,Grep
+          prompt: |
+            You are implementing a task for the project.
+            Read CLAUDE.md first if it exists.
+
+            Task: ${{ github.event.inputs.task_display_id }} - ${{ github.event.inputs.task_title }}
+
+            Description:
+            ${{ github.event.inputs.task_description }}
+
+            Instructions:
+            1. Create branch: ${{ github.event.inputs.task_display_id }}/<short-kebab-description>
+            2. Implement the task following existing code patterns
+            3. Run tests and linting if available
+            4. Commit using Conventional Commits (feat, fix, chore, etc.)
+            5. Open a PR titled: ${{ github.event.inputs.task_display_id }}: <description>
+            6. Include the task ID in the PR body
