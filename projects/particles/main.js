@@ -1,4 +1,4 @@
-var ctx = $('canvas')[0].getContext('2d'),
+var ctx = document.querySelector('canvas').getContext('2d'),
     cW = ctx.canvas.width  = 300,
     cH = ctx.canvas.height = 300;
 

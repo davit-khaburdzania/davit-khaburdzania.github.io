@@ -1,5 +1,5 @@
 function Game () {
-  var ctx = $('canvas')[0].getContext('2d'),
+  var ctx = document.querySelector('canvas').getContext('2d'),
       cW = window.innerWidth,
       cH = window.innerHeight;
   
@@ -197,7 +197,7 @@ function Game () {
 var game = new Game();
 requestAnimationFrame(game.render);
 
-$(document).on('keydown', function (e) {
+document.addEventListener('keydown', function (e) {
   if (e.which === 65) {
     game.cannon.moveDirection = 'left';
   } else if (e.which === 68) {
@@ -207,7 +207,7 @@ $(document).on('keydown', function (e) {
   }
 });
 
-$(document).on('keyup', function (e) {
+document.addEventListener('keyup', function (e) {
   if (e.which === 65) {
     game.cannon.moveDirection = null;
   } else if (e.which === 68) {
