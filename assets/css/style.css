@@ -440,3 +440,81 @@ a.link-destination:hover {
   display: block;
   line-height: 1.6;
 }
+
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1071px) {
+  .wrapper {
+    width: auto;
+    max-width: 1024px;
+    padding: 0 24px;
+  }
+
+  header {
+    min-height: 0;
+    padding: 24px 0 40px;
+  }
+
+  header .texts {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  header .texts .about,
+  header .texts .links {
+    width: auto;
+  }
+
+  .body {
+    flex-direction: column;
+  }
+
+  .experiences,
+  .projects {
+    width: auto;
+  }
+
+  .projects {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .hire-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .logo-list-hello {
+    width: 140px;
+  }
+
+  header .texts {
+    margin-top: 32px;
+  }
+
+  .body h2 {
+    margin-bottom: 28px;
+  }
+
+  .hire-section {
+    padding: 64px 0 72px;
+    margin-top: 56px;
+  }
+
+  .hire-section-title {
+    margin-bottom: 40px;
+  }
+
+  .hire-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
