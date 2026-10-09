@@ -105,7 +105,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);display:flex;jus
   .play{grid-template-columns:1fr 1fr}
   .xrow{grid-template-columns:1fr;gap:4px}
 }
-@media (max-width:520px){.where{row-gap:6px}.where>span.sep:last-of-type{display:none}.where>i:last-child{flex-basis:100%}.play{grid-template-columns:1fr}.ptile{aspect-ratio:16/11}}
+@media (max-width:520px){.ctas{gap:8px}.ctas .btn{padding:12px 14px;font-size:15px;gap:8px;white-space:nowrap}.where{row-gap:6px}.where>span.sep:last-of-type{display:none}.where>i:last-child{flex-basis:100%}.play{grid-template-columns:1fr}.ptile{aspect-ratio:16/11}}
 @media (prefers-reduced-motion: reduce){.btn,.wcard,.btn .arrow{transition:none}}
 
 /* Motion */
