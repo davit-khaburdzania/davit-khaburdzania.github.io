@@ -149,6 +149,7 @@
   const grain=(()=>{const g=document.createElement("canvas");g.width=g.height=128;const gx=g.getContext("2d"),im=gx.createImageData(128,128);
     for(let i=0;i<im.data.length;i+=4){const n=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=n;im.data[i+3]=34;}gx.putImageData(im,0,0);return g})();
   const shibaImg=new Image(); shibaImg.src="/favicon.svg";
+  const plush=new Image(); plush.src="/assets/images/shiba-3d.webp";
   const heartPath=(x,cx,cy,s)=>{x.beginPath();x.moveTo(cx,cy+s*.9);x.bezierCurveTo(cx-s*1.3,cy,cx-s*.9,cy-s*.9,cx,cy-s*.35);x.bezierCurveTo(cx+s*.9,cy-s*.9,cx+s*1.3,cy,cx,cy+s*.9);x.closePath()};
   // Shiba Land: a tiny four-shade lavender screen, drawn at 80×72 and scaled up crisply
   const GB=["#E9E8FC","#B9B7E6","#6A68A8","#24233F"];
@@ -202,10 +203,13 @@
         x.globalCompositeOperation="source-over";
         x.save();x.translate(-Math.random()*128,-Math.random()*128);x.fillStyle=x.createPattern(grain,"repeat");x.fillRect(0,0,w+128,h+128);x.restore();
       } else if(kind==="shiba"){
-        const sz=Math.min(w,h)*.46, cx=w/2, cy=h*.42+Math.sin(s*2.2)*4;
-        x.save();x.translate(cx,cy+sz*.4);x.rotate(Math.sin(s*1.1)*.12);
-        if(shibaImg.complete&&shibaImg.naturalWidth)x.drawImage(shibaImg,-sz/2,-sz*.9,sz,sz*56/58);
+        const ph=Math.min(h*.62,w*.78*552/420), pw=ph*420/552, cx=w/2, base=h*.12+ph;
+        const g2=x.createRadialGradient(cx,base,0,cx,base,pw*.6);g2.addColorStop(0,"rgba(185,183,230,.22)");g2.addColorStop(1,"rgba(185,183,230,0)");
+        x.fillStyle=g2;x.fillRect(0,0,w,h);
+        x.save();x.translate(cx,base);x.rotate(Math.sin(s*1.1)*.035);x.scale(1+Math.sin(s*2.4)*.006,1-Math.sin(s*2.4)*.01);
+        if(plush.complete&&plush.naturalWidth)x.drawImage(plush,-pw/2,-ph,pw,ph);
         x.restore();
+        const sz=ph*.8, cy=base-ph*.62;
         for(let i=0;i<3;i++){const k=(s*.45+i/3)%1, hx=cx+(i-1)*sz*.42+Math.sin(k*6+i)*8, hy=cy-sz*.5-k*h*.22;
           x.globalAlpha=Math.sin(k*Math.PI)*.9;x.fillStyle="#F2A7B5";heartPath(x,hx,hy,7+i*1.5);x.fill();x.globalAlpha=1}
       } else if(kind==="land"){
@@ -221,7 +225,7 @@
     new IntersectionObserver(es=>{shown=es[0].isIntersecting;go()}).observe(c);
     document.addEventListener("visibilitychange",go);
     addEventListener("resize",()=>{ fit(); if(!raf) raf=requestAnimationFrame(frame); });
-    shibaImg.addEventListener("load",()=>{ if(!raf) raf=requestAnimationFrame(frame); });
+    [shibaImg,plush].forEach(im=>im.addEventListener("load",()=>{ if(!raf) raf=requestAnimationFrame(frame); }));
     raf=requestAnimationFrame(frame);
   });
 })();
