@@ -139,6 +139,12 @@
     } else { cv.remove(); }
   } else { cv.remove(); }
 
+  // Project art stays grey until hovered; on touch screens it colours in while the card sits in the middle of the screen
+  if(matchMedia("(hover: none)").matches){
+    const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("lit",e.isIntersecting)),{rootMargin:"-30% 0px -30% 0px"});
+    document.querySelectorAll(".wcard").forEach(c=>io.observe(c));
+  }
+
   // Playground tile previews: small 2D sketches of each experiment, animated only while on screen
   const grain=(()=>{const g=document.createElement("canvas");g.width=g.height=128;const gx=g.getContext("2d"),im=gx.createImageData(128,128);
     for(let i=0;i<im.data.length;i+=4){const n=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=n;im.data[i+3]=34;}gx.putImageData(im,0,0);return g})();
