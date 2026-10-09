@@ -12,70 +12,108 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CV – Davit Khaburdzania, Senior Software Engineer</title>
-    <meta name="description" content="CV of Davit Khaburdzania: Senior Software Engineer and Technical Lead with 13+ years at EverAI, Shogun (YC), TurbaMedia, Copia and AirHelp. Download the PDF.">
+    <meta name="description" content="CV of Davit Khaburdzania: Senior Software Engineer and Technical Lead with 15+ years at EverAI, Shogun (YC), TurbaMedia, Copia and AirHelp. Download the PDF.">
     <link rel="canonical" href="https://davit.cc/cv/">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://davit.cc/cv/">
     <meta property="og:title" content="CV – Davit Khaburdzania, Senior Software Engineer">
-    <meta property="og:description" content="CV of Davit Khaburdzania: Senior Software Engineer and Technical Lead with 13+ years at EverAI, Shogun (YC), TurbaMedia, Copia and AirHelp. Download the PDF.">
-    <meta property="og:image" content="https://davit.cc/assets/images/og.png">
+    <meta property="og:description" content="CV of Davit Khaburdzania: Senior Software Engineer and Technical Lead with 15+ years at EverAI, Shogun (YC), TurbaMedia, Copia and AirHelp. Download the PDF.">
+    <meta property="og:image" content="https://davit.cc/assets/images/og.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Davit Khaburdzania, Senior Software Engineer and Technical Lead">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dkhaburdzania">
+    <meta name="theme-color" content="#ECECF0">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
     <style type="text/css">
         * {
             margin:0;
             padding:0;
+            box-sizing:border-box;
         }
         body{
-            background:#EEE;
-            font-family:Arial, Verdana, Helvetica, sans-serif;
+            background:#ECECF0;
+            font-family:"Geist", "Helvetica Neue", Arial, system-ui, sans-serif;
             font-size:15px;
-            color:#555;
+            line-height:1.55;
+            color:#4A4A55;
+            -webkit-font-smoothing:antialiased;
+        }
+        .back{
+            display:block;
+            width:min(860px, calc(100% - 32px));
+            margin:28px auto 0;
+            font-family:"Geist Mono", ui-monospace, Menlo, monospace;
+            font-size:13px;
+            color:#7C7B88;
+        }
+        .back:hover{
+            color:#111114;
         }
         section#cv{
-            width:55%;
-            padding:40px;
-            margin:0 auto;
-            margin-top:20px;
-            margin-bottom:40px;
-            box-shadow:0 5px 10px #CCC;
+            width:min(860px, calc(100% - 32px));
+            padding:48px;
+            margin:16px auto 56px;
+            border-radius:22px;
             background:#FFF;
         }
         a{
             text-decoration: none;
-            color: #C55959;
+            color: #111114;
+        }
+        section#cv a:not(.download){
+            border-bottom:1px solid #D0CFEE;
+        }
+        section#cv a:not(.download):hover{
+            border-color:#6A68A8;
+        }
+        strong, h1, h2, h3{
+            color:#111114;
         }
         p{
-            text-align:justify;
-            text-indent:20px;
+            text-align:left;
         }
 
         header {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #CBE4C3;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #DCDCE3;
         }
 
         h1{
             text-align: center;
-            padding-bottom: 5px;
-            font-size: 40px;
+            padding-bottom: 6px;
+            font-size: 44px;
+            font-weight: 500;
+            letter-spacing: -.04em;
+            line-height: 1.05;
         }
 
         .subtitle {
             text-align: center;
             font-size: 18px;
-            color: #777;
-            padding-bottom: 10px;
+            color: #7C7B88;
+            padding-bottom: 12px;
         }
 
         h2{
-            padding-bottom: 8px;
+            padding-bottom: 10px;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: -.03em;
         }
 
         h3 {
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: -.01em;
+            padding-top: 14px;
             padding-bottom: 2px;
         }
 
@@ -86,13 +124,12 @@
 
         .bordered {
             margin-bottom: 30px;
-            border-bottom: 1px solid #CBE4C3;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #DCDCE3;
         }
 
         .padded{
             margin-bottom: 20px;
-            margin-left: 20px;
-            text-indent: 0px;
         }
 
         .centered {
@@ -100,33 +137,35 @@
         }
 
         .date {
-            font-size: 14px;
-            color: #999;
+            font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+            font-size: 13px;
+            color: #7C7B88;
         }
 
         .highlight {
-            font-style: italic;
-            color: #666;
+            color: #4A4A55;
             margin-bottom: 10px;
         }
 
         .download {
-            display: inline-block;
+            display: inline-flex;
             margin-top: 10px;
-            padding: 8px 20px;
-            background: #C55959;
+            padding: 11px 22px;
+            background: #111114;
             color: #FFF;
-            border-radius: 4px;
-            font-size: 14px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: transform .2s;
         }
 
         .download:hover {
-            background: #a84848;
+            transform: translateY(-1px);
             color: #FFF;
         }
 
         ul {
-            margin-left: 40px;
+            margin-left: 20px;
             margin-bottom: 15px;
         }
 
@@ -135,38 +174,31 @@
             font-size: 15px;
         }
 
+        li::marker {
+            color: #6A68A8;
+        }
+
         @media (max-width: 800px) {
             section#cv {
-                width: auto;
-                padding: 32px 16px;
-                margin: 0;
-                box-shadow: none;
+                padding: 32px 20px;
             }
 
             h1 {
-                font-size: 32px;
-            }
-
-            p {
-                text-align: left;
-                text-indent: 0;
+                font-size: 34px;
             }
 
             .centered {
                 text-align: center;
             }
 
-            .padded {
-                margin-left: 0;
-            }
-
             ul {
-                margin-left: 20px;
+                margin-left: 18px;
             }
         }
     </style>
   </head>
   <body>
+      <a class="back" href="/">← davit.cc</a>
       <section id="cv">
           <header>
               <h1>Davit Khaburdzania</h1>
@@ -175,6 +207,7 @@
                   <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a> |
                   <a href="https://github.com/davit-khaburdzania">GitHub</a> |
                   <a href="https://www.linkedin.com/in/dkhaburdzania">LinkedIn</a> |
+                  <a href="https://x.com/dkhaburdzania">Twitter</a> |
                   Tbilisi, Georgia | Remote | GMT+4
               </p>
               <p class="centered">
@@ -192,6 +225,7 @@
 
           <section class="bordered">
               <h2>What I Build</h2>
+              <p><a href="https://unposed.camera"><strong>Unposed</strong></a> — Disposable camera for weddings and events, shot on the guests' own phones</p>
               <p><a href="https://rillow.ai"><strong>Rillow.ai</strong></a> | 2026 — AI-powered keyword research SaaS</p>
               <p class="padded"><a href="https://bundle.ink"><strong>bundle.ink</strong></a> | 2026 — AI read-later app for iPhone that turns articles into spaced-repetition cards</p>
           </section>
@@ -275,7 +309,7 @@
                   <li><strong>Proven founding engineer:</strong> Three times founding/first engineer: EverAI (0 → 20M users), Shogun (YC-backed), AirHelp Team Lead</li>
                   <li><strong>I scale products:</strong> EverAI to 20M users/$5M MRR, TurbaMedia to $24M ad spend, Spacelab to 20+ employees</li>
                   <li><strong>Deep AI experience:</strong> Built and shipped across LLMs, image gen, voice, video, and complex AI agent systems</li>
-                  <li><strong>Technical breadth:</strong> Full-stack from iOS to backend to infrastructure, with 13+ years across Ruby, Elixir, React, and Node.js</li>
+                  <li><strong>Technical breadth:</strong> Full-stack from iOS to backend to infrastructure, with 15+ years across Ruby, Elixir, React, and Node.js</li>
                   <li><strong>Leadership & ownership:</strong> Founded a company, led teams as CTO, and thrive in ambiguous early-stage environments</li>
                   <li><strong>I don't need hand-holding:</strong> Solo shipped entire products, thrive in ambiguous environments without hand-holding</li>
               </ul>

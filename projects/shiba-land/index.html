@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKV2L39B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCKV2L39B9');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shiba Land – Playground – Davit Khaburdzania</title>
+  <meta name="description" content="A tiny Game Boy style platformer in three.js: guide a lavender Shiba through a dithered four-shade world, collect bones and stomp robot vacuums.">
+  <link rel="canonical" href="https://davit.cc/projects/shiba-land/">
+  <meta name="theme-color" content="#F6F6F9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shiba Land – davit.cc playground">
+  <meta property="og:description" content="A tiny Game Boy style platformer in three.js: guide a lavender Shiba through a dithered four-shade world, collect bones and stomp robot vacuums.">
+  <meta property="og:url" content="https://davit.cc/projects/shiba-land/">
+  <meta property="og:image" content="https://davit.cc/assets/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dkhaburdzania">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/projects/lab.css">
+  <style>
+    /* The handheld is laid out in em: 1em = 1% of its width, set from JS so it always fits. */
+    html,body{touch-action:none;overscroll-behavior:none}
+    .stage{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:64px 16px 18px}
+    .gb{--plastic:#DCDBEA;--ink-plum:#3E3C6E;--plum:#7E5A7E;--bezel:#4A4866;
+      position:relative;width:100em;height:162em;font-size:4.4px;flex:none;
+      border-radius:3.6em 3.6em 17em 3.6em;
+      background:linear-gradient(168deg,#E9E8F3 0%,var(--plastic) 42%,#D2D1E3 100%);
+      box-shadow:0 .7em 0 #C8C7DA,0 1.4em 2em -1em rgba(40,38,90,.22),3em 7em 12em -3em rgba(40,38,90,.24),
+        inset 0 .4em .25em rgba(255,255,255,.75),inset 0 -.6em 1.2em rgba(70,66,120,.12);
+      touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+    .gb-top{position:absolute;left:0;right:0;top:0;height:5.4em;border-bottom:.3em solid rgba(70,66,120,.09)}
+    .gb-top::before,.gb-top::after{content:"";position:absolute;top:0;bottom:-.3em;width:.3em;background:rgba(70,66,120,.09)}
+    .gb-top::before{left:6em}.gb-top::after{right:6em}
+    .gb-top span{position:absolute;left:9em;top:1.6em;font:500 2em/1 var(--mono);letter-spacing:.12em;color:#A3A1BE}
+    .bezel{position:absolute;left:7em;top:8.6em;width:86em;height:75em;border-radius:2.6em 2.6em 9.5em 2.6em;
+      background:linear-gradient(180deg,#55536F,var(--bezel) 60%,#43415C);
+      box-shadow:inset 0 .3em .6em rgba(0,0,0,.25),inset 0 -.2em .4em rgba(255,255,255,.08),0 .25em 0 rgba(255,255,255,.55)}
+    .bezel-label{position:absolute;left:4em;right:4em;top:2.3em;height:3em;display:flex;align-items:center;gap:1.6em}
+    .bezel-label i{flex:1;height:1.1em;background:linear-gradient(#F2A7B5 0 30%,transparent 30% 62%,#9E9CD6 62% 100%);opacity:.85;border-radius:.2em}
+    .bezel-label span{font:500 2.05em/1 var(--mono);letter-spacing:.14em;color:#CFCDF2;white-space:nowrap}
+    .led{position:absolute;left:2.6em;top:25em;width:2.6em;height:2.6em;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFE3E9,#F2A7B5 55%,#D98597);
+      box-shadow:0 0 1.4em rgba(242,167,181,.85),0 0 .4em rgba(242,167,181,.9)}
+    .led.off{background:#6E6A86;box-shadow:none}
+    .led-label{position:absolute;left:1.2em;top:29.4em;font:500 1.45em/1 var(--mono);letter-spacing:.06em;color:#A9A7D6}
+    .screen{position:absolute;left:8em;top:7em;width:70em;height:63em;background:#E9E8FC;overflow:hidden;
+      box-shadow:0 0 0 .35em #3A3853}
+    .screen canvas{display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);image-rendering:pixelated;image-rendering:crisp-edges}
+    .screen::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 .5em 1.2em rgba(36,35,63,.22)}
+    .brand{position:absolute;left:7.4em;top:86.6em;display:flex;align-items:baseline;gap:1.4em;color:var(--ink-plum)}
+    .brand b{font:600 5.4em/1 var(--sans);letter-spacing:-.04em;font-style:italic}
+    .brand b span{font-weight:500;opacity:.72}
+    .brand em{font:500 2.1em/1 var(--mono);font-style:normal;letter-spacing:.24em;color:var(--plum)}
+
+    /* D-pad */
+    .dpad{position:absolute;left:7.5em;top:101em;width:31em;height:31em;cursor:pointer;transition:transform .06s}
+    .dpad::before{content:"";position:absolute;inset:-1.6em;border-radius:50%;background:radial-gradient(circle,rgba(70,66,120,.13) 58%,transparent 72%)}
+    .dpad .arm{position:absolute;background:linear-gradient(160deg,#3B3A52,#2A293C);border-radius:1.4em;
+      box-shadow:0 .9em 0 #1C1B29,0 1.4em 1.6em -.4em rgba(20,18,40,.4),inset 0 .25em 0 rgba(255,255,255,.12)}
+    .dpad .h{left:0;right:0;top:10.5em;height:10em}
+    .dpad .v{top:0;bottom:0;left:10.5em;width:10em}
+    .dpad .dimple{position:absolute;left:12.5em;top:12.5em;width:6em;height:6em;border-radius:50%;background:radial-gradient(circle at 50% 40%,#252436,#34334A)}
+    .dpad .tri{position:absolute;width:0;height:0;border:1.3em solid transparent;opacity:.5}
+    .dpad .tri.tl{left:2em;top:14.2em;border-right-color:#5D5B7A;border-left-width:0}
+    .dpad .tri.tr{right:2em;top:14.2em;border-left-color:#5D5B7A;border-right-width:0}
+    .dpad .tri.tu{top:2em;left:14.2em;border-bottom-color:#5D5B7A;border-top-width:0}
+    .dpad .tri.td{bottom:2em;left:14.2em;border-top-color:#5D5B7A;border-bottom-width:0}
+    .dpad.l{transform:perspective(60em) rotateY(-9deg)}
+    .dpad.r{transform:perspective(60em) rotateY(9deg)}
+    .dpad.u{transform:perspective(60em) rotateX(9deg)}
+    .dpad.d{transform:perspective(60em) rotateX(-9deg)}
+    .dpad.l.u{transform:perspective(60em) rotateY(-7deg) rotateX(7deg)}
+    .dpad.r.u{transform:perspective(60em) rotateY(7deg) rotateX(7deg)}
+
+    /* A / B */
+    .ab{position:absolute;right:5em;top:99em;width:42em;height:30em;transform:rotate(-25deg)}
+    .ab .wrap{position:absolute;display:flex;flex-direction:column;align-items:center;gap:1.6em}
+    .ab .wrap.b{left:0;top:9em}.ab .wrap.a{right:0;top:1em}
+    .round,.pill{appearance:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:inherit;position:relative}
+    .round{width:16.5em;height:16.5em;border-radius:50%;background:radial-gradient(circle at 38% 32%,#9B7399,var(--plum) 58%,#6A4A6A);
+      box-shadow:0 .9em 0 #523852,0 1.6em 1.8em -.4em rgba(40,20,50,.45),inset 0 .3em .2em rgba(255,255,255,.2);transition:transform .05s,box-shadow .05s}
+    .round::after,.pill::after{content:"";position:absolute;inset:-3em;border-radius:50%}
+    .round.on{transform:translateY(.8em);box-shadow:0 .1em 0 #523852,0 .5em .8em -.3em rgba(40,20,50,.45),inset 0 .5em 1em rgba(0,0,0,.18)}
+    .ab span,.pills span{font:500 3.3em/1 var(--mono);color:var(--ink-plum);letter-spacing:.06em}
+
+    /* START / SELECT */
+    .pills{position:absolute;left:28em;top:139em;display:flex;gap:6em}
+    .pills .wrap{display:flex;flex-direction:column;align-items:center;gap:1.6em;transform:rotate(-25deg)}
+    .pill{width:12em;height:3.4em;border-radius:2em;background:linear-gradient(180deg,#9896B0,#7F7D9A);
+      box-shadow:0 .5em 0 #67657F,inset 0 .2em .1em rgba(255,255,255,.25);transition:transform .05s,box-shadow .05s}
+    .pill::after{inset:-3em -1.5em}
+    .pill.on{transform:translateY(.45em);box-shadow:0 .05em 0 #67657F,inset 0 .3em .5em rgba(0,0,0,.2)}
+    .pills span{font-size:2.3em;letter-spacing:.12em}
+
+    /* speaker slits */
+    .speaker{position:absolute;right:8em;bottom:8em;display:flex;gap:2.4em;transform:rotate(-30deg)}
+    .speaker i{width:2em;height:15em;border-radius:1em;background:linear-gradient(180deg,#B9B8CD,#C9C8DA);box-shadow:inset 0 .4em .5em rgba(40,38,90,.28),0 .15em 0 rgba(255,255,255,.6)}
+
+    .hint{margin:0;text-align:center;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .hint .kbd{margin-right:4px}
+    @media (max-width:640px),(pointer:coarse){.hint{display:none}}
+    @media (prefers-reduced-motion: reduce){.dpad,.round,.pill{transition:none}}
+  </style>
+</head>
+<body>
+<header class="lab-bar">
+  <div class="lab-left">
+    <a class="lab-home" href="/" aria-label="davit.cc home"><svg width="30" height="30" aria-hidden="true" viewBox="3 4 58 56">
+  <path d="M11 27 C10 19 12 11 15 7.5 C16.5 6 17.5 6.5 19 8 L26.5 17 Q32 15.5 37.5 17 L45 8 C46.5 6.5 47.5 6 49 7.5 C52 11 54 19 53 27 C57 31 59 36 57.5 41 C59 44 57 48 53.5 49 C49 55 41 58 32 58 C23 58 15 55 10.5 49 C7 48 5 44 6.5 41 C5 36 7 31 11 27 Z" fill="#B9B7E6" stroke="#111114" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M15.5 12 C16.5 10 17.5 10.5 18.5 12 L23.5 18.5 C20.5 20 18 22.5 16 25 C15 21 15 16 15.5 12 Z M48.5 12 C47.5 10 46.5 10.5 45.5 12 L40.5 18.5 C43.5 20 46 22.5 48 25 C49 21 49 16 48.5 12 Z" fill="#E9E8FC"/>
+  <path d="M8.2 42 C10 36.5 16 33.5 22 35 C26 36 29 38.2 32 38.2 C35 38.2 38 36 42 35 C48 33.5 54 36.5 55.8 42 C56.6 45.5 54 48.4 51.3 48.9 C47 54.8 40 57.6 32 57.6 C24 57.6 17 54.8 12.7 48.9 C10 48.4 7.4 45.5 8.2 42 Z" fill="#FFFFFF"/>
+  <ellipse cx="24" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="40" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="24.6" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <ellipse cx="39.4" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <path d="M29.4 49.4 Q32 55 34.6 49.4 Z" fill="#F2A7B5"/>
+  <path d="M28.6 41.6 Q32 40.3 35.4 41.6 Q35.2 44.6 32 45.7 Q28.8 44.6 28.6 41.6 Z" fill="#111114"/>
+  <path d="M32 45.7 V47.6 M25.5 46.6 Q28.3 51.2 32 47.6 Q35.7 51.2 38.5 46.6" fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span>davit.cc</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <span class="lab-crumb"><a href="/#playground">Playground</a> / <b>Shiba Land</b></span>
+  </div>
+  <a class="lab-btn soft sm" href="/#playground">All experiments</a>
+</header>
+
+<main class="stage">
+  <div class="gb" id="gb">
+    <div class="gb-top" aria-hidden="true"><span>OFF·ON</span></div>
+    <div class="bezel">
+      <div class="bezel-label" aria-hidden="true"><i></i><span>SHIBA LAND · LAVENDER EDITION</span><i></i></div>
+      <span class="led" id="led" aria-hidden="true"></span><span class="led-label" aria-hidden="true">POWER</span>
+      <div class="screen" id="screen-box"><canvas id="screen" role="img" aria-label="Shiba Land game screen"></canvas></div>
+    </div>
+    <div class="brand" aria-hidden="true"><b>davit<span>.cc</span></b><em>POCKET</em></div>
+    <div class="dpad" data-btn="dpad" role="group" aria-label="Direction pad">
+      <span class="arm h"></span><span class="arm v"></span><span class="dimple"></span>
+      <span class="tri tl"></span><span class="tri tr"></span><span class="tri tu"></span><span class="tri td"></span>
+    </div>
+    <div class="ab">
+      <div class="wrap b"><button type="button" tabindex="-1" class="round" data-btn="b" aria-label="B: run"></button><span>B</span></div>
+      <div class="wrap a"><button type="button" tabindex="-1" class="round" data-btn="a" aria-label="A: jump"></button><span>A</span></div>
+    </div>
+    <div class="pills">
+      <div class="wrap"><button type="button" tabindex="-1" class="pill" data-btn="select" aria-label="Select: sound on or off"></button><span>SELECT</span></div>
+      <div class="wrap"><button type="button" tabindex="-1" class="pill" data-btn="start" aria-label="Start: start or pause"></button><span>START</span></div>
+    </div>
+    <div class="speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <p class="lab-hint hint" id="hint">
+    <span><span class="kbd">← →</span>move</span>
+    <span><span class="kbd">Z</span>jump</span>
+    <span><span class="kbd">X</span>run</span>
+    <span><span class="kbd">Enter</span>start / pause</span>
+    <span><span class="kbd">M</span>sound</span>
+  </p>
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
