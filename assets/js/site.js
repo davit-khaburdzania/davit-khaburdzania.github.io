@@ -160,7 +160,7 @@
   // Playground tile previews: small 2D sketches of each experiment, animated only while on screen
   const grain=(()=>{const g=document.createElement("canvas");g.width=g.height=128;const gx=g.getContext("2d"),im=gx.createImageData(128,128);
     for(let i=0;i<im.data.length;i+=4){const n=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=n;im.data[i+3]=34;}gx.putImageData(im,0,0);return g})();
-  const shibaImg=new Image(); shibaImg.src="/favicon.svg";
+  const shibaImg=new Image(); shibaImg.src="/assets/images/shiba-lavender.svg";
   // Pet the Shiba: frames from the pixel dog (idle wag ×3, blink, happy ×2), 64×64 each
   const pup=new Image(); pup.src="/assets/images/shiba-pixel.png";
   const HEART=[".pp.pp.","pwppppp","ppppppp",".ppppp.","..ppp..","...p..."];
