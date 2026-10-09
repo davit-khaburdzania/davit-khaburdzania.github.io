@@ -207,7 +207,7 @@ export function render(p = {}, out = new Uint8Array(W * H)) {
 // Small sprites drawn on top of the scene
 export const SPRITES = {
   heart:[".pp.pp.", "pwppppp", "ppppppp", ".ppppp.", "..ppp..", "...p..."],
-  z:["####", "..#.", ".#..", "####"],
+  z:["#####", "...#.", "..#..", ".#...", "#####"],
   bone:[".--.....--.", "-cc-----cc-", ".-ccccccc-.", "-cc-----cc-", ".--.....--."],
 };
 
