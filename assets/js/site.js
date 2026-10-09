@@ -151,11 +151,74 @@
     } else { cv.remove(); }
   } else { cv.remove(); }
 
-  // Project art stays grey until hovered; on touch screens it colours in while the card sits in the middle of the screen
+  // Project cards stir their dust on hover; on touch screens while the card sits in the middle of the screen
   if(matchMedia("(hover: none)").matches){
     const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("lit",e.isIntersecting)),{rootMargin:"-30% 0px -30% 0px"});
     document.querySelectorAll(".wcard").forEach(c=>io.observe(c));
   }
+
+  // Project cards: the hero dust in each product's own soft colour, drifting slowly while on screen
+  const DUST={
+    rillow:{fold:[.44,.55,.70],tint:[0,.015,.045],page:[.955,.968,.982],t:21.9},
+    bundle:{fold:[.48,.46,.62],tint:[.008,.005,.035],page:[.965,.965,.976],t:80.3},
+    unposed:{fold:[.66,.48,.54],tint:[.035,.006,.015],page:[.98,.962,.966],t:131}
+  };
+  const DUST_FS=`precision highp float;
+  uniform vec2 uRes; uniform float uTime; uniform vec3 uFold; uniform vec3 uTint; uniform vec3 uPage;
+  float h21(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}
+  float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+    return mix(mix(h21(i),h21(i+vec2(1.,0.)),f.x),mix(h21(i+vec2(0.,1.)),h21(i+vec2(1.,1.)),f.x),f.y);}
+  float fbm(vec2 p){float v=.5*vn(p);p=p*2.03+vec2(4.1,8.3);return v+.25*vn(p);}
+  void main(){
+    vec2 vUv=gl_FragCoord.xy/uRes; float t=uTime;
+    vec2 p=vUv*vec2(uRes.x/uRes.y,1.)*1.25;
+    float w=fbm(p*.72+vec2(t*.068,-t*.044));
+    vec2 q=p+.25*vec2(sin(w*6.2832+t*.6),cos(w*5.1-t*.52));
+    float a=fbm(q*.86+vec2(t*.05,-t*.031));
+    float b=fbm(q*1.36+vec2(-t*.045,t*.036));
+    float c=fbm((q+vec2(a*.6,b*.4))*1.9-vec2(t*.031,0.));
+    float big=smoothstep(.38,.56,a*.82+b*.42+c*.3);
+    float dense=smoothstep(.46,.62,c+a*.38);
+    float haze=smoothstep(.28,.72,b+a*.14);
+    float alpha=clamp(big*.74+dense*.52+smoothstep(.24,.58,b)*.18+haze*.14,0.,1.);
+    vec3 col=mix(vec3(.02,.02,.07),uFold,big);
+    col=mix(col,vec3(1.01,1.,1.07),dense*.82+haze*.18);
+    col+=uTint*(.28+dense*.18+haze*.12);
+    vec2 g=floor(gl_FragCoord.xy);
+    col+=((h21(g)-.5)*.75+(h21(g+vec2(41.,289.))-.5)*.25)*.155*(.22+alpha*.78);
+    gl_FragColor=vec4(mix(uPage,col,alpha*.85),1.);
+  }`;
+  document.querySelectorAll(".wshot[data-dust]").forEach(box=>{
+    const pal=DUST[box.dataset.dust], c=box.querySelector("canvas");
+    const g=pal&&c&&c.getContext("webgl",{antialias:false});
+    if(!g){ if(c) c.remove(); return; }
+    const sh=(type,src)=>{const s=g.createShader(type);g.shaderSource(s,src);g.compileShader(s);return s};
+    const pr=g.createProgram();
+    g.attachShader(pr,sh(g.VERTEX_SHADER,"attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}"));
+    g.attachShader(pr,sh(g.FRAGMENT_SHADER,DUST_FS)); g.linkProgram(pr);
+    if(!g.getProgramParameter(pr,g.LINK_STATUS)){ c.remove(); return; }
+    g.useProgram(pr);
+    g.bindBuffer(g.ARRAY_BUFFER,g.createBuffer());
+    g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),g.STATIC_DRAW);
+    const loc=g.getAttribLocation(pr,"p"); g.enableVertexAttribArray(loc); g.vertexAttribPointer(loc,2,g.FLOAT,false,0,0);
+    const U=k=>g.getUniformLocation(pr,k);
+    g.uniform3fv(U("uFold"),pal.fold); g.uniform3fv(U("uTint"),pal.tint); g.uniform3fv(U("uPage"),pal.page);
+    const card=box.closest(".wcard");
+    let t=pal.t, speed=.3, last=0, raf=0, seen=false;
+    const draw=()=>{g.uniform1f(U("uTime"),t); g.drawArrays(g.TRIANGLES,0,3)};
+    const size=()=>{const d=Math.min(devicePixelRatio||1,1.5);
+      c.width=Math.max(1,Math.round(box.clientWidth*d)); c.height=Math.max(1,Math.round(box.clientHeight*d));
+      g.viewport(0,0,c.width,c.height); g.uniform2f(U("uRes"),c.width,c.height); draw()};
+    const loop=now=>{
+      const dt=last?Math.min(.05,(now-last)/1000):0; last=now;
+      const hot=card.matches(":hover")||card.classList.contains("lit");
+      speed+=((hot?1.1:.3)-speed)*.04; t+=dt*speed; draw();
+      raf=seen?requestAnimationFrame(loop):0;
+    };
+    size(); c.classList.add("on");
+    addEventListener("resize",size,{passive:true});
+    if(!reduce) new IntersectionObserver(es=>{seen=es[0].isIntersecting; last=0; if(seen&&!raf) raf=requestAnimationFrame(loop)}).observe(box);
+  });
 
   // Playground tile previews: small 2D sketches of each experiment, animated only while on screen
   const grain=(()=>{const g=document.createElement("canvas");g.width=g.height=128;const gx=g.getContext("2d"),im=gx.createImageData(128,128);
