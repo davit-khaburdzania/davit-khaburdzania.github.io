@@ -1,6 +1,6 @@
 // Pet the Shiba: a soft plush Shiba built from rounded shapes in three.js.
 // Every moving part is driven by second-order springs, so motion stays smooth and a little bouncy.
-import * as THREE from "../shiba-land/vendor/three.module.min.js";
+import * as THREE from "../vendor/three.module.min.js";
 
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canvas = document.getElementById("dog"), stage = document.getElementById("stage"), fx = document.getElementById("fx");
