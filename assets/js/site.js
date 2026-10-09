@@ -139,39 +139,75 @@
     } else { cv.remove(); }
   } else { cv.remove(); }
 
-  // Playground tile previews
+  // Playground tile previews: small 2D sketches of each experiment, animated only while on screen
+  const grain=(()=>{const g=document.createElement("canvas");g.width=g.height=128;const gx=g.getContext("2d"),im=gx.createImageData(128,128);
+    for(let i=0;i<im.data.length;i+=4){const n=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=n;im.data[i+3]=34;}gx.putImageData(im,0,0);return g})();
+  const shibaImg=new Image(); shibaImg.src="/favicon.svg";
+  const heartPath=(x,cx,cy,s)=>{x.beginPath();x.moveTo(cx,cy+s*.9);x.bezierCurveTo(cx-s*1.3,cy,cx-s*.9,cy-s*.9,cx,cy-s*.35);x.bezierCurveTo(cx+s*.9,cy-s*.9,cx+s*1.3,cy,cx,cy+s*.9);x.closePath()};
+  // Shiba Land: a tiny four-shade lavender screen, drawn at 80×72 and scaled up crisply
+  const GB=["#E9E8FC","#B9B7E6","#6A68A8","#24233F"];
+  const DOG=["..3....3..",".313..313.",".31133113.","3111111113","3131111313","3001111003",".30033003.","..300003..","...3333..."];
+  const lowres=document.createElement("canvas"); lowres.width=80; lowres.height=72; const lx=lowres.getContext("2d");
+  const drawLand=tm=>{
+    const s=tm/1000, scroll=s*14;
+    lx.fillStyle=GB[0]; lx.fillRect(0,0,80,72);
+    lx.fillStyle=GB[1];
+    for(let i=-1;i<4;i++){const hx=i*34-(scroll*.3)%34;lx.beginPath();lx.ellipse(hx+17,52,18,12,0,Math.PI,0);lx.fill()}
+    lx.fillStyle=GB[1]; for(let i=-1;i<3;i++){const cx=i*46-(scroll*.15)%46+10;lx.fillRect(cx,12,12,3);lx.fillRect(cx+3,9,6,3)}
+    for(let i=-1;i<12;i++){const bx=Math.floor(i*8-scroll%8);
+      lx.fillStyle=GB[2];lx.fillRect(bx,58,8,14);lx.fillStyle=GB[3];lx.fillRect(bx,58,8,1);lx.fillRect(bx+7,58,1,14);lx.fillRect(bx,64,8,1)}
+    const px=Math.floor(46-(scroll%96)); lx.fillStyle=GB[2]; for(let k=0;k<3;k++){lx.fillRect(px+k*8,34,7,7)} lx.fillStyle=GB[3];for(let k=0;k<3;k++){lx.strokeStyle=GB[3];lx.strokeRect(px+k*8+.5,34.5,6,6)}
+    const bxp=Math.floor(px+8+2), byp=26+Math.round(Math.sin(s*4)*1.5); lx.fillStyle=GB[3];lx.fillRect(bxp,byp,5,2);lx.fillRect(bxp-1,byp-1,2,1);lx.fillRect(bxp-1,byp+2,2,1);lx.fillRect(bxp+4,byp-1,2,1);lx.fillRect(bxp+4,byp+2,2,1);lx.fillStyle=GB[0];lx.fillRect(bxp+1,byp,3,1);
+    const ph=(s*1.1)%1, jump=ph<.45?Math.sin(ph/.45*Math.PI)*16:0, dx=18, dy=Math.round(49-jump);
+    DOG.forEach((row,j)=>[...row].forEach((ch,i)=>{if(ch==="."||ch===" ")return;lx.fillStyle=GB[+ch];lx.fillRect(dx+i,dy+j,1,1)}));
+    if(ph>=.45&&Math.floor(s*8)%2){lx.fillStyle=GB[3];lx.fillRect(dx+2,dy+9,2,1);lx.fillRect(dx+6,dy+9,2,1)}
+  };
   document.querySelectorAll(".ptile canvas").forEach(c=>{
     const x=c.getContext("2d"); let w,h,d=Math.min(devicePixelRatio||1,2);
     const fit=()=>{w=c.clientWidth;h=c.clientHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)};
     fit();
     const kind=c.dataset.kind;
-    const pts=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.002,vy:(Math.random()-.5)*.002}));
+    const blobs=Array.from({length:5},(_,i)=>({a:Math.random()*6.3,b:Math.random()*6.3,r:.45+Math.random()*.35,sp:.12+i*.03}));
     // only animate while the tile is on screen
     let shown=false, raf=0;
     const frame=tm=>{
       raf=0;
       const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,"#18181C");g.addColorStop(1,"#26262E");
       x.fillStyle=g;x.fillRect(0,0,w,h);
+      const s=tm/1000;
       if(kind==="invaders"){
         const cols=6,rows=3,cell=Math.min(w/9,22),off=Math.sin(tm/700)*cell;
-        x.fillStyle="#DCDCEC";
+        x.fillStyle="#B9B7E6";
         for(let r=0;r<rows;r++)for(let k=0;k<cols;k++){
           const px=w/2-cols*cell+k*cell*2+off, py=h*.18+r*cell*1.6;
           x.fillRect(px,py,cell*1.1,cell*.7);x.fillRect(px+cell*.2,py+cell*.7,cell*.2,cell*.3);x.fillRect(px+cell*.7,py+cell*.7,cell*.2,cell*.3);
         }
-        x.fillStyle="#fff";const sx=w/2+Math.sin(tm/900)*w*.3;x.fillRect(sx-cell*.7,h*.62,cell*1.4,cell*.5);
-        x.fillRect(sx-2,h*.62-((tm/4)%(h*.4)),3,10);
-      } else if(kind==="particles"){
-        pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>1)p.vx*=-1;if(p.y<0||p.y>1)p.vy*=-1});
-        x.strokeStyle="rgba(220,220,236,.22)";
-        for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-          const dx=(pts[i].x-pts[j].x)*w,dy=(pts[i].y-pts[j].y)*h;if(dx*dx+dy*dy<3600){x.beginPath();x.moveTo(pts[i].x*w,pts[i].y*h);x.lineTo(pts[j].x*w,pts[j].y*h);x.stroke()}
-        }
-        x.fillStyle="#ECECF4";pts.forEach(p=>{x.beginPath();x.arc(p.x*w,p.y*h,1.8,0,7);x.fill()});
-      } else {
-        const n=6,gap=8,cw=(w-40-gap*(n-1))/n;
-        for(let i=0;i<n*4;i++){const cx=20+(i%n)*(cw+gap),cy=24+Math.floor(i/n)*(cw+gap);
-          const on=(Math.sin(tm/600+i*1.3)+1)/2;x.fillStyle=`rgba(220,220,236,${.08+on*.4})`;x.beginPath();x.roundRect?x.roundRect(cx,cy,cw,cw,6):x.rect(cx,cy,cw,cw);x.fill()}
+        const sx=w/2+Math.sin(tm/900)*w*.3, sz=cell*1.5;
+        x.fillStyle="#fff";x.fillRect(sx-1.5,h*.6-((tm/4)%(h*.4)),3,10);
+        if(shibaImg.complete&&shibaImg.naturalWidth)x.drawImage(shibaImg,sx-sz/2,h*.62,sz,sz);
+      } else if(kind==="dust"){
+        x.globalCompositeOperation="lighter";
+        blobs.forEach((b,i)=>{
+          const cx=w*(.5+.36*Math.sin(s*b.sp+b.a)), cy=h*(.45+.3*Math.cos(s*b.sp*1.3+b.b)), r=Math.max(w,h)*b.r;
+          const rg=x.createRadialGradient(cx,cy,0,cx,cy,r);
+          rg.addColorStop(0,i%2?"rgba(185,183,230,.34)":"rgba(150,148,205,.3)");rg.addColorStop(1,"rgba(185,183,230,0)");
+          x.fillStyle=rg;x.fillRect(0,0,w,h);
+        });
+        x.globalCompositeOperation="source-over";
+        x.save();x.translate(-Math.random()*128,-Math.random()*128);x.fillStyle=x.createPattern(grain,"repeat");x.fillRect(0,0,w+128,h+128);x.restore();
+      } else if(kind==="shiba"){
+        const sz=Math.min(w,h)*.46, cx=w/2, cy=h*.42+Math.sin(s*2.2)*4;
+        x.save();x.translate(cx,cy+sz*.4);x.rotate(Math.sin(s*1.1)*.12);
+        if(shibaImg.complete&&shibaImg.naturalWidth)x.drawImage(shibaImg,-sz/2,-sz*.9,sz,sz*56/58);
+        x.restore();
+        for(let i=0;i<3;i++){const k=(s*.45+i/3)%1, hx=cx+(i-1)*sz*.42+Math.sin(k*6+i)*8, hy=cy-sz*.5-k*h*.22;
+          x.globalAlpha=Math.sin(k*Math.PI)*.9;x.fillStyle="#F2A7B5";heartPath(x,hx,hy,7+i*1.5);x.fill();x.globalAlpha=1}
+      } else if(kind==="land"){
+        drawLand(tm);
+        const sw=Math.min(w*.7,(h-150)*80/72), sh=sw*72/80, sx=(w-sw)/2, sy=Math.max(58,(h-sh)/2-34);
+        x.fillStyle="#34333F";x.beginPath();x.roundRect?x.roundRect(sx-12,sy-12,sw+24,sh+24,12):x.rect(sx-12,sy-12,sw+24,sh+24);x.fill();
+        x.imageSmoothingEnabled=false;x.drawImage(lowres,sx,sy,sw,sh);x.imageSmoothingEnabled=true;
+        x.fillStyle="#F2A7B5";x.beginPath();x.arc(sx-4,sy+sh*.3,2.2,0,7);x.fill();
       }
       if(!reduce&&shown&&!document.hidden&&!raf)raf=requestAnimationFrame(frame);
     };
@@ -179,6 +215,7 @@
     new IntersectionObserver(es=>{shown=es[0].isIntersecting;go()}).observe(c);
     document.addEventListener("visibilitychange",go);
     addEventListener("resize",()=>{ fit(); if(!raf) raf=requestAnimationFrame(frame); });
+    shibaImg.addEventListener("load",()=>{ if(!raf) raf=requestAnimationFrame(frame); });
     raf=requestAnimationFrame(frame);
   });
 })();

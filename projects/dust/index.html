@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKV2L39B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCKV2L39B9');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dust – Playground – Davit Khaburdzania</title>
+  <meta name="description" content="Stir the grainy lavender dust from the davit.cc homepage with your cursor, then tune its speed, grain and colour.">
+  <link rel="canonical" href="https://davit.cc/projects/dust/">
+  <meta name="theme-color" content="#F6F6F9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dust – davit.cc playground">
+  <meta property="og:description" content="Stir the grainy lavender dust from the davit.cc homepage with your cursor, then tune its speed, grain and colour.">
+  <meta property="og:url" content="https://davit.cc/projects/dust/">
+  <meta property="og:image" content="https://davit.cc/assets/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dkhaburdzania">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/projects/lab.css">
+  <style>
+    #dust{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:crosshair;opacity:0;transition:opacity .8s}
+    .dust-ui{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(720px,calc(100% - 32px));padding:16px 18px;display:flex;flex-direction:column;gap:14px;z-index:10}
+    .dust-sliders{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 22px}
+    .dust-actions{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .dust-actions .grow{flex:1}
+    .dust-actions .lab-hint{margin-right:auto}
+    .dust-ui.min .dust-sliders{display:none}
+    .dust-hint{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:var(--mono);font-size:13px;color:var(--ink-2);pointer-events:none;transition:opacity .8s, transform .8s;z-index:5}
+    .dust-hint.gone{opacity:0;transform:translate(-50%,-40%)}
+    @media (max-width:640px){
+      .dust-ui{padding:14px}
+      .dust-sliders{grid-template-columns:1fr 1fr;gap:10px 18px}
+      .dust-actions{flex-wrap:nowrap;gap:6px}
+      .dust-actions .lab-hint,.dust-actions .long{display:none}
+      .dust-actions .lab-btn{flex:1;padding-inline:10px}
+    }
+  </style>
+</head>
+<body>
+<header class="lab-bar">
+  <div class="lab-left">
+    <a class="lab-home" href="/" aria-label="davit.cc home"><svg width="30" height="30" aria-hidden="true" viewBox="3 4 58 56">
+  <path d="M11 27 C10 19 12 11 15 7.5 C16.5 6 17.5 6.5 19 8 L26.5 17 Q32 15.5 37.5 17 L45 8 C46.5 6.5 47.5 6 49 7.5 C52 11 54 19 53 27 C57 31 59 36 57.5 41 C59 44 57 48 53.5 49 C49 55 41 58 32 58 C23 58 15 55 10.5 49 C7 48 5 44 6.5 41 C5 36 7 31 11 27 Z" fill="#B9B7E6" stroke="#111114" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M15.5 12 C16.5 10 17.5 10.5 18.5 12 L23.5 18.5 C20.5 20 18 22.5 16 25 C15 21 15 16 15.5 12 Z M48.5 12 C47.5 10 46.5 10.5 45.5 12 L40.5 18.5 C43.5 20 46 22.5 48 25 C49 21 49 16 48.5 12 Z" fill="#E9E8FC"/>
+  <path d="M8.2 42 C10 36.5 16 33.5 22 35 C26 36 29 38.2 32 38.2 C35 38.2 38 36 42 35 C48 33.5 54 36.5 55.8 42 C56.6 45.5 54 48.4 51.3 48.9 C47 54.8 40 57.6 32 57.6 C24 57.6 17 54.8 12.7 48.9 C10 48.4 7.4 45.5 8.2 42 Z" fill="#FFFFFF"/>
+  <ellipse cx="24" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="40" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="24.6" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <ellipse cx="39.4" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <path d="M29.4 49.4 Q32 55 34.6 49.4 Z" fill="#F2A7B5"/>
+  <path d="M28.6 41.6 Q32 40.3 35.4 41.6 Q35.2 44.6 32 45.7 Q28.8 44.6 28.6 41.6 Z" fill="#111114"/>
+  <path d="M32 45.7 V47.6 M25.5 46.6 Q28.3 51.2 32 47.6 Q35.7 51.2 38.5 46.6" fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span>davit.cc</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <span class="lab-crumb"><a href="/#playground">Playground</a> / <b>Dust</b></span>
+  </div>
+  <a class="lab-btn soft sm" href="/#playground">All experiments</a>
+</header>
+
+<canvas id="dust" aria-label="Animated grainy dust. Drag to stir it."></canvas>
+<p class="dust-hint" id="hint">Drag to stir the dust</p>
+
+<div class="dust-ui lab-panel" id="ui">
+  <div class="dust-sliders">
+    <div class="lab-field"><label for="speed">Speed <output id="speed-v"></output></label><input class="lab-range" type="range" id="speed" min="0" max="2.5" step="0.05"></div>
+    <div class="lab-field"><label for="grain">Grain <output id="grain-v"></output></label><input class="lab-range" type="range" id="grain" min="0" max="0.4" step="0.005"></div>
+    <div class="lab-field"><label for="lilac">Lavender <output id="lilac-v"></output></label><input class="lab-range" type="range" id="lilac" min="0" max="1" step="0.01"></div>
+    <div class="lab-field"><label for="amount">Amount <output id="amount-v"></output></label><input class="lab-range" type="range" id="amount" min="0" max="1" step="0.01"></div>
+  </div>
+  <div class="dust-actions">
+    <span class="lab-hint"><span class="kbd">H</span> hides this panel</span>
+    <button class="lab-btn soft sm" id="toggle" aria-expanded="true">Hide</button>
+    <button class="lab-btn soft sm" id="shuffle">Shuffle</button>
+    <button class="lab-btn soft sm" id="reset">Reset</button>
+    <button class="lab-btn sm" id="save">Save<span class="long"> image</span> <span aria-hidden="true">↓</span></button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
