@@ -12,12 +12,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pet the Shiba – Playground – Davit Khaburdzania</title>
-  <meta name="description" content="A soft lavender Shiba Inu in 3D that follows your cursor, loves being petted, catches treats and naps when you leave it alone.">
+  <meta name="description" content="A pixel-art Shiba Inu that follows your cursor, loves being petted, catches treats and naps when you leave it alone.">
   <link rel="canonical" href="https://davit.cc/projects/shiba/">
   <meta name="theme-color" content="#F6F6F9">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pet the Shiba – davit.cc playground">
-  <meta property="og:description" content="A soft lavender Shiba Inu in 3D that follows your cursor, loves being petted, catches treats and naps when you leave it alone.">
+  <meta property="og:description" content="A pixel-art Shiba Inu that follows your cursor, loves being petted, catches treats and naps when you leave it alone.">
   <meta property="og:url" content="https://davit.cc/projects/shiba/">
   <meta property="og:image" content="https://davit.cc/assets/images/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -30,24 +30,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="/projects/lab.css">
   <style>
-    .stage{position:fixed;inset:0;background:radial-gradient(48% 52% at 50% 46%,rgba(208,207,238,.6),rgba(233,232,252,.28) 58%,transparent 80%),var(--page)}
-    #dog{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none;opacity:0;transition:opacity .9s}
+    .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:64px 0 150px;background:radial-gradient(46% 44% at 50% 44%,rgba(208,207,238,.38),rgba(233,232,252,.16) 60%,transparent 80%),var(--page)}
+    #dog{display:block;image-rendering:pixelated;image-rendering:crisp-edges;touch-action:none;outline:none;opacity:0;transition:opacity .6s}
     #dog.on{opacity:1}
-    .grain{position:fixed;inset:0;pointer-events:none;opacity:.32;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .34 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+    #dog:focus-visible{outline:2px solid var(--lilac-deep);outline-offset:6px;border-radius:8px}
     .bar{position:fixed;left:0;right:0;bottom:max(26px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 16px;z-index:5;pointer-events:none}
     .bar>*{pointer-events:auto}
     .bar .lab-hint{margin:0;text-align:center}
     .lab-btn[disabled]{opacity:.55;cursor:default;transform:none}
-    .fx{position:fixed;inset:0;pointer-events:none;z-index:4;overflow:hidden}
-    .heart{position:absolute;width:20px;height:18px;margin:-9px 0 0 -10px;animation:rise 1.6s cubic-bezier(.2,.7,.2,1) forwards}
-    .heart svg{display:block;width:100%;height:100%}
-    @keyframes rise{0%{opacity:0;transform:translateY(6px) scale(.5)}18%{opacity:1;transform:translateY(-8px) scale(1)}100%{opacity:0;transform:translate(var(--dx),-90px) scale(.85) rotate(var(--r))}}
-    .zz{position:absolute;font:500 24px var(--mono);color:var(--lilac-deep);animation:zz 2.8s ease-out forwards}
-    @keyframes zz{0%{opacity:0;transform:translate(0,0) scale(.6)}20%{opacity:.9}100%{opacity:0;transform:translate(26px,-70px) scale(1.15)}}
-    .fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--ink-2)}
-    .fallback svg{width:160px;height:160px}
-    .nogl .fallback{display:flex}
-    @media (prefers-reduced-motion: reduce){.heart,.zz{animation-duration:.01s}}
   </style>
 </head>
 <body>
@@ -72,10 +62,7 @@
 </header>
 
 <main class="stage" id="stage">
-  <canvas id="dog" tabindex="0" aria-label="A soft lavender Shiba Inu. Press Enter to say hi, T for a treat."></canvas>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="fx" id="fx" aria-hidden="true"></div>
-  <div class="fallback"><img src="/favicon.svg" alt="" width="160" height="160"><p class="lab-hint">This one needs WebGL, which your browser has turned off.</p></div>
+  <canvas id="dog" tabindex="0" aria-label="A pixel-art Shiba Inu. Press Enter to say hi, B to boop its nose, T for a treat."></canvas>
   <div class="bar">
     <button class="lab-btn" id="treat">Give a treat <svg aria-hidden="true" viewBox="0 0 44 22" width="26" height="13"><path d="M10 6C10 2 4 1 2.6 4.6 1.4 7.6 4 9.6 5.2 11 4 12.4 1.4 14.4 2.6 17.4 4 21 10 20 10 16h24c0 4 6 5 7.4 1.4 1.2-3-1.4-5-2.6-6.4 1.2-1.4 3.8-3.4 2.6-6.4C40 1 34 2 34 6z" fill="#fff"/></svg></button>
     <p class="lab-hint" id="hint">Stroke to pet · tap to say hi · boop the nose</p>
