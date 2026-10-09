@@ -21,6 +21,18 @@
   const onScroll=()=>nw.classList.toggle("scrolled",scrollY>24);
   onScroll(); addEventListener("scroll",onScroll,{passive:true});
 
+  // Phone menu: a full-screen sheet under the nav
+  const mb=document.getElementById("menu-btn"), menu=document.getElementById("menu");
+  const setMenu=open=>{
+    nw.classList.toggle("open",open); mb.setAttribute("aria-expanded",open);
+    mb.setAttribute("aria-label",open?"Close menu":"Menu");
+    document.documentElement.classList.toggle("menu-open",open);
+  };
+  mb.addEventListener("click",()=>setMenu(!nw.classList.contains("open")));
+  menu.addEventListener("click",e=>{if(e.target.closest("a")) setMenu(false)});
+  addEventListener("keydown",e=>{if(e.key==="Escape"&&nw.classList.contains("open")){setMenu(false);mb.focus()}});
+  matchMedia("(min-width:821px)").addEventListener("change",e=>{if(e.matches) setMenu(false)});
+
   // Hero dust: warped value-noise folds drawn as see-through lavender-grey shapes over a flat page, grain strongest inside the folds
   const cv = document.getElementById("shader");
   const gl = cv.getContext("webgl", {alpha:true, antialias:false, premultipliedAlpha:true});
