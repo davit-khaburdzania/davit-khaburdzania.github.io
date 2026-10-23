@@ -12,54 +12,29 @@
     <id>https://davit.cc/writing/agentic-coding-workflow/</id>
     <published>2026-10-23T12:00:00+04:00</published>
     <updated>2026-10-23T12:00:00+04:00</updated>
-    <summary>How I actually build with AI agents: one Claude Project per product, rules I write down once, and most of my time spent on decisions instead of code.</summary>
+    <summary>How I build with AI agents every day: Claude writes the code, I write the rules once and make the decisions.</summary>
     <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/notebook-paper-planes.webp&quot; alt=&quot;An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions&quot;&gt;&lt;/p&gt;
-&lt;p&gt;I build with AI agents every day, and my agentic coding workflow is simpler than it sounds. I write down what I want and the rules once. Claude does the work in parallel threads. I spend my time deciding things: what to build, which version looks right, and what&#x27;s allowed to go live. It&#x27;s the same setup for this site and for the three products on it.&lt;/p&gt;
-&lt;p&gt;The redesign of this site is a good example. I sent the first message on a Thursday night, around ten. By Friday evening the new site was live, with the grainy hero, new project cards and a little three.js platformer called &lt;a href=&quot;https://davit.cc/projects/shiba-land/&quot;&gt;Shiba Land&lt;/a&gt;. I didn&#x27;t write that code. I looked at what Claude made, said yes or no, and told it what to remember for next time.&lt;/p&gt;
+&lt;p&gt;I build with AI agents every day, and my agentic coding workflow is pretty simple. I write down what I want and how things should be done, Claude does the work, and I make the decisions.&lt;/p&gt;
+&lt;p&gt;When I redesigned this site, it took two days. Claude wrote all the code, including a small game called &lt;a href=&quot;https://davit.cc/projects/shiba-land/&quot;&gt;Shiba Land&lt;/a&gt;. I reviewed what it made and said what to keep.&lt;/p&gt;
 &lt;h2&gt;One project per product&lt;/h2&gt;
-&lt;p&gt;Every product I work on has its own Claude Project: this site, &lt;a href=&quot;https://rillow.ai&quot;&gt;Rillow&lt;/a&gt;, &lt;a href=&quot;https://bundle.ink&quot;&gt;Bundle&lt;/a&gt; and &lt;a href=&quot;https://unposed.camera&quot;&gt;Unposed&lt;/a&gt;. Since Anthropic &lt;a href=&quot;https://claude.com/blog/projects-redesigned&quot;&gt;redesigned Projects in September&lt;/a&gt;, a project is basically one long chat with a coordinator. I tell it what needs doing and it starts a separate thread for each task. Each thread is a full Claude Code session in the cloud with its own copy of the repo, so three things can be in progress at once without getting in each other&#x27;s way.&lt;/p&gt;
-&lt;p&gt;Boris Cherny, who created Claude Code, described doing this by hand back in January: five Claude sessions in numbered terminal tabs, another five to ten in the browser, and system notifications to tell him which one needed him (&lt;a href=&quot;https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are&quot;&gt;VentureBeat&lt;/a&gt;). A project does that bookkeeping for me. When I open my laptop I can see what finished and what&#x27;s waiting on me, and it works from my phone too.&lt;/p&gt;
-&lt;p&gt;I wrote a separate post on &lt;a href=&quot;https://davit.cc/writing/how-to-use-claude-projects/&quot;&gt;how I use Claude Projects&lt;/a&gt;, so here I&#x27;ll stick to the workflow.&lt;/p&gt;
+&lt;p&gt;Each of my products has its own Claude Project: this site, &lt;a href=&quot;https://rillow.ai&quot;&gt;Rillow&lt;/a&gt;, &lt;a href=&quot;https://bundle.ink&quot;&gt;Bundle&lt;/a&gt; and &lt;a href=&quot;https://unposed.camera&quot;&gt;Unposed&lt;/a&gt;. I tell the project what I need, and it starts a separate thread for each task, so several things get done at the same time. I just check what&#x27;s finished and what needs me, on my laptop or my phone.&lt;/p&gt;
+&lt;p&gt;Boris Cherny, who made Claude Code, used to juggle ten or more sessions by hand (&lt;a href=&quot;https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are&quot;&gt;VentureBeat&lt;/a&gt;). A project does that for me. I wrote more about it in &lt;a href=&quot;https://davit.cc/writing/how-to-use-claude-projects/&quot;&gt;how I use Claude Projects&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;I write the rules down once&lt;/h2&gt;
-&lt;p&gt;Every new thread starts by reading the project instructions. For davit.cc they&#x27;re one paragraph:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Site is davit.cc, built from the main branch of davit-khaburdzania.github.io and served by a Cloudflare Worker (wrangler.jsonc). Davit is the only one working on the site, so don&#x27;t open pull requests: commit and push straight to main. Every push to main deploys davit.cc automatically within about a minute (Cloudflare&#x27;s GitHub connection), so a push is a production change: show Davit a preview of visual changes before pushing. Keep profile details (location &quot;Tbilisi, Georgia&quot;, website davit.cc) consistent across the site, GitHub and LinkedIn. Verify changes on the live site after each push.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The repo also has an &lt;code&gt;AGENTS.md&lt;/code&gt;, and &lt;code&gt;CLAUDE.md&lt;/code&gt; just points to it, so Claude and any other agent read the same file. It covers how to run the site locally, which file does what, and the design rules I&#x27;d otherwise repeat in every task. A few of them:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;- Light only. Mostly cool grey with a faint lavender glow. Davit found stronger lilac &amp;quot;too colourful&amp;quot;. Never use green accents.
-- Keep pixel art pixel-exact: nearest-neighbour scaling only.
-- Motion must respect `prefers-reduced-motion`. WebGL pieces need a non-WebGL fallback.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Almost every rule in there exists because I said no to something once. Mitchell Hashimoto calls this engineering the harness: when an agent gets something wrong, you fix its instructions or give it a tool so the same mistake doesn&#x27;t happen again (&lt;a href=&quot;https://mitchellh.com/writing/my-ai-adoption-journey&quot;&gt;My AI Adoption Journey&lt;/a&gt;). Decisions about the project itself, like &quot;Unposed goes last in the Projects list&quot;, go into project memory instead. Whenever I correct a thread I tell it to remember, and every thread after that already knows.&lt;/p&gt;
-&lt;h2&gt;Threads write the code, I make the calls&lt;/h2&gt;
-&lt;p&gt;During the redesign, threads built the WebGL hero, the phone menu, four Playground experiments and a pixel-art favicon. What they couldn&#x27;t do was tell which version felt like mine. These are my actual replies from the redesign thread, copied word for word:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;On the first lavender prototype: &quot;too colourful&quot;.&lt;/li&gt;
-&lt;li&gt;On the grainy smoke hero, based on the one on slides.com: &quot;i love it&quot;.&lt;/li&gt;
-&lt;li&gt;On illustrated scenes for the project cards: &quot;childish&quot;. On redrawn product screens: &quot;not real&quot;. The cards ended up using the hero&#x27;s dust in each product&#x27;s own colour.&lt;/li&gt;
-&lt;li&gt;On a pixel-art Shiba next to a line-art one: &quot;Pixel is better&quot;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;That&#x27;s taste, and it&#x27;s most of what I do in a project now. Simon Willison opens his &lt;a href=&quot;https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/&quot;&gt;Agentic Engineering Patterns&lt;/a&gt; guide with a chapter called &quot;Writing code is cheap now&quot;, and that matches what I see. When three versions of a card cost a thread a few minutes, picking one is the job.&lt;/p&gt;
-&lt;p&gt;My replies are short. A thread shows me a preview, I answer in a couple of words, and it either ships or tries again. If a choice changes what I&#x27;m building, Claude asks on a decision card with a few options and its recommendation, and keeps going on the recommended one while I think about it.&lt;/p&gt;
+&lt;p&gt;Every project has a short paragraph of instructions, and the code has an &lt;code&gt;AGENTS.md&lt;/code&gt; file that explains how the site is built and what the design rules are. Most of those rules are there because I said no to something once, like &quot;never use green&quot;. When I correct Claude, I tell it to remember, so I never have to say it twice.&lt;/p&gt;
+&lt;p&gt;Mitchell Hashimoto calls this engineering the harness: when an agent makes a mistake, you fix its instructions so it doesn&#x27;t happen again (&lt;a href=&quot;https://mitchellh.com/writing/my-ai-adoption-journey&quot;&gt;My AI Adoption Journey&lt;/a&gt;).&lt;/p&gt;
+&lt;h2&gt;Claude writes the code, I make the calls&lt;/h2&gt;
+&lt;p&gt;Agents are great at building things. What they can&#x27;t do is tell which version feels right. Most of my replies are a couple of words, like &quot;too colourful&quot;, &quot;i love it&quot; or &quot;Pixel is better&quot;.&lt;/p&gt;
+&lt;p&gt;That&#x27;s most of my job now. Simon Willison says &lt;a href=&quot;https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/&quot;&gt;writing code is cheap now&lt;/a&gt;, and when trying three versions takes a few minutes, picking the right one is the work.&lt;/p&gt;
 &lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape&quot; src=&quot;https://davit.cc/assets/images/writing/rubber-stamp-three-sheets.webp&quot;&gt;&lt;/figure&gt;
-&lt;h2&gt;The setup behind my agentic coding workflow&lt;/h2&gt;
-&lt;p&gt;A thread can only work with what it can reach, so I connect the same tools I use myself:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GitHub for code. Threads work on their own branch, or push straight to main where I&#x27;ve said that&#x27;s fine.&lt;/li&gt;
-&lt;li&gt;Rillow, my SEO product. It runs as an MCP server inside Claude or Codex and gives the agent keyword data, live Google results, a content plan and rank tracking, plus a memory of each site.&lt;/li&gt;
-&lt;li&gt;My Mac, through Remote Control. I design in Paper, which only runs on my Mac, so when a task needs Paper, Claude starts a session on my machine. The same session can run Bundle and Unposed in the iOS simulator.&lt;/li&gt;
-&lt;li&gt;A shared project folder, where threads leave screenshots, logos and drafts for each other and for me.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This post went through the same loop. A thread read the most-discussed posts on agentic coding, pulled a brief from Rillow with the current Google top 10, and wrote a draft with images from Rillow&#x27;s image tool. My first note was that it sounded like a robot wrote it, so it got rewritten.&lt;/p&gt;
+&lt;h2&gt;My setup&lt;/h2&gt;
+&lt;p&gt;Claude can only use what it can reach, so I connect my tools: GitHub for code, Rillow (my SEO product) for keyword research and briefs, and my Mac through Remote Control for things that only run there, like the design app Paper and the iOS simulator.&lt;/p&gt;
+&lt;p&gt;This post was made the same way. Claude researched the topic, got a brief from Rillow and wrote a draft. I told it the draft sounded like a computer wrote it, so we rewrote it.&lt;/p&gt;
 &lt;h2&gt;What I keep for myself&lt;/h2&gt;
-&lt;p&gt;I decide what gets built and in what order, and I keep anything that can&#x27;t be undone. On davit.cc every push to main is a deploy, which is why the instructions say to show me a preview of visual changes first. The same goes for anything with my name on it. Claude gave me two rounds of alternative headlines for the homepage, and I kept the one I already had.&lt;/p&gt;
-&lt;p&gt;Some things I still just do myself. When my CV needed updating, Claude offered to edit the PDF, and I said I&#x27;d export it myself. The site links to whatever file I send.&lt;/p&gt;
+&lt;p&gt;I decide what to build, and I approve anything that can&#x27;t be undone. On this site every push goes live, so I always see a preview first. Anything with my name on it, I check myself.&lt;/p&gt;
 &lt;h2&gt;What still goes wrong&lt;/h2&gt;
-&lt;p&gt;Instructions can be wrong. When I set up the project, the first draft said the site was served from the master branch. The first thread read the repo, found a Cloudflare Worker serving main, and the instructions got fixed a few minutes later. A thread that reads the code is more reliable than any summary, mine included.&lt;/p&gt;
-&lt;p&gt;Agents are good at code and pretty bad at drawing from scratch. A hand-coded SVG Shiba came out &quot;silly&quot;, a 3D plush Shiba in three.js was too red and didn&#x27;t look real, and the illustrated project scenes looked childish. What worked was giving it a style with clear rules, like pixel art, or making the design in Paper first and handing it over.&lt;/p&gt;
-&lt;p&gt;Long threads also get heavy. The redesign thread hit 165 replies over two days. If a big thread sits idle for more than an hour, the next message makes Claude re-read the whole conversation, so new work like this blog now gets its own thread.&lt;/p&gt;
+&lt;p&gt;Instructions can be wrong. My first project setup got the branch wrong, and Claude caught it by reading the code. It&#x27;s also bad at drawing from scratch: the first Shiba drawings came out silly. It works much better with clear rules, like pixel art, or with a design I&#x27;ve already made. And long threads get slow and expensive, so I start a new thread for new work.&lt;/p&gt;
 &lt;h2&gt;If you want to try this&lt;/h2&gt;
-&lt;p&gt;Pick one thing you keep coming back to, like a side project, and make it a project. Write the instructions as one paragraph: where the code lives, how a change gets checked, and what needs your go-ahead. Put the repo&#x27;s rules in &lt;code&gt;AGENTS.md&lt;/code&gt;. Ask for a preview before anything ships, answer in as few words as you can, and when you correct a thread, tell it to remember.&lt;/p&gt;
+&lt;p&gt;Pick one side project and make it a Claude Project. Write a short paragraph on where the code is, how to check changes and what needs your OK. Ask for a preview before anything ships, keep your answers short, and when you correct Claude, tell it to remember.&lt;/p&gt;
 &lt;p&gt;If you&#x27;re hiring for this kind of work, my &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;CV&lt;/a&gt; has the rest.&lt;/p&gt;</content>
   </entry>
   <entry>
@@ -68,38 +43,28 @@
     <id>https://davit.cc/writing/how-to-use-claude-projects/</id>
     <published>2026-10-23T12:00:00+04:00</published>
     <updated>2026-10-23T12:00:00+04:00</updated>
-    <summary>Claude Projects changed a lot in September 2026. How I set mine up, what goes in instructions and memory, and how I keep usage from running away.</summary>
+    <summary>How to set up and use the new Claude Projects: instructions, memory, threads and keeping usage down, with examples from my own site.</summary>
     <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/hand-threads-spools.webp&quot; alt=&quot;A hand holding the ends of five threads, each running to its own wooden spool on a table&quot;&gt;&lt;/p&gt;
-&lt;p&gt;If you&#x27;re trying to figure out how to use Claude Projects well, my advice is to treat a project as one ongoing stream of work that you brief once and keep feeding. Since the September 2026 redesign, a project is a chat with a coordinator that starts a thread for each task, and each thread is a full Claude Code session. You get the most out of it when your standing rules live in the project instructions, memory picks up your decisions as you go, and you answer the threads that are waiting on you. I run this site, &lt;a href=&quot;https://davit.cc/&quot;&gt;davit.cc&lt;/a&gt;, in a project, so every example here is from my own setup.&lt;/p&gt;
-&lt;h2&gt;What changed in September&lt;/h2&gt;
-&lt;p&gt;Anthropic announced it on September 17, 2026, in &lt;a href=&quot;https://claude.com/blog/projects-redesigned&quot;&gt;Projects redesigned: from folder to conversation&lt;/a&gt;. The old Projects in claude.ai chat were basically a folder: some reference files, custom instructions and the chats you had inside it. The new ones live in Claude Code. You talk to one coordinator in the project chat, and it decides whether to just answer you or start a thread. Each thread is a cloud session with its own branch and its own copy of the repo. Threads report back to the coordinator, share one memory, and leave their files in the project&#x27;s Library.&lt;/p&gt;
-&lt;p&gt;A few practical things from the &lt;a href=&quot;https://code.claude.com/docs/en/claude-projects&quot;&gt;Claude Code docs&lt;/a&gt;, as of October 2026:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Projects are in public beta on the Pro and Max plans and still rolling out. They aren&#x27;t on Team or Enterprise yet.&lt;/li&gt;
-&lt;li&gt;You use them at claude.ai/code, in the Code tab of the desktop app and in the mobile app, but not in the terminal CLI or the IDE extensions.&lt;/li&gt;
-&lt;li&gt;The old folder-style projects in claude.ai chat and Cowork keep working until the new version reaches them.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A lot of the guides that rank for &quot;how to use Claude Projects&quot; still describe the folder version. This one is about the new one.&lt;/p&gt;
-&lt;h2&gt;When a project is worth it&lt;/h2&gt;
-&lt;p&gt;A project makes sense when the work has a goal that outlives one session and keeps producing new tasks. The docs give examples like one change across many repos, an area you keep feeding bugs into, a migration that&#x27;s bigger than a session, and work that isn&#x27;t code at all, like a folder of contracts you keep asking questions about.&lt;/p&gt;
-&lt;p&gt;If it&#x27;s one task that fits in one session, a normal cloud session is enough. If every step needs your own machine, a local session fits better. And a job that runs on a schedule with nobody talking to it is a routine.&lt;/p&gt;
-&lt;p&gt;My personal site is the ongoing kind. Since October 8 the davit.cc project has done a full redesign, a new favicon, four small Playground experiments and these blog posts. None of that fits in one session, and all of it follows the same rules.&lt;/p&gt;
-&lt;h2&gt;Let Claude propose the setup&lt;/h2&gt;
-&lt;p&gt;I didn&#x27;t write my setup myself. The first thing I sent in the new project was this:&lt;/p&gt;
+&lt;p&gt;If you want to know how to use Claude Projects well, think of a project as one ongoing piece of work. You set it up once and then keep sending it tasks. I run this site, &lt;a href=&quot;https://davit.cc/&quot;&gt;davit.cc&lt;/a&gt;, in a project, so the examples here are from my own setup.&lt;/p&gt;
+&lt;h2&gt;What a project is now&lt;/h2&gt;
+&lt;p&gt;Anthropic &lt;a href=&quot;https://claude.com/blog/projects-redesigned&quot;&gt;redesigned Projects&lt;/a&gt; in September 2026. A project used to be a folder of files and chats. Now it&#x27;s a chat with a coordinator that starts a separate thread for each task, and each thread is a full Claude Code session with its own copy of your code. Threads share a memory and report back when they&#x27;re done.&lt;/p&gt;
+&lt;p&gt;Projects are in beta on the Pro and Max plans and work in the web, desktop and mobile apps (&lt;a href=&quot;https://code.claude.com/docs/en/claude-projects&quot;&gt;docs&lt;/a&gt;). A lot of guides online still describe the old version.&lt;/p&gt;
+&lt;h2&gt;When to make one&lt;/h2&gt;
+&lt;p&gt;Make a project when the work keeps going: a product, a website, a long migration. For a single task, a normal session is enough. My site is the ongoing kind. The redesign, a new favicon, a few small experiments and this blog all happened in the same project.&lt;/p&gt;
+&lt;h2&gt;Let Claude set it up&lt;/h2&gt;
+&lt;p&gt;I didn&#x27;t write my setup myself. My first message in the new project was:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Help me set up this new project from my recent work. Look through my recent sessions and repositories, identify the main thread of work, and propose a project setup: a short name, the repositories it should include, an environment, concise project instructions drawn from what kept coming up, and one or two optional routines. Show me the proposal before changing anything.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Claude went through my last 46 sessions from the previous four weeks, picked out the one line of work that belonged here (deploying davit.cc), and came back with draft instructions and an optional weekly check of the live site. Nothing changed until I said &quot;yes&quot;. If you already have a cloud session doing the work, &quot;Continue as project&quot; in its menu does the same thing from there.&lt;/p&gt;
-&lt;h2&gt;Write instructions a thread can follow&lt;/h2&gt;
-&lt;p&gt;Project instructions are the brief the coordinator and every new thread start from, and they can be up to 16,000 characters. A good brief says what the project is for, where the work happens (repo, branch, how pull requests are named), how a thread checks its own work, what to do when something it needs is missing, and what needs your go-ahead.&lt;/p&gt;
-&lt;p&gt;Mine for davit.cc fit in one paragraph:&lt;/p&gt;
+&lt;p&gt;Claude came back with a name, instructions and a weekly check of the live site, and I said yes.&lt;/p&gt;
+&lt;h2&gt;Keep the instructions short&lt;/h2&gt;
+&lt;p&gt;Project instructions are the rules every thread reads first. Keep them short: where the code is, how to check changes and what needs your OK. Mine are one paragraph:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Site is davit.cc, built from the main branch of davit-khaburdzania.github.io and served by a Cloudflare Worker (wrangler.jsonc). Davit is the only one working on the site, so don&#x27;t open pull requests: commit and push straight to main. Every push to main deploys davit.cc automatically within about a minute (Cloudflare&#x27;s GitHub connection), so a push is a production change: show Davit a preview of visual changes before pushing. Keep profile details (location &quot;Tbilisi, Georgia&quot;, website davit.cc) consistent across the site, GitHub and LinkedIn. Verify changes on the live site after each push.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;The first version was wrong, by the way. It said the site was served from the master branch. The first thread read the repo, found a Cloudflare Worker serving main, and a few minutes later the coordinator had fixed the instructions. The rule about pushing straight to main came a day later, when I told a thread to remember that I&#x27;m the only one working on the site and I don&#x27;t want pull requests. The preview rule came right after that, once we&#x27;d confirmed that every push deploys.&lt;/p&gt;
-&lt;p&gt;Two things are easy to miss. Changing the instructions only affects new threads, so a thread that&#x27;s already running keeps the old brief. And instructions are for rules. Facts about one repo, like build commands, belong in that repo&#x27;s &lt;code&gt;CLAUDE.md&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The first version got the branch wrong, and the first thread fixed it after reading the code. Rules get added as you go. &quot;No pull requests&quot; came a day later, when I said I&#x27;m the only one working on the site.&lt;/p&gt;
 &lt;h2&gt;Instructions, memory and CLAUDE.md&lt;/h2&gt;
-&lt;p&gt;A project keeps context in three places, and each one has its own job:&lt;/p&gt;
+&lt;p&gt;A project keeps context in three places:&lt;/p&gt;
 &lt;div class=&quot;table-wrap&quot;&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -111,46 +76,40 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Project instructions&lt;/td&gt;
-&lt;td&gt;Rules every thread needs from its first message&lt;/td&gt;
-&lt;td&gt;Push straight to main, and show a preview of visual changes first&lt;/td&gt;
+&lt;td&gt;Rules every thread needs from the start&lt;/td&gt;
+&lt;td&gt;Push straight to main, and show a preview first&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Project memory&lt;/td&gt;
-&lt;td&gt;Decisions and pitfalls Claude collects as you work&lt;/td&gt;
-&lt;td&gt;&quot;Pixel is better&quot;: the favicon and Pet the Shiba use the pixel-art Shiba&lt;/td&gt;
+&lt;td&gt;Decisions Claude picks up as you work&lt;/td&gt;
+&lt;td&gt;The favicon uses the pixel-art Shiba&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;CLAUDE.md&lt;/code&gt; or &lt;code&gt;AGENTS.md&lt;/code&gt; in the repo&lt;/td&gt;
 &lt;td&gt;How the code is built and styled&lt;/td&gt;
-&lt;td&gt;&quot;Light only. Never use green accents.&quot;&lt;/td&gt;
+&lt;td&gt;&quot;Never use green accents.&quot;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
-&lt;p&gt;Project memory is a set of files Claude writes itself. Every cloud thread reads the index file, &lt;code&gt;MEMORY.md&lt;/code&gt;, when it starts and opens the other files when it needs them, and you can read and edit them under Project settings &amp;gt; Memory. You fill it just by asking: &quot;remember that Unposed goes last in the Projects list&quot; is enough. Mine holds the design decisions from the redesign, the fact that Paper only runs on my Mac, and the three topics I picked for this blog.&lt;/p&gt;
-&lt;p&gt;If you only write one of the three, make it the repo file, because every session reads it, in a project or not. My &lt;code&gt;AGENTS.md&lt;/code&gt; is 64 lines on how the site is built, shipped and styled, and &lt;code&gt;CLAUDE.md&lt;/code&gt; just points to it, so every thread and every other agent reads the same rules.&lt;/p&gt;
+&lt;p&gt;Memory fills up when you ask, like &quot;remember that Unposed goes last in the Projects list&quot;. If you only write one of the three, make it the file in your repo, because every session reads it, in a project or not.&lt;/p&gt;
 &lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;An open wooden index card box with blank cards, next to a folded sheet of paper and a pencil&quot; src=&quot;https://davit.cc/assets/images/writing/index-card-box.webp&quot;&gt;&lt;/figure&gt;
-&lt;h2&gt;Send work, then walk away&lt;/h2&gt;
-&lt;p&gt;Once that&#x27;s set up, you talk to the coordinator the way you&#x27;d talk to a colleague. A quick question gets an answer right in the chat. New work becomes a thread, or goes to a thread that&#x27;s already working in that area, and if you send a few unrelated things in one message, they become separate threads. This blog started with one message from me, and the coordinator started a thread with context from memory already attached: the three post topics I&#x27;d picked two weeks earlier.&lt;/p&gt;
-&lt;p&gt;The Overview pane groups threads by state: Ready for review, Waiting on you, Working, Landing, Idle and Resolved. When a choice changes what I&#x27;m building, the thread asks on a card with two to four options and a recommendation. For my CV, the card asked whether Claude should edit the PDF or I&#x27;d export it myself, and I picked &quot;I&#x27;ll do it&quot;.&lt;/p&gt;
-&lt;p&gt;You can also just tell the coordinator how you want the project run. The docs give examples like &quot;Propose threads and wait for my go-ahead before starting them&quot;, &quot;Run at most two threads at a time&quot; and &quot;Only post when something finishes or is blocked&quot;. Claude saves these to memory and follows them, though a thread limit set this way isn&#x27;t enforced.&lt;/p&gt;
-&lt;p&gt;Approvals are the one part that isn&#x27;t obvious. Threads run in auto mode, so most commands just run, but when a thread does need your approval, the prompt shows up inside that thread. Telling the coordinator &quot;go ahead&quot; doesn&#x27;t reach it, so open the thread and answer there.&lt;/p&gt;
-&lt;h2&gt;Run a thread on your own computer&lt;/h2&gt;
-&lt;p&gt;Some work has to happen on your own machine: a local database, a device simulator, or an app that only runs on your laptop. For me that&#x27;s Paper, the design tool I use, which only runs on my Mac. A project can run that one thread on your computer through Remote Control while everything else stays in the cloud.&lt;/p&gt;
-&lt;p&gt;To set it up in the desktop app, go to Settings &amp;gt; Claude Code, turn on &quot;Use this computer from your phone and claude.ai&quot; and add the folder. Or run &lt;code&gt;claude remote-control&lt;/code&gt; in that folder from a terminal. Both need Claude Code v2.1.280 or later. Then pick &quot;Work locally&quot; from the + menu in the project chat, describe the task, and allow it on the card.&lt;/p&gt;
-&lt;p&gt;A thread on your computer uses that machine&#x27;s files, tools, MCP servers and settings. It gets the project instructions but not the memory files, so anything it needs to know has to be in the instructions or the task. It also pauses while the computer sleeps.&lt;/p&gt;
+&lt;h2&gt;Send work and walk away&lt;/h2&gt;
+&lt;p&gt;Talk to the coordinator like a colleague. Questions get answered right away, and new work becomes a thread. When a thread needs a decision, it asks with a few options and a recommendation, and you pick one. You can also tell it how you like to work, like &quot;ask before starting new threads&quot;.&lt;/p&gt;
+&lt;p&gt;One thing isn&#x27;t obvious: when a thread needs your approval, you answer inside that thread. Saying &quot;go ahead&quot; to the coordinator doesn&#x27;t reach it.&lt;/p&gt;
+&lt;h2&gt;Run work on your own computer&lt;/h2&gt;
+&lt;p&gt;Some work needs your own machine. For me that&#x27;s Paper, a design app that only runs on my Mac. A project can run that one thread on your computer through Remote Control while the rest stays in the cloud. Turn it on in the desktop app under Settings &amp;gt; Claude Code, then pick &quot;Work locally&quot; in the project chat.&lt;/p&gt;
 &lt;h2&gt;Keep usage under control&lt;/h2&gt;
-&lt;p&gt;Projects use up your plan faster than a single session, because every thread is a full Claude Code session and several can run at once. New projects run threads on Opus at high effort, and you can change the models and effort for threads and the coordinator in Project settings &amp;gt; General. There&#x27;s also a hard limit of 200 new threads per day across all your projects.&lt;/p&gt;
-&lt;p&gt;Long threads cost more than they look. The redesign thread grew to 165 replies over two days. When a thread has been idle longer than the cache lifetime (an hour on Pro and Max), the next message makes Claude re-read the whole conversation before it does anything. So now new work gets a fresh thread, and I resolved the redesign thread. Threads that watch a pull request also wake up when CI fails or a review comes in, so tell a thread to stop watching once you&#x27;re done with it. The Usage tab in project settings shows where the tokens went, by thread and by model.&lt;/p&gt;
+&lt;p&gt;Projects use your plan faster than a single chat, because every thread is a full session and several can run at once. You can switch to cheaper models in the project settings. Long threads get expensive too, so start a fresh thread for new work and close the ones you&#x27;re done with.&lt;/p&gt;
 &lt;h2&gt;Frequently asked questions&lt;/h2&gt;
 &lt;h3&gt;When should I use a project instead of a chat?&lt;/h3&gt;
-&lt;p&gt;When the work outlasts one session and keeps producing tasks, like a product, a migration or a site you keep improving. A one-off question is fine in a chat, and a single coding task fits in one cloud session.&lt;/p&gt;
+&lt;p&gt;When the work keeps going, like a product or a site you keep improving. A quick question is fine in a chat.&lt;/p&gt;
 &lt;h3&gt;What&#x27;s the difference between Claude Projects and Claude Code?&lt;/h3&gt;
-&lt;p&gt;Projects are built on Claude Code. Every thread is a Claude Code session, usually in the cloud. The project adds the coordinator, shared instructions and memory, the Library of files, and the Overview pane that keeps track of every thread.&lt;/p&gt;
+&lt;p&gt;Projects are built on Claude Code. Every thread is a Claude Code session, and the project adds the coordinator, shared instructions and memory.&lt;/p&gt;
 &lt;h3&gt;Can I share a Claude Project with my team?&lt;/h3&gt;
-&lt;p&gt;Not during the beta. A project belongs to one person, and thread transcripts can&#x27;t be shared. If your team wants to give Claude work together in Slack, Anthropic points to Claude Tag instead.&lt;/p&gt;
+&lt;p&gt;Not yet. During the beta a project belongs to one person.&lt;/p&gt;
 &lt;h3&gt;Do cloud threads get my local skills and MCP servers?&lt;/h3&gt;
-&lt;p&gt;No. Cloud threads get the connectors on your claude.ai account, the skills you&#x27;ve enabled there, and the skills, agents and commands committed to the project&#x27;s repos. Anything installed only on your laptop is missing unless the thread runs on your computer.&lt;/p&gt;
-&lt;p&gt;I wrote more about the day-to-day side in &lt;a href=&quot;https://davit.cc/writing/agentic-coding-workflow/&quot;&gt;my agentic coding workflow&lt;/a&gt;, and the rest of my background is on my &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;CV&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;No. Cloud threads get the connectors and skills from your claude.ai account and whatever is in your repo. Anything installed only on your laptop needs a thread running on your computer.&lt;/p&gt;
+&lt;p&gt;I wrote more about how I work day to day in &lt;a href=&quot;https://davit.cc/writing/agentic-coding-workflow/&quot;&gt;my agentic coding workflow&lt;/a&gt;, and my &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;CV&lt;/a&gt; has the rest.&lt;/p&gt;</content>
   </entry>
   <entry>
     <title>Languages and frameworks don&#x27;t matter anymore</title>
@@ -158,40 +117,26 @@
     <id>https://davit.cc/writing/languages-and-frameworks-dont-matter/</id>
     <published>2026-10-23T12:00:00+04:00</published>
     <updated>2026-10-23T12:00:00+04:00</updated>
-    <summary>I&#x27;ve used Rails, Elixir, Node and React over 15+ years. With AI agents writing the code, I think the stack matters much less. Here&#x27;s why, and what still does.</summary>
+    <summary>With AI agents writing most of the code, the stack matters much less than it used to. Why I think so, and what still matters.</summary>
     <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/screwdriver-bits.webp&quot; alt=&quot;A screwdriver handle next to a row of six interchangeable bits with different tips&quot;&gt;&lt;/p&gt;
-&lt;p&gt;For most of my career, picking the stack was the first big decision on any new project. Now that coding agents write most of the code, I think it&#x27;s one of the smaller ones. If you&#x27;re wondering what the best language for AI coding is, my answer is: one where an agent gets a clear pass or fail quickly, that has lots of public code to learn from, and that you can still read when you review what it wrote. Plenty of languages pass that test. The research I cite below does show real differences between languages, but almost all of them come down to feedback and tooling.&lt;/p&gt;
-&lt;h2&gt;Fifteen years of picking stacks&lt;/h2&gt;
-&lt;p&gt;I&#x27;ve been writing software for more than 15 years, and the stack changed with almost every job. At Shogun, the Y Combinator page builder where I was the first engineering hire, it was Ruby on Rails and React. At Blocks I moved a big application from Rails to Elixir and Phoenix for performance and scale. EverAI, where I was the founding engineer, ran on Rails and React with LLM, image, voice and video APIs. TurbaMedia was Node.js, TypeScript and React, and Copia was TypeScript and Python. Somewhere in between there was React Native and a few years running an agency. The full list is in the &lt;a href=&quot;https://davit.cc/#experience&quot;&gt;Experience section&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;For most of that time the stack really did decide a lot: who you could hire, which libraries you got for free, and how fast the team could move in the first few months. Switching languages cost you real time.&lt;/p&gt;
-&lt;h2&gt;What changed with agents&lt;/h2&gt;
-&lt;p&gt;Now agents write a lot of the code, in whatever language the project uses. Andrej Karpathy said that within a few weeks in December 2025 he went from writing most of his code himself to having agents write almost all of it (&lt;a href=&quot;https://tech.yahoo.com/ai/chatgpt/articles/ai-agents-wrote-80-karpathys-175030864.html&quot;&gt;Yahoo Tech&lt;/a&gt;). Simon Willison opens his &lt;a href=&quot;https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/&quot;&gt;Agentic Engineering Patterns&lt;/a&gt; guide with a chapter called &quot;Writing code is cheap now&quot;. Armin Ronacher, who wrote Flask, put it as &quot;the cost of coding is going down dramatically&quot; (&lt;a href=&quot;https://lucumr.pocoo.org/2026/2/9/a-language-for-agents/&quot;&gt;A Language for Agents&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;My own work this year is spread across a bunch of stacks:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://rillow.ai&quot;&gt;Rillow&lt;/a&gt;, a Next.js app.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://bundle.ink&quot;&gt;Bundle&lt;/a&gt;, which I build alone: one repo with an iPhone app, an Android app for e-ink tablets, a Chrome extension, a backend and a website.&lt;/li&gt;
-&lt;li&gt;This site, plain HTML, CSS and JavaScript with no framework and no build step, plus &lt;a href=&quot;https://davit.cc/projects/shiba-land/&quot;&gt;Shiba Land&lt;/a&gt;, a small platformer in three.js.&lt;/li&gt;
-&lt;li&gt;TypeScript and Python at Copia.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In each case the platform and the product picked the language. An agent reads and writes all of them well enough that my time goes into deciding what each product should do.&lt;/p&gt;
-&lt;h2&gt;The data says languages still differ&lt;/h2&gt;
-&lt;p&gt;To be fair, there&#x27;s decent evidence that languages aren&#x27;t equal for agents.&lt;/p&gt;
-&lt;p&gt;José Valim, who created Elixir, made the strongest case for one language in &lt;a href=&quot;https://dashbit.co/blog/why-elixir-best-language-for-ai&quot;&gt;Why Elixir is the best language for AI&lt;/a&gt;. He cites Tencent&#x27;s AutoCodeBench, which compared 20 languages across more than 30 models. Across all models, 97.5% of the Elixir problems were solved by at least one model, the highest of any language, and Claude Opus 4 scored 80.3% on Elixir, ahead of C# at 74.9% and Kotlin at 72.5%. He puts it down to immutability, which keeps a function&#x27;s effects visible without loading the code around it, and to stability: Elixir has been on version 1.x since 2014, so old examples still work.&lt;/p&gt;
-&lt;p&gt;GitHub&#x27;s &lt;a href=&quot;https://github.blog/2025-12-09-why-ai-is-pushing-developers-toward-typed-languages/&quot;&gt;Why AI is pushing developers toward typed languages&lt;/a&gt; cites a 2025 study that found 94% of compilation errors in LLM-generated code were type-check failures. TypeScript also became the most used language on GitHub in August 2025, ahead of Python and JavaScript.&lt;/p&gt;
-&lt;p&gt;Armin Ronacher gets specific. He says Go works well for agents because the code is easy to grep, import cycles aren&#x27;t allowed and test results are cached, and he now uses TypeScript where he used to use Python. On the other side, he finds Swift&#x27;s tooling painful enough that agents struggle, and Python&#x27;s significant whitespace harder for an agent to edit cleanly.&lt;/p&gt;
-&lt;p&gt;Put together, they keep pointing at the same things: fast, clear feedback, and code an agent can understand from a few files. Those come from the type checker, the compiler, the test runner and the project&#x27;s conventions much more than from the syntax.&lt;/p&gt;
+&lt;p&gt;Picking the stack used to be the first big decision on any project. Now that AI agents write most of the code, I don&#x27;t think it matters much. If you&#x27;re asking what the best language for AI coding is, my answer is any language where the agent can quickly check its own work, that has plenty of public code to learn from, and that you can still read.&lt;/p&gt;
+&lt;h2&gt;I&#x27;ve used a lot of stacks&lt;/h2&gt;
+&lt;p&gt;In 15+ years I&#x27;ve worked with Ruby on Rails, Elixir, Node.js, TypeScript, Python and React, and the stack changed with almost every job (my &lt;a href=&quot;https://davit.cc/#experience&quot;&gt;Experience section&lt;/a&gt; has the full list). Back then it mattered a lot. The stack decided who you could hire and how fast you could move.&lt;/p&gt;
+&lt;h2&gt;What changed&lt;/h2&gt;
+&lt;p&gt;Agents now write most of the code, in whatever language you use. Andrej Karpathy says agents write almost all of his code now (&lt;a href=&quot;https://tech.yahoo.com/ai/chatgpt/articles/ai-agents-wrote-80-karpathys-175030864.html&quot;&gt;Yahoo Tech&lt;/a&gt;), and Simon Willison puts it simply: &lt;a href=&quot;https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/&quot;&gt;writing code is cheap now&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This year I&#x27;ve built a Next.js app for &lt;a href=&quot;https://rillow.ai&quot;&gt;Rillow&lt;/a&gt;, an iPhone app, an Android app and a Chrome extension for &lt;a href=&quot;https://bundle.ink&quot;&gt;Bundle&lt;/a&gt;, and this site in plain HTML. Each time the platform picked the language, and Claude handled all of them.&lt;/p&gt;
+&lt;h2&gt;Languages still differ a bit&lt;/h2&gt;
+&lt;p&gt;There is some evidence that languages aren&#x27;t equal for agents. José Valim, who created Elixir, points to a benchmark where Elixir scored highest (&lt;a href=&quot;https://dashbit.co/blog/why-elixir-best-language-for-ai&quot;&gt;Why Elixir is the best language for AI&lt;/a&gt;). GitHub points to a study where almost all compile errors in AI-written code were type errors, which typed languages like TypeScript catch early (&lt;a href=&quot;https://github.blog/2025-12-09-why-ai-is-pushing-developers-toward-typed-languages/&quot;&gt;GitHub blog&lt;/a&gt;). Armin Ronacher, who wrote Flask, likes Go and TypeScript for agents (&lt;a href=&quot;https://lucumr.pocoo.org/2026/2/9/a-language-for-agents/&quot;&gt;A Language for Agents&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Look at why, though. Every one of those reasons comes back to fast feedback: a compiler or tests that tell the agent right away when something is wrong. That comes from the tooling much more than from the language.&lt;/p&gt;
 &lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A balance scale with a different small stone in each pan, its beam almost level&quot; src=&quot;https://davit.cc/assets/images/writing/balance-scale-stones.webp&quot;&gt;&lt;/figure&gt;
 &lt;h2&gt;What still matters&lt;/h2&gt;
-&lt;p&gt;The first thing I look at is whether an agent can check its own work. A type checker, a compiler with helpful errors, tests that run in seconds and one command that says pass or fail do more for agent output than choosing between two languages. Armin&#x27;s line is &quot;The more uniform the tooling the better&quot;, and I agree. Even this site, which has no build step at all, has a check: a thread runs the site on a local server before a push and opens the live page after.&lt;/p&gt;
-&lt;p&gt;Conventions matter for the same reason. Rails and Phoenix put files where an agent expects them, and a stable language means the examples the model learned from still compile. A codebase with five ways to do the same thing confuses an agent the same way it confuses a new hire.&lt;/p&gt;
-&lt;p&gt;The platform still matters too. An iPhone app goes through Xcode, signing and App Review whatever language you write it in, and that tooling shapes an agent&#x27;s day more than the language does.&lt;/p&gt;
-&lt;p&gt;And you still own what ships. Pick something you can read well enough to review, because you&#x27;ll be reading a lot more code than you write.&lt;/p&gt;
-&lt;h2&gt;So what is the best language for AI coding?&lt;/h2&gt;
-&lt;p&gt;For a new project, I&#x27;d go with the language the platform expects and turn on the strictest checks the team can live with. For a web app that usually means TypeScript, because its type checker catches exactly the kind of error the GitHub study found most often, and there&#x27;s a huge amount of public TypeScript for models to learn from. If you love Elixir, Valim&#x27;s numbers say agents do well there too. If your team already knows Rails, keep Rails and put the effort into tests. An agent can work in any of them. What it struggles with is a codebase that gives it no way to check its work.&lt;/p&gt;
-&lt;h2&gt;What this means if you hire engineers&lt;/h2&gt;
-&lt;p&gt;Years in one framework tell you less than they used to. An engineer who works well with agents can get productive in an unfamiliar stack quickly, because the agent already knows it. The harder skills to find are breaking a feature into tasks an agent can finish, checking the result properly and deciding what not to build. That&#x27;s what I&#x27;d interview for now.&lt;/p&gt;
-&lt;h2&gt;Where I still choose carefully&lt;/h2&gt;
-&lt;p&gt;There&#x27;s still code where the language is worth real thought: hot paths where performance is the product, native platform work, and very new frameworks with little public code. Armin&#x27;s take on Zig is a good example. It changes quickly and there isn&#x27;t much training data, so it works, just not as well. And a big team on a long-lived codebase gets more from consistency than from any one language feature.&lt;/p&gt;
-&lt;p&gt;For everything else, pick the stack that fits the platform, make the feedback loop fast, and spend the time you save on the product. If you want to see what that looks like day to day, I wrote up &lt;a href=&quot;https://davit.cc/writing/agentic-coding-workflow/&quot;&gt;my agentic coding workflow&lt;/a&gt;, and my &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;CV&lt;/a&gt; has the rest of my background.&lt;/p&gt;</content>
+&lt;p&gt;The big one is whether the agent can check its own work. Fast tests and a strict type checker do more than switching languages. Clear conventions help too, because a codebase with one way of doing things is easier for agents and for people. The platform still matters, since an iPhone app goes through Xcode and App Review whatever you write it in. And you still own what ships, so pick something you can read.&lt;/p&gt;
+&lt;h2&gt;So what&#x27;s the best language for AI coding?&lt;/h2&gt;
+&lt;p&gt;For a new web app I&#x27;d pick TypeScript with strict checks. If your team already knows Rails or Elixir, stay with it and write good tests. Agents can work in any of them. What they can&#x27;t handle is a codebase with no way to check their work.&lt;/p&gt;
+&lt;h2&gt;What this means for hiring&lt;/h2&gt;
+&lt;p&gt;Years in one framework matter less now. I&#x27;d look for people who can split work into small tasks, check the results properly and decide what not to build.&lt;/p&gt;
+&lt;h2&gt;When I still choose carefully&lt;/h2&gt;
+&lt;p&gt;Code where performance is the product, native platform work and very new languages with little public code still deserve a careful choice. For everything else, pick what fits the platform, keep the feedback fast and spend the time you save on the product.&lt;/p&gt;
+&lt;p&gt;If you want to see how I work day to day, read &lt;a href=&quot;https://davit.cc/writing/agentic-coding-workflow/&quot;&gt;my agentic coding workflow&lt;/a&gt;. My &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;CV&lt;/a&gt; has the rest.&lt;/p&gt;</content>
   </entry>
 </feed>
