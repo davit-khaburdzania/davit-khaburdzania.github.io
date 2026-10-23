@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKV2L39B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCKV2L39B9');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F6F9">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
+  <title>My agentic coding workflow: what I hand off and keep – Davit Khaburdzania</title>
+  <meta name="description" content="How I build with AI agents every day: one Claude Project per product, rules written once, threads that do the work, and my time spent on decisions.">
+  <link rel="canonical" href="https://davit.cc/writing/agentic-coding-workflow/">
+  <meta name="author" content="Davit Khaburdzania">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davit.cc/writing/agentic-coding-workflow/">
+  <meta property="og:site_name" content="davit.cc">
+  <meta property="og:title" content="My agentic coding workflow: what I hand off and keep">
+  <meta property="og:description" content="How I build with AI agents every day: one Claude Project per product, rules written once, threads that do the work, and my time spent on decisions.">
+  <meta property="og:image" content="https://davit.cc/assets/images/writing/agentic-coding-workflow-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions">
+  <meta property="article:published_time" content="2026-10-23T12:00:00+04:00">
+  <meta property="article:author" content="https://davit.cc/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dkhaburdzania">
+  <meta name="twitter:creator" content="@dkhaburdzania">
+  <link rel="preload" as="image" href="/assets/images/writing/notebook-paper-planes.webp" fetchpriority="high">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://davit.cc/writing/agentic-coding-workflow/#post",
+  "mainEntityOfPage": "https://davit.cc/writing/agentic-coding-workflow/",
+  "url": "https://davit.cc/writing/agentic-coding-workflow/",
+  "headline": "My agentic coding workflow",
+  "description": "How I build with AI agents every day: one Claude Project per product, rules written once, threads that do the work, and my time spent on decisions.",
+  "image": [
+    "https://davit.cc/assets/images/writing/notebook-paper-planes.webp",
+    "https://davit.cc/assets/images/writing/agentic-coding-workflow-og.jpg"
+  ],
+  "datePublished": "2026-10-23T12:00:00+04:00",
+  "dateModified": "2026-10-23T12:00:00+04:00",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "inLanguage": "en",
+  "wordCount": 1524,
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://davit.cc/writing/#blog",
+    "url": "https://davit.cc/writing/",
+    "name": "davit.cc Writing"
+  }
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/post.css">
+</head>
+<body class="post-page">
+<div class="page"><div class="inner">
+  <nav aria-label="Main">
+    <a class="logo" href="/" aria-label="davit.cc home"><svg class="logo-mark" width="32" height="32" aria-hidden="true" viewBox="3 4 58 56">
+  <path d="M11 27 C10 19 12 11 15 7.5 C16.5 6 17.5 6.5 19 8 L26.5 17 Q32 15.5 37.5 17 L45 8 C46.5 6.5 47.5 6 49 7.5 C52 11 54 19 53 27 C57 31 59 36 57.5 41 C59 44 57 48 53.5 49 C49 55 41 58 32 58 C23 58 15 55 10.5 49 C7 48 5 44 6.5 41 C5 36 7 31 11 27 Z" fill="#B9B7E6" stroke="#111114" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M15.5 12 C16.5 10 17.5 10.5 18.5 12 L23.5 18.5 C20.5 20 18 22.5 16 25 C15 21 15 16 15.5 12 Z M48.5 12 C47.5 10 46.5 10.5 45.5 12 L40.5 18.5 C43.5 20 46 22.5 48 25 C49 21 49 16 48.5 12 Z" fill="#E9E8FC"/>
+  <path d="M8.2 42 C10 36.5 16 33.5 22 35 C26 36 29 38.2 32 38.2 C35 38.2 38 36 42 35 C48 33.5 54 36.5 55.8 42 C56.6 45.5 54 48.4 51.3 48.9 C47 54.8 40 57.6 32 57.6 C24 57.6 17 54.8 12.7 48.9 C10 48.4 7.4 45.5 8.2 42 Z" fill="#FFFFFF"/>
+  <ellipse cx="24" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="40" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="24.6" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <ellipse cx="39.4" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <path d="M29.4 49.4 Q32 55 34.6 49.4 Z" fill="#F2A7B5"/>
+  <path d="M28.6 41.6 Q32 40.3 35.4 41.6 Q35.2 44.6 32 45.7 Q28.8 44.6 28.6 41.6 Z" fill="#111114"/>
+  <path d="M32 45.7 V47.6 M25.5 46.6 Q28.3 51.2 32 47.6 Q35.7 51.2 38.5 46.6" fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>davit.cc</a>
+    <div class="links">
+      <a href="/#projects">Projects</a>
+      <a href="/#playground">Playground</a>
+      <a href="/#experience">Experience</a>
+      <a href="/writing/">Writing</a>
+      <a class="btn btn-dark nav-cta" href="#contact">Say hi</a>
+    </div>
+  </nav>
+</div></div>
+
+<div class="page">
+<main class="article">
+  <header class="post-head">
+    <span class="kicker"><a href="/writing/">Writing</a> · AI workflow</span>
+    <h1>My agentic coding workflow</h1>
+    <p class="dek">How I build with AI agents every day: one Claude Project per product, rules written once, threads that do the work, and my time spent on decisions.</p>
+    <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-10-23">23 Oct 2026</time><span class="sep"></span><span>7 min read</span></div>
+  </header>
+  <figure class="post-hero"><img src="/assets/images/writing/notebook-paper-planes.webp" alt="An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
+  <article class="prose">
+<p>My agentic coding workflow is easy to describe. I write down what I want and the rules once, Claude runs the work in parallel threads, and I spend my time on decisions: what to build, which version looks right and what is allowed to go live. I build with agents every day, across this site and the three products on it, and the setup is the same for all of them.</p>
+<p>The redesign of davit.cc is a good example. I sent the first message on October 8, 2026, at about 10pm in Tbilisi. Roughly 20 hours later the new site was live: one pull request with 43 changed files and about 4,900 new lines, including a small three.js platformer called <a href="/projects/shiba-land/">Shiba Land</a>. Claude wrote the code. My part was saying yes or no, and telling it what to remember.</p>
+<h2>One project per product</h2>
+<p>Each product I work on has its own Claude Project: this site, <a href="https://rillow.ai">Rillow</a>, <a href="https://bundle.ink">Bundle</a> and <a href="https://unposed.camera">Unposed</a>. Since the <a href="https://claude.com/blog/projects-redesigned">September 2026 redesign</a>, a project is one long conversation with a coordinator. I tell the coordinator what needs doing, and it starts a thread for each task. Every thread is a full Claude Code session in the cloud with its own copy of the repository, so three tasks can run at the same time without stepping on each other.</p>
+<p>Boris Cherny, who created Claude Code, described running this by hand in January: five Claude sessions in numbered terminal tabs, five to ten more in the browser, and system notifications to tell him which one needs input (<a href="https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are">VentureBeat</a>). A project does that bookkeeping for me. When I come back to my laptop, the Overview pane shows which threads finished and which one is waiting for my answer. It works from the phone app too.</p>
+<p>I wrote a separate post on <a href="/writing/how-to-use-claude-projects/">how I use Claude Projects</a>, so here I'll stay with the workflow itself.</p>
+<h2>I write the rules down once</h2>
+<p>Every new thread starts from the project's instructions. For davit.cc they are one short paragraph:</p>
+<blockquote>
+<p>Site is davit.cc, built from the main branch of davit-khaburdzania.github.io and served by a Cloudflare Worker (wrangler.jsonc). Davit is the only one working on the site, so don't open pull requests: commit and push straight to main. Every push to main deploys davit.cc automatically within about a minute (Cloudflare's GitHub connection), so a push is a production change: show Davit a preview of visual changes before pushing. Keep profile details (location "Tbilisi, Georgia", website davit.cc) consistent across the site, GitHub and LinkedIn. Verify changes on the live site after each push.</p>
+</blockquote>
+<p>The repository has its own guide, <code>AGENTS.md</code>, and <code>CLAUDE.md</code> is a one-line pointer to it, so Claude and other agents read the same file. <code>AGENTS.md</code> is 64 lines long: how to run the site locally, which file does what, and the design rules I would otherwise repeat in every task. A few of them:</p>
+<pre><code class="language-md">- Light only. Mostly cool grey with a faint lavender glow. Davit found stronger lilac &quot;too colourful&quot;. Never use green accents.
+- Keep pixel art pixel-exact: nearest-neighbour scaling only.
+- Motion must respect `prefers-reduced-motion`. WebGL pieces need a non-WebGL fallback.
+</code></pre>
+<p>Most of those rules exist because I said no to something once. Mitchell Hashimoto calls this engineering the harness: when an agent makes a mistake, you change its instructions or give it a tool so the same mistake doesn't come back (<a href="https://mitchellh.com/writing/my-ai-adoption-journey">My AI Adoption Journey</a>). Decisions about the project, like "Unposed goes last in the Projects list", go into project memory instead. When I correct a thread, I tell it to remember the correction, and every later thread starts with it.</p>
+<h2>Threads write the code, I make the calls</h2>
+<p>During the redesign, the threads built the grainy WebGL hero, the phone menu, four Playground experiments and a pixel-art favicon. What they could not do was decide which version was mine. These are my replies from the redesign thread, word for word:</p>
+<ul>
+<li>On the first lavender prototype: "too colourful".</li>
+<li>On the grainy smoke hero, modelled on the one on slides.com: "i love it".</li>
+<li>On illustrated scenes for the project cards: "childish". On redrawn product screens: "not real". The cards ended up using the hero's dust in each product's own colour.</li>
+<li>On a pixel-art Shiba next to a line-art one: "Pixel is better".</li>
+</ul>
+<p>None of those are code review comments, and replies like these are most of what I do in a project now. Simon Willison opened his <a href="https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/">Agentic Engineering Patterns</a> guide with a chapter called "Writing code is cheap now". When three versions of a project card cost a few minutes of a thread's time, choosing between them is the work.</p>
+<p>Short answers are enough. A thread shows me a preview, I reply with two words, and it either ships or tries again. When a choice changes what I'm building, Claude puts it on a decision card with the options and a recommendation, and keeps working on the recommended one while it waits for me.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape" src="/assets/images/writing/rubber-stamp-three-sheets.webp"></figure>
+<h2>The setup behind my agentic coding workflow</h2>
+<p>A thread can only do what it can reach, so I connect the tools I use myself:</p>
+<ul>
+<li>GitHub, for code. Each thread works on its own branch, or pushes straight to main where I've said so.</li>
+<li>Rillow, my SEO product, which runs as an MCP server inside Claude or Codex. It gives the agent keyword data, the live Google results, a content plan and rank tracking, and it keeps a memory of each site.</li>
+<li>My Mac, through Remote Control. I design in Paper, which only runs on my Mac, so when a task needs Paper, Claude starts a session on my machine and works there. The same session can run Bundle and Unposed in the iOS simulator.</li>
+<li>A shared folder of project files, where threads leave screenshots, logos and drafts for each other and for me.</li>
+</ul>
+<p>This post went through the same loop. A thread read the most-discussed posts on agentic coding, pulled a brief from Rillow with the current Google top 10, and wrote a draft. I edited it, and the images came from Rillow's image tool.</p>
+<h2>What I keep for myself</h2>
+<p>I decide what gets built and in what order, and I keep the steps that can't be undone. On davit.cc every push to main is a deploy, so the rule above makes a thread show me a preview of any visual change first. Anything that goes out under my name gets the same treatment: I read two rounds of alternative headlines for the homepage and kept my original.</p>
+<p>Some things I still do by hand. When the CV needed updating, Claude offered to edit the PDF, and I chose to export it myself. The site links to whatever file I send.</p>
+<h2>What still goes wrong</h2>
+<p>Instructions can be wrong. When I set up the project, the first draft of the instructions said the site is served from the master branch. The first thread read the repository, found a Cloudflare Worker serving main, and the coordinator fixed the instructions a few minutes later. A thread that reads the repository is more reliable than any summary, including mine.</p>
+<p>Agents are strong at code and weak at drawing from nothing. A hand-coded SVG Shiba looked "silly", a 3D plush Shiba in three.js came out too red and not realistic, and the illustrated project scenes looked childish. What worked was a style with clear rules, like pixel art, or a design I make in Paper first and hand over.</p>
+<p>Long threads get heavy. The redesign thread grew to 165 replies over two days. A follow-up to a big thread that has been idle for more than an hour makes Claude re-read the whole conversation, so new work, like this blog, now gets its own thread.</p>
+<h2>If you want to try this</h2>
+<p>Start with one stream of work you keep coming back to, like a side project, and make it a project. Write the instructions in a paragraph: where the code lives, how a change gets checked, and what needs your go-ahead. Put the repository's rules in <code>AGENTS.md</code>. Ask for a preview before anything ships, answer in as few words as you can, and when you correct a thread, tell it to remember.</p>
+<p>If you're hiring for this kind of work, my <a href="/cv/">CV</a> has the rest.</p>
+  </article>
+  <aside class="more" aria-label="More writing">
+    <h2>More writing</h2>
+    <div class="post-list">
+      <a class="post reveal" href="/writing/how-to-use-claude-projects/"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">Claude</span></div><h3>How to use Claude Projects the right way</h3><p>Threads, memory and shared files: how I run real work, like this site, inside Claude Projects.</p></a>
+      <a class="post reveal" href="/writing/languages-and-frameworks-dont-matter/"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">Opinion</span></div><h3>Languages and frameworks don&#x27;t matter anymore</h3><p>After 15+ years across Rails, Elixir, React and Node, why the stack matters less than ever with AI.</p></a>
+    </div>
+  </aside>
+</main>
+</div>
+
+<div class="page">
+<footer class="inner" id="contact">
+  <p class="big">Let's build something.</p>
+  <div class="contact">
+    <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a>
+    <a href="https://github.com/davit-khaburdzania" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/dkhaburdzania" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/dkhaburdzania" target="_blank" rel="noopener">Twitter</a>
+    <a href="/cv/v4.pdf" download="Davit-Khaburdzania-CV.pdf">CV (PDF)</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

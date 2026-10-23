@@ -24,6 +24,7 @@ Plain static HTML, CSS and JS. No framework, no build step, no package.json.
 | `projects/vendor/` | three.js r180, vendored for Shiba Land |
 | `projects/workplace/` | Old AngularJS demo, not linked from the site |
 | `cv/` | CV page and PDFs. The site links `/cv/v4.pdf` |
+| `writing/` | Blog: `index.html` lists the posts, `<slug>/index.html` is one post, `feed.xml` is the Atom feed. Styles in `assets/css/post.css`, images in `assets/images/writing/` |
 | `404.html` | Not-found page, served by the Worker's `404-page` handling |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Pixel-art Shiba head |
 | `src/index.js`, `wrangler.jsonc` | Worker: redirects http and www to https://davit.cc, then serves the repo root as static assets |
@@ -53,7 +54,7 @@ Open http://127.0.0.1:8765/. Check layouts at 1440, 800 and 390 px wide. The CSS
 
 - 15+ years of experience. The section is "Projects", not "Work". Projects in order: Rillow.ai, bundle.ink, unposed.camera.
 - Experience must match Davit's CV: every CV job plus an "Earlier" row, short CV wording, and a tech line. Edit both together.
-- Writing shows upcoming posts marked "Upcoming" until real posts exist.
+- Writing posts are static pages under `writing/<slug>/`. A new post also needs its card on the homepage and `/writing/`, an entry in `sitemap.xml` and `feed.xml`, BlogPosting JSON-LD, and a 1200x630 share image.
 - Davit exports CV PDFs himself. Don't edit the PDFs; swap the link when he sends a new one.
 - Links: Twitter/X https://x.com/dkhaburdzania, GitHub davit-khaburdzania, LinkedIn dkhaburdzania. Location: Tbilisi, Georgia.
 - No Nintendo characters or look-alikes; Shiba Land uses the Shiba as its hero.

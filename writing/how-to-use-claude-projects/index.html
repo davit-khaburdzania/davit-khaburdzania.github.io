@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKV2L39B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCKV2L39B9');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F6F9">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
+  <title>How to use Claude Projects the right way – Davit Khaburdzania</title>
+  <meta name="description" content="Claude Projects became a coordinator with threads in September 2026. How to set one up, write instructions, use memory and keep usage down.">
+  <link rel="canonical" href="https://davit.cc/writing/how-to-use-claude-projects/">
+  <meta name="author" content="Davit Khaburdzania">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davit.cc/writing/how-to-use-claude-projects/">
+  <meta property="og:site_name" content="davit.cc">
+  <meta property="og:title" content="How to use Claude Projects the right way">
+  <meta property="og:description" content="Claude Projects became a coordinator with threads in September 2026. How to set one up, write instructions, use memory and keep usage down.">
+  <meta property="og:image" content="https://davit.cc/assets/images/writing/how-to-use-claude-projects-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A hand holding the ends of five threads, each running to its own wooden spool on a table">
+  <meta property="article:published_time" content="2026-10-23T12:00:00+04:00">
+  <meta property="article:author" content="https://davit.cc/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dkhaburdzania">
+  <meta name="twitter:creator" content="@dkhaburdzania">
+  <link rel="preload" as="image" href="/assets/images/writing/hand-threads-spools.webp" fetchpriority="high">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://davit.cc/writing/how-to-use-claude-projects/#post",
+  "mainEntityOfPage": "https://davit.cc/writing/how-to-use-claude-projects/",
+  "url": "https://davit.cc/writing/how-to-use-claude-projects/",
+  "headline": "How to use Claude Projects the right way",
+  "description": "Claude Projects became a coordinator with threads in September 2026. How to set one up, write instructions, use memory and keep usage down.",
+  "image": [
+    "https://davit.cc/assets/images/writing/hand-threads-spools.webp",
+    "https://davit.cc/assets/images/writing/how-to-use-claude-projects-og.jpg"
+  ],
+  "datePublished": "2026-10-23T12:00:00+04:00",
+  "dateModified": "2026-10-23T12:00:00+04:00",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "inLanguage": "en",
+  "wordCount": 2080,
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://davit.cc/writing/#blog",
+    "url": "https://davit.cc/writing/",
+    "name": "davit.cc Writing"
+  }
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/post.css">
+</head>
+<body class="post-page">
+<div class="page"><div class="inner">
+  <nav aria-label="Main">
+    <a class="logo" href="/" aria-label="davit.cc home"><svg class="logo-mark" width="32" height="32" aria-hidden="true" viewBox="3 4 58 56">
+  <path d="M11 27 C10 19 12 11 15 7.5 C16.5 6 17.5 6.5 19 8 L26.5 17 Q32 15.5 37.5 17 L45 8 C46.5 6.5 47.5 6 49 7.5 C52 11 54 19 53 27 C57 31 59 36 57.5 41 C59 44 57 48 53.5 49 C49 55 41 58 32 58 C23 58 15 55 10.5 49 C7 48 5 44 6.5 41 C5 36 7 31 11 27 Z" fill="#B9B7E6" stroke="#111114" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M15.5 12 C16.5 10 17.5 10.5 18.5 12 L23.5 18.5 C20.5 20 18 22.5 16 25 C15 21 15 16 15.5 12 Z M48.5 12 C47.5 10 46.5 10.5 45.5 12 L40.5 18.5 C43.5 20 46 22.5 48 25 C49 21 49 16 48.5 12 Z" fill="#E9E8FC"/>
+  <path d="M8.2 42 C10 36.5 16 33.5 22 35 C26 36 29 38.2 32 38.2 C35 38.2 38 36 42 35 C48 33.5 54 36.5 55.8 42 C56.6 45.5 54 48.4 51.3 48.9 C47 54.8 40 57.6 32 57.6 C24 57.6 17 54.8 12.7 48.9 C10 48.4 7.4 45.5 8.2 42 Z" fill="#FFFFFF"/>
+  <ellipse cx="24" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="40" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="24.6" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <ellipse cx="39.4" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <path d="M29.4 49.4 Q32 55 34.6 49.4 Z" fill="#F2A7B5"/>
+  <path d="M28.6 41.6 Q32 40.3 35.4 41.6 Q35.2 44.6 32 45.7 Q28.8 44.6 28.6 41.6 Z" fill="#111114"/>
+  <path d="M32 45.7 V47.6 M25.5 46.6 Q28.3 51.2 32 47.6 Q35.7 51.2 38.5 46.6" fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>davit.cc</a>
+    <div class="links">
+      <a href="/#projects">Projects</a>
+      <a href="/#playground">Playground</a>
+      <a href="/#experience">Experience</a>
+      <a href="/writing/">Writing</a>
+      <a class="btn btn-dark nav-cta" href="#contact">Say hi</a>
+    </div>
+  </nav>
+</div></div>
+
+<div class="page">
+<main class="article">
+  <header class="post-head">
+    <span class="kicker"><a href="/writing/">Writing</a> · Claude</span>
+    <h1>How to use Claude Projects the right way</h1>
+    <p class="dek">Claude Projects became a coordinator with threads in September 2026. How to set one up, write instructions, use memory and keep usage down.</p>
+    <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-10-23">23 Oct 2026</time><span class="sep"></span><span>10 min read</span></div>
+  </header>
+  <figure class="post-hero"><img src="/assets/images/writing/hand-threads-spools.webp" alt="A hand holding the ends of five threads, each running to its own wooden spool on a table" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
+  <article class="prose">
+<p>If you're working out how to use Claude Projects well, treat a project as one stream of work that you brief once and keep feeding. Since the September 2026 redesign, a project is a conversation with a coordinator that starts a thread for each task, and every thread is a full Claude Code session. You get the most out of it by putting standing rules in the project instructions, letting memory collect your decisions, sending work as it comes up, and answering the threads that wait on you. I run this site, <a href="/">davit.cc</a>, in a project, and the examples below come from it.</p>
+<h2>What changed in September 2026</h2>
+<p>Anthropic announced the change on September 17, 2026, in <a href="https://claude.com/blog/projects-redesigned">Projects redesigned: from folder to conversation</a>. The older Projects in claude.ai chat were a folder: reference files, custom instructions and the chats you had inside it. The new Projects live in Claude Code. You talk to one coordinator in the project chat. It decides whether to answer you directly or start a thread, and each thread is a cloud session with its own branch and copy of the repository. Threads report back to the coordinator, read and add to a shared memory, and leave their files in the project's Library.</p>
+<p>Some practical facts from the <a href="https://code.claude.com/docs/en/claude-projects">Claude Code docs</a>, as of October 2026:</p>
+<ul>
+<li>Projects are in public beta on the Pro and Max plans and are still rolling out. They aren't on Team or Enterprise yet.</li>
+<li>You use them at claude.ai/code, in the Code tab of the desktop app, and in the mobile app, but not in the terminal CLI or the IDE extensions.</li>
+<li>The older folder-style projects in claude.ai chat and Cowork keep working until the new version reaches them.</li>
+</ul>
+<p>Several of the guides that rank for "how to use Claude Projects" still describe the folder version. Everything below is about the new one.</p>
+<h2>When a project is worth creating</h2>
+<p>A project pays off when the work has a goal that outlasts one session and keeps producing tasks. The docs give examples like one change across many repositories, an area you keep feeding bugs into, a migration bigger than a session, and work that isn't code at all, like a folder of contracts you keep asking questions about.</p>
+<p>A single task that fits in one session is better as a plain cloud session. Work where every step needs your own machine fits a local session better. And a job that runs on a schedule with no conversation around it is a routine.</p>
+<p>My personal site is that kind of stream. Since October 8 the davit.cc project has handled a full redesign, a new favicon, four small Playground experiments and these blog posts. None of that fits in one session, and all of it shares the same rules.</p>
+<h2>Let Claude propose the setup</h2>
+<p>I didn't write my setup from scratch. My first message in the new project was:</p>
+<blockquote>
+<p>Help me set up this new project from my recent work. Look through my recent sessions and repositories, identify the main thread of work, and propose a project setup: a short name, the repositories it should include, an environment, concise project instructions drawn from what kept coming up, and one or two optional routines. Show me the proposal before changing anything.</p>
+</blockquote>
+<p>Claude read my last 46 sessions from the previous four weeks, found the one line of work that belonged in this project (deploying davit.cc), and came back with draft instructions and an optional weekly health check of the live site. Nothing changed until I answered "yes". If you already have a cloud session doing the work, the "Continue as project" option in its menu does the same thing from that session.</p>
+<h2>Write project instructions threads can follow</h2>
+<p>Project instructions are the brief that every new thread and the coordinator start from, up to 16,000 characters. A good brief says what the project is for, where the work happens (repository, branch, how pull requests are named), how a thread checks its own work, what to do when something it needs is missing, and what needs your go-ahead.</p>
+<p>Mine for davit.cc are one paragraph:</p>
+<blockquote>
+<p>Site is davit.cc, built from the main branch of davit-khaburdzania.github.io and served by a Cloudflare Worker (wrangler.jsonc). Davit is the only one working on the site, so don't open pull requests: commit and push straight to main. Every push to main deploys davit.cc automatically within about a minute (Cloudflare's GitHub connection), so a push is a production change: show Davit a preview of visual changes before pushing. Keep profile details (location "Tbilisi, Georgia", website davit.cc) consistent across the site, GitHub and LinkedIn. Verify changes on the live site after each push.</p>
+</blockquote>
+<p>The first version was wrong. It said the site is served from the master branch. The first thread read the repository and found a Cloudflare Worker serving the main branch, and a few minutes later the coordinator had fixed the instructions. The rule about pushing straight to main came a day later, when I told a thread to remember that I'm the only one working on the site and don't want pull requests. The rule about previews came right after, once we'd confirmed that every push deploys.</p>
+<p>Two details are easy to miss. A change to the instructions reaches new threads only, so a thread that is already running keeps the old brief. And instructions are for rules. Facts about one repository, like build commands, belong in that repository's <code>CLAUDE.md</code>.</p>
+<h2>Instructions, memory and CLAUDE.md</h2>
+<p>A project carries context in three places, and each one has its own job:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What goes in it</th>
+<th>Example from davit.cc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project instructions</td>
+<td>Rules every thread needs from its first message</td>
+<td>Push straight to main, and show a preview of visual changes first</td>
+</tr>
+<tr>
+<td>Project memory</td>
+<td>Decisions and pitfalls Claude collects as you work</td>
+<td>"Pixel is better": the favicon and Pet the Shiba use the pixel-art Shiba</td>
+</tr>
+<tr>
+<td><code>CLAUDE.md</code> or <code>AGENTS.md</code> in the repository</td>
+<td>How the code is built and styled</td>
+<td>"Light only. Never use green accents."</td>
+</tr>
+</tbody>
+</table></div>
+<p>Project memory is a set of files Claude writes itself. Every cloud thread reads the index file, <code>MEMORY.md</code>, when it starts and opens the other files when it needs them, and you can read and edit them in Project settings &gt; Memory. You fill it by asking: "remember that Unposed goes last in the Projects list" is all it takes. In my project, memory holds the design decisions from the redesign, the fact that Paper only runs on my Mac, and the three topics I picked for this blog.</p>
+<p>The repository file is the one I'd write first, because every session reads it, inside a project or not. My <code>AGENTS.md</code> is 64 lines on how the site is built, shipped and styled, and <code>CLAUDE.md</code> just points to it, so every thread and every other agent reads the same rules.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="An open wooden index card box with blank cards, next to a folded sheet of paper and a pencil" src="/assets/images/writing/index-card-box.webp"></figure>
+<h2>Send work, then walk away</h2>
+<p>Once the setup is in place, you write to the coordinator the way you'd write to a colleague. A quick question gets an answer in the chat. New work becomes a thread, or goes to a thread that's already working in that area, and several unrelated tasks in one message become separate threads. This blog started with one message from me, and the coordinator started a thread with the context from memory already attached: the three post topics I'd chosen two weeks before.</p>
+<p>The Overview pane groups threads by state: Ready for review, Waiting on you, Working, Landing, Idle and Resolved. When a choice changes what I'm building, the thread asks on a card with two to four options and a recommendation. For my CV, the card asked whether Claude should edit the PDF or I'd export it myself, and I picked "I'll do it".</p>
+<p>You can also tell the coordinator how to run the project, in plain words. The docs list examples like "Propose threads and wait for my go-ahead before starting them", "Run at most two threads at a time" and "Only post when something finishes or is blocked". Claude saves these to memory and follows them, though a thread limit given this way isn't enforced.</p>
+<p>Approvals work in a way you might not expect. Threads run in auto mode, so most commands run without asking, but when a thread does need your approval, the prompt is inside that thread. Telling the coordinator "go ahead" doesn't reach it. Open the thread and answer there.</p>
+<h2>Run a thread on your own computer</h2>
+<p>Some work needs your machine: a local database, a device simulator, or an app that only runs on your laptop. For me that's Paper, the design tool I use, which only runs on my Mac. A project can run that one thread on your computer through Remote Control while the rest stay in the cloud.</p>
+<p>To set it up in the desktop app, open Settings &gt; Claude Code, turn on "Use this computer from your phone and claude.ai" and add the folder. Or run <code>claude remote-control</code> in the folder from a terminal. Both need Claude Code v2.1.280 or later. Then choose "Work locally" from the + menu in the project chat, describe the task, and allow it on the card.</p>
+<p>A thread on your computer uses that machine's files, tools, MCP servers and settings. It starts with the project instructions but without the memory files, so anything it must know goes in the instructions or the task. It pauses while the computer sleeps.</p>
+<h2>Keep usage under control</h2>
+<p>A project uses your plan faster than a single session, because each thread is a full Claude Code session and several can run at once. A new project runs threads on Opus at high effort, and you can change the thread and coordinator models and effort in Project settings &gt; General. There's also a hard limit of 200 new threads per day across your projects.</p>
+<p>Long threads cost more than they look. The redesign thread grew to 165 replies over two days. When a thread has been idle longer than the cache lifetime (an hour on Pro and Max), a follow-up makes Claude re-read the whole conversation before it does anything. Now new work gets a fresh thread, and the redesign thread is resolved. Threads that watch a pull request also wake up when CI fails or a review comes in, so ask a thread to stop watching when you're done with it. The Usage tab in project settings shows where the tokens went, by thread and by model.</p>
+<h2>Frequently asked questions</h2>
+<h3>When should I use a project instead of a chat?</h3>
+<p>Use a project when the work outlasts one session and keeps producing tasks, like a product, a migration or a site you keep improving. A one-off question fits a chat, and a single coding task fits one cloud session.</p>
+<h3>What is the difference between Claude Projects and Claude Code?</h3>
+<p>Projects are built on Claude Code. Every thread is a Claude Code session, usually in the cloud. The project adds the coordinator, shared instructions and memory, the Library of files, and the Overview pane that tracks every thread.</p>
+<h3>Can I share a Claude Project with my team?</h3>
+<p>Not during the beta. A project belongs to one person, and thread transcripts can't be shared. For a team giving Claude work together in Slack, Anthropic points to Claude Tag instead.</p>
+<h3>Do cloud threads get my local skills and MCP servers?</h3>
+<p>No. Cloud threads get the connectors on your claude.ai account, the skills you enable there, and the skills, agents and commands committed to the project's repositories. Anything installed only on your laptop is missing unless the thread runs on your computer.</p>
+<p>I wrote more about the day-to-day side in <a href="/writing/agentic-coding-workflow/">my agentic coding workflow</a>, and the rest of my background is on my <a href="/cv/">CV</a>.</p>
+  </article>
+  <aside class="more" aria-label="More writing">
+    <h2>More writing</h2>
+    <div class="post-list">
+      <a class="post reveal" href="/writing/agentic-coding-workflow/"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">AI workflow</span></div><h3>My agentic coding workflow</h3><p>How I build with AI agents every day: what I hand off, what I keep, and the setup behind it.</p></a>
+      <a class="post reveal" href="/writing/languages-and-frameworks-dont-matter/"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">Opinion</span></div><h3>Languages and frameworks don&#x27;t matter anymore</h3><p>After 15+ years across Rails, Elixir, React and Node, why the stack matters less than ever with AI.</p></a>
+    </div>
+  </aside>
+</main>
+</div>
+
+<div class="page">
+<footer class="inner" id="contact">
+  <p class="big">Let's build something.</p>
+  <div class="contact">
+    <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a>
+    <a href="https://github.com/davit-khaburdzania" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/dkhaburdzania" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/dkhaburdzania" target="_blank" rel="noopener">Twitter</a>
+    <a href="/cv/v4.pdf" download="Davit-Khaburdzania-CV.pdf">CV (PDF)</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

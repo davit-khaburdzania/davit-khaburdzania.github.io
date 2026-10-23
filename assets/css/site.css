@@ -91,7 +91,10 @@ h2{margin:6px 0 0;font-weight:500;font-size:clamp(32px,4.4vw,56px);letter-spacin
 .posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .post{background:radial-gradient(90% 100% at 100% 0%,#F1F1F8,transparent 70%),var(--surface);border-radius:22px;padding:clamp(20px,2.2vw,28px);display:flex;flex-direction:column;gap:12px}
 .post-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:36px}
-.soon{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:999px;background:var(--ground);color:var(--ink-2)}
+.soon,.pdate{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:999px;background:var(--ground);color:var(--ink-2)}
+.pdate{font-variant-numeric:tabular-nums}
+a.post{text-decoration:none;color:inherit;transition:transform .25s}
+a.post:hover{transform:translateY(-3px)}
 .ptopic{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .post h3{margin:0;font-weight:500;font-size:clamp(21px,1.9vw,25px);letter-spacing:-.03em;line-height:1.12}
 .post p{margin:0;color:var(--ink-2)}
@@ -113,7 +116,7 @@ footer{padding-block:40px 56px;border-top:1px solid var(--line);display:flex;jus
   .xrow{grid-template-columns:1fr;gap:4px}
 }
 @media (max-width:520px){.ctas{gap:8px}.ctas .btn{padding:12px 14px;font-size:15px;gap:8px;white-space:nowrap}.where{row-gap:6px}.where>span.sep:last-of-type{display:none}.where>i:last-child{flex-basis:100%}.play{grid-template-columns:1fr}.ptile{aspect-ratio:16/11}}
-@media (prefers-reduced-motion: reduce){.btn,.wcard,.btn .arrow{transition:none}}
+@media (prefers-reduced-motion: reduce){.btn,.wcard,a.post,.btn .arrow{transition:none}}
 
 
 /* Motion */
@@ -201,10 +204,10 @@ section[id]{scroll-margin-top:84px}
 /* Touch: press feedback instead of hover states that stick after a tap */
 a,button{-webkit-tap-highlight-color:transparent}
 @media (hover:none){
-  .wcard:hover,.ptile:hover,.btn-dark:hover{transform:none;box-shadow:none}
+  .wcard:hover,.ptile:hover,a.post:hover,.btn-dark:hover{transform:none;box-shadow:none}
   .btn:hover .arrow{transform:none}
   .xrow:hover{background:none}
-  .wcard,.ptile,.btn{transition:transform .15s ease}
-  .wcard:active,.ptile:active{transform:scale(.985)}
+  .wcard,.ptile,a.post,.btn{transition:transform .15s ease}
+  .wcard:active,.ptile:active,a.post:active{transform:scale(.985)}
   .btn:active{transform:scale(.96)}
 }
