@@ -13,7 +13,7 @@
     <published>2026-10-23T12:00:00+04:00</published>
     <updated>2026-10-25T12:00:00+04:00</updated>
     <summary>How I build with AI agents: Claude writes the code, I write the rules once and make the calls. With the real prompts I used to rebuild this site.</summary>
-    <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/robots-three-drawings.webp&quot; alt=&quot;A person at a desk with a coffee looks at three small robots, each holding up a different drawing of a house&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/notebook-paper-planes.webp&quot; alt=&quot;An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions&quot;&gt;&lt;/p&gt;
 &lt;p&gt;I rebuilt this website in two days and didn&#x27;t write a line of code.&lt;/p&gt;
 &lt;p&gt;Claude wrote it. I said yes or no. Mostly no.&lt;/p&gt;
 &lt;p&gt;That&#x27;s my agentic coding workflow, and it comes down to three things:&lt;/p&gt;
@@ -57,8 +57,8 @@
 &lt;p&gt;That last one became &lt;a href=&quot;https://davit.cc/projects/shiba-land/&quot;&gt;Shiba Land&lt;/a&gt;, a small platformer. With a Shiba instead of Mario, because I&#x27;d like to keep this website.&lt;/p&gt;
 &lt;p&gt;None of this is code review. It&#x27;s taste, and taste is most of my job now.&lt;/p&gt;
 &lt;p&gt;Simon Willison says &lt;a href=&quot;https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/&quot;&gt;writing code is cheap now&lt;/a&gt;. When three versions of a page take a few minutes, picking one is the work.&lt;/p&gt;
+&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A person at a desk with a coffee looks at three small robots, each holding up a different drawing of a house&quot; src=&quot;https://davit.cc/assets/images/writing/robots-three-drawings.webp&quot;&gt;&lt;figcaption&gt;Three versions. Pick one.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;If a choice changes what I&#x27;m building, Claude asks on a card with a few options and a recommendation. I pick one and go back to what I was doing.&lt;/p&gt;
-&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape&quot; src=&quot;https://davit.cc/assets/images/writing/rubber-stamp-three-sheets.webp&quot;&gt;&lt;figcaption&gt;Most of the job.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;h2&gt;By the numbers&lt;/h2&gt;
 &lt;div class=&quot;table-wrap&quot;&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -92,6 +92,7 @@
 &lt;/table&gt;&lt;/div&gt;
 &lt;h2&gt;What I keep for myself&lt;/h2&gt;
 &lt;p&gt;I decide what gets built. I approve anything that can&#x27;t be undone. On this site every push goes live, so I see a preview first.&lt;/p&gt;
+&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape&quot; src=&quot;https://davit.cc/assets/images/writing/rubber-stamp-three-sheets.webp&quot;&gt;&lt;figcaption&gt;The part I keep.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;And I read anything with my name on it. Including this post, which has been rewritten three times. The first version sounded like a robot. The second had too many details. The third was fine, and then I found a style I liked better.&lt;/p&gt;
 &lt;h2&gt;What still goes wrong&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Instructions go stale.&lt;/strong&gt; My first setup said the site deploys from the master branch. It doesn&#x27;t. The first thread read the code and fixed it. Trust the code over your own summary.&lt;/p&gt;
@@ -115,7 +116,7 @@
     <published>2026-10-23T12:00:00+04:00</published>
     <updated>2026-10-25T12:00:00+04:00</updated>
     <summary>How to use the new Claude Projects: let Claude set it up, keep instructions short, know where memory goes and watch your usage. Examples from my own site.</summary>
-    <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/robot-coordinator-threads.webp&quot; alt=&quot;A person talks to one robot, which holds threads leading to five small robots each working at its own little desk&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/hand-threads-spools.webp&quot; alt=&quot;A hand holding the ends of five threads, each running to its own wooden spool on a table&quot;&gt;&lt;/p&gt;
 &lt;p&gt;I run this whole website from one Claude Project. The redesign, the favicon, the little games, these posts. All of it.&lt;/p&gt;
 &lt;p&gt;If you want to know how to use Claude Projects well, here&#x27;s the short version: brief it once, keep feeding it work, and answer when it asks.&lt;/p&gt;
 &lt;p&gt;The rest of this post is the long version, from my own setup.&lt;/p&gt;
@@ -123,6 +124,7 @@
 &lt;p&gt;Anthropic &lt;a href=&quot;https://claude.com/blog/projects-redesigned&quot;&gt;redesigned Projects&lt;/a&gt; in September 2026.&lt;/p&gt;
 &lt;p&gt;Before, a project was a folder: some files, some instructions, some chats.&lt;/p&gt;
 &lt;p&gt;Now it&#x27;s a chat with a coordinator. You tell it what you want. It answers, or it starts a thread. Each thread is a full Claude Code session with its own copy of your code. Threads share a memory and report back when they&#x27;re done.&lt;/p&gt;
+&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A person talks to one robot, which holds threads leading to five small robots each working at its own little desk&quot; src=&quot;https://davit.cc/assets/images/writing/robot-coordinator-threads.webp&quot;&gt;&lt;figcaption&gt;You only talk to the one in the middle.&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;p&gt;It&#x27;s in beta on Pro and Max, on the web, desktop and mobile apps (&lt;a href=&quot;https://code.claude.com/docs/en/claude-projects&quot;&gt;docs&lt;/a&gt;). Most guides online still describe the old folder version.&lt;/p&gt;
 &lt;h2&gt;1. Let Claude set it up&lt;/h2&gt;
 &lt;p&gt;I didn&#x27;t write my setup. My first message was:&lt;/p&gt;
