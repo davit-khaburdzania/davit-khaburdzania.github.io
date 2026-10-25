@@ -17,24 +17,24 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
   <title>Languages and frameworks don&#x27;t matter anymore – Davit Khaburdzania</title>
-  <meta name="description" content="With AI agents writing most of the code, the stack matters much less than it used to. Why I think so, and what still matters.">
+  <meta name="description" content="With AI agents writing most of the code, the stack matters much less. What the best language for AI coding really comes down to, and what still matters.">
   <link rel="canonical" href="https://davit.cc/writing/languages-and-frameworks-dont-matter/">
   <meta name="author" content="Davit Khaburdzania">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://davit.cc/writing/languages-and-frameworks-dont-matter/">
   <meta property="og:site_name" content="davit.cc">
   <meta property="og:title" content="Languages and frameworks don&#x27;t matter anymore">
-  <meta property="og:description" content="With AI agents writing most of the code, the stack matters much less than it used to. Why I think so, and what still matters.">
+  <meta property="og:description" content="With AI agents writing most of the code, the stack matters much less. What the best language for AI coding really comes down to, and what still matters.">
   <meta property="og:image" content="https://davit.cc/assets/images/writing/languages-and-frameworks-dont-matter-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="A screwdriver handle next to a row of six interchangeable bits with different tips">
+  <meta property="og:image:alt" content="A small robot holding a screwdriver handle shrugs at a row of different screwdriver bits">
   <meta property="article:published_time" content="2026-10-23T12:00:00+04:00">
   <meta property="article:author" content="https://davit.cc/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dkhaburdzania">
   <meta name="twitter:creator" content="@dkhaburdzania">
-  <link rel="preload" as="image" href="/assets/images/writing/screwdriver-bits.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/writing/robot-screwdriver-shrug.webp" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,13 +43,13 @@
   "mainEntityOfPage": "https://davit.cc/writing/languages-and-frameworks-dont-matter/",
   "url": "https://davit.cc/writing/languages-and-frameworks-dont-matter/",
   "headline": "Languages and frameworks don't matter anymore",
-  "description": "With AI agents writing most of the code, the stack matters much less than it used to. Why I think so, and what still matters.",
+  "description": "With AI agents writing most of the code, the stack matters much less. What the best language for AI coding really comes down to, and what still matters.",
   "image": [
-    "https://davit.cc/assets/images/writing/screwdriver-bits.webp",
+    "https://davit.cc/assets/images/writing/robot-screwdriver-shrug.webp",
     "https://davit.cc/assets/images/writing/languages-and-frameworks-dont-matter-og.jpg"
   ],
   "datePublished": "2026-10-23T12:00:00+04:00",
-  "dateModified": "2026-10-23T12:00:00+04:00",
+  "dateModified": "2026-10-25T12:00:00+04:00",
   "author": {
     "@type": "Person",
     "@id": "https://davit.cc/#person",
@@ -63,7 +63,7 @@
     "url": "https://davit.cc/"
   },
   "inLanguage": "en",
-  "wordCount": 677,
+  "wordCount": 621,
   "isPartOf": {
     "@type": "Blog",
     "@id": "https://davit.cc/writing/#blog",
@@ -108,30 +108,48 @@
   <header class="post-head">
     <span class="kicker"><a href="/writing/">Writing</a> · Opinion</span>
     <h1>Languages and frameworks don&#x27;t matter anymore</h1>
-    <p class="dek">With AI agents writing most of the code, the stack matters much less than it used to. Why I think so, and what still matters.</p>
+    <p class="dek">Any language works, as long as the agent can check its own work.</p>
     <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-10-23">23 Oct 2026</time><span class="sep"></span><span>3 min read</span></div>
   </header>
-  <figure class="post-hero"><img src="/assets/images/writing/screwdriver-bits.webp" alt="A screwdriver handle next to a row of six interchangeable bits with different tips" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
+  <figure class="post-hero"><img src="/assets/images/writing/robot-screwdriver-shrug.webp" alt="A small robot holding a screwdriver handle shrugs at a row of different screwdriver bits" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Any bit will do.</figcaption></figure>
   <article class="prose">
-<p>Picking the stack used to be the first big decision on any project. Now that AI agents write most of the code, I don't think it matters much. If you're asking what the best language for AI coding is, my answer is any language where the agent can quickly check its own work, that has plenty of public code to learn from, and that you can still read.</p>
-<h2>I've used a lot of stacks</h2>
-<p>In 15+ years I've worked with Ruby on Rails, Elixir, Node.js, TypeScript, Python and React, and the stack changed with almost every job (my <a href="/#experience">Experience section</a> has the full list). Back then it mattered a lot. The stack decided who you could hire and how fast you could move.</p>
+<p>I've shipped Rails, Elixir, Node, TypeScript, Python and React professionally. For 15 years, picking the stack was the first big decision on every project.</p>
+<p>It isn't anymore.</p>
+<p>If you're asking what the best language for AI coding is, my answer is anything where the agent can check its own work fast. The syntax barely matters.</p>
 <h2>What changed</h2>
-<p>Agents now write most of the code, in whatever language you use. Andrej Karpathy says agents write almost all of his code now (<a href="https://tech.yahoo.com/ai/chatgpt/articles/ai-agents-wrote-80-karpathys-175030864.html">Yahoo Tech</a>), and Simon Willison puts it simply: <a href="https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/">writing code is cheap now</a>.</p>
-<p>This year I've built a Next.js app for <a href="https://rillow.ai">Rillow</a>, an iPhone app, an Android app and a Chrome extension for <a href="https://bundle.ink">Bundle</a>, and this site in plain HTML. Each time the platform picked the language, and Claude handled all of them.</p>
-<h2>Languages still differ a bit</h2>
-<p>There is some evidence that languages aren't equal for agents. José Valim, who created Elixir, points to a benchmark where Elixir scored highest (<a href="https://dashbit.co/blog/why-elixir-best-language-for-ai">Why Elixir is the best language for AI</a>). GitHub points to a study where almost all compile errors in AI-written code were type errors, which typed languages like TypeScript catch early (<a href="https://github.blog/2025-12-09-why-ai-is-pushing-developers-toward-typed-languages/">GitHub blog</a>). Armin Ronacher, who wrote Flask, likes Go and TypeScript for agents (<a href="https://lucumr.pocoo.org/2026/2/9/a-language-for-agents/">A Language for Agents</a>).</p>
-<p>Look at why, though. Every one of those reasons comes back to fast feedback: a compiler or tests that tell the agent right away when something is wrong. That comes from the tooling much more than from the language.</p>
-<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A balance scale with a different small stone in each pan, its beam almost level" src="/assets/images/writing/balance-scale-stones.webp"></figure>
+<p>Agents write most of the code now, in whatever language you give them.</p>
+<p>This year I've worked on a Next.js app for <a href="https://rillow.ai">Rillow</a>, an iPhone app, an Android app and a Chrome extension for <a href="https://bundle.ink">Bundle</a>, and this site in plain HTML. Each time the platform picked the language. Claude handled all of them.</p>
+<p>Andrej Karpathy says agents now write almost all of his code (<a href="https://tech.yahoo.com/ai/chatgpt/articles/ai-agents-wrote-80-karpathys-175030864.html">Yahoo Tech</a>). Simon Willison puts it simply: <a href="https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/">writing code is cheap now</a>.</p>
+<p>When code is cheap, the language you write it in is a detail.</p>
+<h2>But languages aren't equal</h2>
+<p>To be fair, there's evidence they differ:</p>
+<ul>
+<li><strong>Elixir</strong> scored highest on one benchmark, as its creator José Valim <a href="https://dashbit.co/blog/why-elixir-best-language-for-ai">points out</a>.</li>
+<li><strong>TypeScript</strong> catches the most common mistake. In one study, almost all compile errors in AI-written code were type errors (<a href="https://github.blog/2025-12-09-why-ai-is-pushing-developers-toward-typed-languages/">GitHub</a>).</li>
+<li><strong>Go</strong> gets praise from Armin Ronacher for being easy for agents to read and test (<a href="https://lucumr.pocoo.org/2026/2/9/a-language-for-agents/">A Language for Agents</a>).</li>
+</ul>
+<p>Look at why each one wins, though. It's the same reason every time: the agent finds out fast when it's wrong.</p>
+<p>That comes from the tooling. The syntax has little to do with it.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A small robot building something at a workbench pauses and looks up at a desk lamp that has just lit up" src="/assets/images/writing/robot-lamp-lights-up.webp"><figcaption>All it needs is a light that comes on when it's wrong.</figcaption></figure>
 <h2>What still matters</h2>
-<p>The big one is whether the agent can check its own work. Fast tests and a strict type checker do more than switching languages. Clear conventions help too, because a codebase with one way of doing things is easier for agents and for people. The platform still matters, since an iPhone app goes through Xcode and App Review whatever you write it in. And you still own what ships, so pick something you can read.</p>
-<h2>So what's the best language for AI coding?</h2>
-<p>For a new web app I'd pick TypeScript with strict checks. If your team already knows Rails or Elixir, stay with it and write good tests. Agents can work in any of them. What they can't handle is a codebase with no way to check their work.</p>
+<ol>
+<li><strong>Fast feedback.</strong> Tests that run in seconds and a strict type checker beat any language switch.</li>
+<li><strong>One way to do things.</strong> Conventions help agents for the same reason they help new hires.</li>
+<li><strong>The platform.</strong> An iPhone app goes through Xcode and App Review whatever you write it in.</li>
+<li><strong>Code you can read.</strong> You still review it. You still own it.</li>
+</ol>
+<h2>So what should you pick?</h2>
+<p><strong>A new web app:</strong> TypeScript, with strict checks on.</p>
+<p><strong>Your team already knows Rails or Elixir:</strong> keep it and write good tests.</p>
+<p><strong>Performance-critical, native, or brand new with little public code:</strong> this is where the choice still deserves real thought.</p>
+<p><strong>Everything else:</strong> pick what fits the platform and move on.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A balance scale with a different small stone in each pan, its beam almost level" src="/assets/images/writing/balance-scale-stones.webp"><figcaption>Close enough.</figcaption></figure>
 <h2>What this means for hiring</h2>
-<p>Years in one framework matter less now. I'd look for people who can split work into small tasks, check the results properly and decide what not to build.</p>
-<h2>When I still choose carefully</h2>
-<p>Code where performance is the product, native platform work and very new languages with little public code still deserve a careful choice. For everything else, pick what fits the platform, keep the feedback fast and spend the time you save on the product.</p>
-<p>If you want to see how I work day to day, read <a href="/writing/agentic-coding-workflow/">my agentic coding workflow</a>. My <a href="/cv/">CV</a> has the rest.</p>
+<p>Years in one framework tell you less than they used to. The agent already knows the framework.</p>
+<p>I'd look for someone who splits work into small pieces, checks the results properly and knows what not to build.</p>
+<h2>The short version</h2>
+<p>The best language for AI coding is the one that tells the agent it's wrong. Everything else is preference.</p>
+<p>Here's <a href="/writing/agentic-coding-workflow/">how I work with agents day to day</a>, and here's <a href="/cv/">my CV</a>.</p>
   </article>
   <aside class="more" aria-label="More writing">
     <h2>More writing</h2>

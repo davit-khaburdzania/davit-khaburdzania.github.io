@@ -17,24 +17,24 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
   <title>My agentic coding workflow: what I hand off and keep – Davit Khaburdzania</title>
-  <meta name="description" content="How I build with AI agents every day: Claude writes the code, I write the rules once and make the decisions.">
+  <meta name="description" content="How I build with AI agents: Claude writes the code, I write the rules once and make the calls. With the real prompts I used to rebuild this site.">
   <link rel="canonical" href="https://davit.cc/writing/agentic-coding-workflow/">
   <meta name="author" content="Davit Khaburdzania">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://davit.cc/writing/agentic-coding-workflow/">
   <meta property="og:site_name" content="davit.cc">
   <meta property="og:title" content="My agentic coding workflow: what I hand off and keep">
-  <meta property="og:description" content="How I build with AI agents every day: Claude writes the code, I write the rules once and make the decisions.">
+  <meta property="og:description" content="How I build with AI agents: Claude writes the code, I write the rules once and make the calls. With the real prompts I used to rebuild this site.">
   <meta property="og:image" content="https://davit.cc/assets/images/writing/agentic-coding-workflow-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions">
+  <meta property="og:image:alt" content="A person at a desk with a coffee looks at three small robots, each holding up a different drawing of a house">
   <meta property="article:published_time" content="2026-10-23T12:00:00+04:00">
   <meta property="article:author" content="https://davit.cc/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dkhaburdzania">
   <meta name="twitter:creator" content="@dkhaburdzania">
-  <link rel="preload" as="image" href="/assets/images/writing/notebook-paper-planes.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/writing/robots-three-drawings.webp" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,13 +43,13 @@
   "mainEntityOfPage": "https://davit.cc/writing/agentic-coding-workflow/",
   "url": "https://davit.cc/writing/agentic-coding-workflow/",
   "headline": "My agentic coding workflow",
-  "description": "How I build with AI agents every day: Claude writes the code, I write the rules once and make the decisions.",
+  "description": "How I build with AI agents: Claude writes the code, I write the rules once and make the calls. With the real prompts I used to rebuild this site.",
   "image": [
-    "https://davit.cc/assets/images/writing/notebook-paper-planes.webp",
+    "https://davit.cc/assets/images/writing/robots-three-drawings.webp",
     "https://davit.cc/assets/images/writing/agentic-coding-workflow-og.jpg"
   ],
   "datePublished": "2026-10-23T12:00:00+04:00",
-  "dateModified": "2026-10-23T12:00:00+04:00",
+  "dateModified": "2026-10-25T12:00:00+04:00",
   "author": {
     "@type": "Person",
     "@id": "https://davit.cc/#person",
@@ -63,7 +63,7 @@
     "url": "https://davit.cc/"
   },
   "inLanguage": "en",
-  "wordCount": 697,
+  "wordCount": 894,
   "isPartOf": {
     "@type": "Blog",
     "@id": "https://davit.cc/writing/#blog",
@@ -108,33 +108,104 @@
   <header class="post-head">
     <span class="kicker"><a href="/writing/">Writing</a> · AI workflow</span>
     <h1>My agentic coding workflow</h1>
-    <p class="dek">How I build with AI agents every day: Claude writes the code, I write the rules once and make the decisions.</p>
+    <p class="dek">Mostly, I say no.</p>
     <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-10-23">23 Oct 2026</time><span class="sep"></span><span>4 min read</span></div>
   </header>
-  <figure class="post-hero"><img src="/assets/images/writing/notebook-paper-planes.webp" alt="An open notebook and a coffee cup on a desk, with five paper planes flying off from the notebook in different directions" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
+  <figure class="post-hero"><img src="/assets/images/writing/robots-three-drawings.webp" alt="A person at a desk with a coffee looks at three small robots, each holding up a different drawing of a house" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Three versions. Pick one.</figcaption></figure>
   <article class="prose">
-<p>I build with AI agents every day, and my agentic coding workflow is pretty simple. I write down what I want and how things should be done, Claude does the work, and I make the decisions.</p>
-<p>When I redesigned this site, it took two days. Claude wrote all the code, including a small game called <a href="/projects/shiba-land/">Shiba Land</a>. I reviewed what it made and said what to keep.</p>
-<h2>One project per product</h2>
-<p>Each of my products has its own Claude Project: this site, <a href="https://rillow.ai">Rillow</a>, <a href="https://bundle.ink">Bundle</a> and <a href="https://unposed.camera">Unposed</a>. I tell the project what I need, and it starts a separate thread for each task, so several things get done at the same time. I just check what's finished and what needs me, on my laptop or my phone.</p>
-<p>Boris Cherny, who made Claude Code, used to juggle ten or more sessions by hand (<a href="https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are">VentureBeat</a>). A project does that for me. I wrote more about it in <a href="/writing/how-to-use-claude-projects/">how I use Claude Projects</a>.</p>
-<h2>I write the rules down once</h2>
-<p>Every project has a short paragraph of instructions, and the code has an <code>AGENTS.md</code> file that explains how the site is built and what the design rules are. Most of those rules are there because I said no to something once, like "never use green". When I correct Claude, I tell it to remember, so I never have to say it twice.</p>
-<p>Mitchell Hashimoto calls this engineering the harness: when an agent makes a mistake, you fix its instructions so it doesn't happen again (<a href="https://mitchellh.com/writing/my-ai-adoption-journey">My AI Adoption Journey</a>).</p>
-<h2>Claude writes the code, I make the calls</h2>
-<p>Agents are great at building things. What they can't do is tell which version feels right. Most of my replies are a couple of words, like "too colourful", "i love it" or "Pixel is better".</p>
-<p>That's most of my job now. Simon Willison says <a href="https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/">writing code is cheap now</a>, and when trying three versions takes a few minutes, picking the right one is the work.</p>
-<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape" src="/assets/images/writing/rubber-stamp-three-sheets.webp"></figure>
-<h2>My setup</h2>
-<p>Claude can only use what it can reach, so I connect my tools: GitHub for code, Rillow (my SEO product) for keyword research and briefs, and my Mac through Remote Control for things that only run there, like the design app Paper and the iOS simulator.</p>
-<p>This post was made the same way. Claude researched the topic, got a brief from Rillow and wrote a draft. I told it the draft sounded like a computer wrote it, so we rewrote it.</p>
+<p>I rebuilt this website in two days and didn't write a line of code.</p>
+<p>Claude wrote it. I said yes or no. Mostly no.</p>
+<p>That's my agentic coding workflow, and it comes down to three things:</p>
+<ol>
+<li>One project per product.</li>
+<li>Rules I write down once.</li>
+<li>Short answers.</li>
+</ol>
+<h2>1. One project per product</h2>
+<p>Every product I work on gets its own Claude Project: this site, <a href="https://rillow.ai">Rillow</a>, <a href="https://bundle.ink">Bundle</a> and <a href="https://unposed.camera">Unposed</a>.</p>
+<p>I tell the project what I want. It starts a separate thread for each task, and each thread works on its own copy of the code. Three things can be in progress while I'm doing something else.</p>
+<p>When I come back, I check what's done and what's waiting on me. It works from my phone too.</p>
+<p>Boris Cherny, who made Claude Code, used to juggle ten or more sessions by hand (<a href="https://venturebeat.com/technology/the-creator-of-claude-code-just-revealed-his-workflow-and-developers-are">VentureBeat</a>). A project does the juggling for me. More on that in <a href="/writing/how-to-use-claude-projects/">how I use Claude Projects</a>.</p>
+<h2>2. Rules I write down once</h2>
+<p>Every project starts with one paragraph of instructions. Mine says where the code lives, that I'm the only one working on it, and that every push goes live, so show me a preview first.</p>
+<p>The code has its own rulebook too, an <code>AGENTS.md</code> file. A few real lines from it:</p>
+<pre><code class="language-md">- Light only. Mostly cool grey with a faint lavender glow. Davit found stronger lilac &quot;too colourful&quot;. Never use green accents.
+- Keep pixel art pixel-exact: nearest-neighbour scaling only.
+</code></pre>
+<p>Almost every rule in there is a "no" I said once.</p>
+<p>When I correct Claude, I tell it to remember. Then I never say it again.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A small robot on tiptoe pins another card onto a cork board full of pinned cards" src="/assets/images/writing/robot-cork-board.webp"><figcaption>Every "no" ends up on the board.</figcaption></figure>
+<p>Mitchell Hashimoto calls this <a href="https://mitchellh.com/writing/my-ai-adoption-journey">engineering the harness</a>: every mistake becomes a rule, so it doesn't happen twice.</p>
+<div class="flow" role="img" aria-label="The loop: I write the rules, Claude builds, I look at a preview. Yes means it ships. No means Claude tries again and remembers why.">
+  <span>I write the rules</span>
+  <span>Claude builds</span>
+  <span>I look at a preview</span>
+  <span><b>Yes:</b> it ships<br><b>No:</b> it tries again and remembers why</span>
+</div>
+
+<h2>3. Short answers</h2>
+<p>Here's what I actually typed during the redesign:</p>
+<ul>
+<li>"too colourful"</li>
+<li>"i love it"</li>
+<li>"childish"</li>
+<li>"not real"</li>
+<li>"Pixel is better"</li>
+<li>"mario in threejs"</li>
+</ul>
+<p>That last one became <a href="/projects/shiba-land/">Shiba Land</a>, a small platformer. With a Shiba instead of Mario, because I'd like to keep this website.</p>
+<p>None of this is code review. It's taste, and taste is most of my job now.</p>
+<p>Simon Willison says <a href="https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/">writing code is cheap now</a>. When three versions of a page take a few minutes, picking one is the work.</p>
+<p>If a choice changes what I'm building, Claude asks on a card with a few options and a recommendation. I pick one and go back to what I was doing.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A hand pressing a rubber stamp onto the middle of three sheets of paper, each showing a slightly different shape" src="/assets/images/writing/rubber-stamp-three-sheets.webp"><figcaption>Most of the job.</figcaption></figure>
+<h2>By the numbers</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>The redesign</th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time</td>
+<td style="text-align: right;">About two days</td>
+</tr>
+<tr>
+<td>Pull requests</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Files changed</td>
+<td style="text-align: right;">43</td>
+</tr>
+<tr>
+<td>Lines of code I wrote</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Replies in the thread</td>
+<td style="text-align: right;">165</td>
+</tr>
+</tbody>
+</table></div>
 <h2>What I keep for myself</h2>
-<p>I decide what to build, and I approve anything that can't be undone. On this site every push goes live, so I always see a preview first. Anything with my name on it, I check myself.</p>
+<p>I decide what gets built. I approve anything that can't be undone. On this site every push goes live, so I see a preview first.</p>
+<p>And I read anything with my name on it. Including this post, which has been rewritten three times. The first version sounded like a robot. The second had too many details. The third was fine, and then I found a style I liked better.</p>
 <h2>What still goes wrong</h2>
-<p>Instructions can be wrong. My first project setup got the branch wrong, and Claude caught it by reading the code. It's also bad at drawing from scratch: the first Shiba drawings came out silly. It works much better with clear rules, like pixel art, or with a design I've already made. And long threads get slow and expensive, so I start a new thread for new work.</p>
-<h2>If you want to try this</h2>
-<p>Pick one side project and make it a Claude Project. Write a short paragraph on where the code is, how to check changes and what needs your OK. Ask for a preview before anything ships, keep your answers short, and when you correct Claude, tell it to remember.</p>
-<p>If you're hiring for this kind of work, my <a href="/cv/">CV</a> has the rest.</p>
+<p><strong>Instructions go stale.</strong> My first setup said the site deploys from the master branch. It doesn't. The first thread read the code and fixed it. Trust the code over your own summary.</p>
+<p><strong>Drawing from scratch.</strong> The first hand-coded Shiba came out "silly". The 3D one was too red. Claude does much better with clear rules, like pixel art, or with a design I've already made.</p>
+<p><strong>Long threads get heavy.</strong> After a while every new message costs more. New work gets a new thread.</p>
+<h2>Try it</h2>
+<p>Pick one side project and make it a project.</p>
+<ol>
+<li>Write one paragraph of instructions: where the code is, how to check a change, what needs your OK.</li>
+<li>Put the rules for the code in <code>AGENTS.md</code>.</li>
+<li>Ask for a preview before anything ships.</li>
+<li>When you correct it, tell it to remember.</li>
+</ol>
+<p>Then mostly say no.</p>
+<p>If you're hiring someone who works like this, <a href="/cv/">here's my CV</a>.</p>
   </article>
   <aside class="more" aria-label="More writing">
     <h2>More writing</h2>

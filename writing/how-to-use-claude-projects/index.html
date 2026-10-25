@@ -17,24 +17,24 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
   <title>How to use Claude Projects the right way – Davit Khaburdzania</title>
-  <meta name="description" content="How to set up and use the new Claude Projects: instructions, memory, threads and keeping usage down, with examples from my own site.">
+  <meta name="description" content="How to use the new Claude Projects: let Claude set it up, keep instructions short, know where memory goes and watch your usage. Examples from my own site.">
   <link rel="canonical" href="https://davit.cc/writing/how-to-use-claude-projects/">
   <meta name="author" content="Davit Khaburdzania">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://davit.cc/writing/how-to-use-claude-projects/">
   <meta property="og:site_name" content="davit.cc">
   <meta property="og:title" content="How to use Claude Projects the right way">
-  <meta property="og:description" content="How to set up and use the new Claude Projects: instructions, memory, threads and keeping usage down, with examples from my own site.">
+  <meta property="og:description" content="How to use the new Claude Projects: let Claude set it up, keep instructions short, know where memory goes and watch your usage. Examples from my own site.">
   <meta property="og:image" content="https://davit.cc/assets/images/writing/how-to-use-claude-projects-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="A hand holding the ends of five threads, each running to its own wooden spool on a table">
+  <meta property="og:image:alt" content="A person talks to one robot, which holds threads leading to five small robots each working at its own little desk">
   <meta property="article:published_time" content="2026-10-23T12:00:00+04:00">
   <meta property="article:author" content="https://davit.cc/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dkhaburdzania">
   <meta name="twitter:creator" content="@dkhaburdzania">
-  <link rel="preload" as="image" href="/assets/images/writing/hand-threads-spools.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/writing/robot-coordinator-threads.webp" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,13 +43,13 @@
   "mainEntityOfPage": "https://davit.cc/writing/how-to-use-claude-projects/",
   "url": "https://davit.cc/writing/how-to-use-claude-projects/",
   "headline": "How to use Claude Projects the right way",
-  "description": "How to set up and use the new Claude Projects: instructions, memory, threads and keeping usage down, with examples from my own site.",
+  "description": "How to use the new Claude Projects: let Claude set it up, keep instructions short, know where memory goes and watch your usage. Examples from my own site.",
   "image": [
-    "https://davit.cc/assets/images/writing/hand-threads-spools.webp",
+    "https://davit.cc/assets/images/writing/robot-coordinator-threads.webp",
     "https://davit.cc/assets/images/writing/how-to-use-claude-projects-og.jpg"
   ],
   "datePublished": "2026-10-23T12:00:00+04:00",
-  "dateModified": "2026-10-23T12:00:00+04:00",
+  "dateModified": "2026-10-25T12:00:00+04:00",
   "author": {
     "@type": "Person",
     "@id": "https://davit.cc/#person",
@@ -63,7 +63,7 @@
     "url": "https://davit.cc/"
   },
   "inLanguage": "en",
-  "wordCount": 1010,
+  "wordCount": 946,
   "isPartOf": {
     "@type": "Blog",
     "@id": "https://davit.cc/writing/#blog",
@@ -108,76 +108,89 @@
   <header class="post-head">
     <span class="kicker"><a href="/writing/">Writing</a> · Claude</span>
     <h1>How to use Claude Projects the right way</h1>
-    <p class="dek">How to set up and use the new Claude Projects: instructions, memory, threads and keeping usage down, with examples from my own site.</p>
+    <p class="dek">Brief it once, then let it work.</p>
     <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-10-23">23 Oct 2026</time><span class="sep"></span><span>5 min read</span></div>
   </header>
-  <figure class="post-hero"><img src="/assets/images/writing/hand-threads-spools.webp" alt="A hand holding the ends of five threads, each running to its own wooden spool on a table" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
+  <figure class="post-hero"><img src="/assets/images/writing/robot-coordinator-threads.webp" alt="A person talks to one robot, which holds threads leading to five small robots each working at its own little desk" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>You only talk to the one in the middle.</figcaption></figure>
   <article class="prose">
-<p>If you want to know how to use Claude Projects well, think of a project as one ongoing piece of work. You set it up once and then keep sending it tasks. I run this site, <a href="/">davit.cc</a>, in a project, so the examples here are from my own setup.</p>
+<p>I run this whole website from one Claude Project. The redesign, the favicon, the little games, these posts. All of it.</p>
+<p>If you want to know how to use Claude Projects well, here's the short version: brief it once, keep feeding it work, and answer when it asks.</p>
+<p>The rest of this post is the long version, from my own setup.</p>
 <h2>What a project is now</h2>
-<p>Anthropic <a href="https://claude.com/blog/projects-redesigned">redesigned Projects</a> in September 2026. A project used to be a folder of files and chats. Now it's a chat with a coordinator that starts a separate thread for each task, and each thread is a full Claude Code session with its own copy of your code. Threads share a memory and report back when they're done.</p>
-<p>Projects are in beta on the Pro and Max plans and work in the web, desktop and mobile apps (<a href="https://code.claude.com/docs/en/claude-projects">docs</a>). A lot of guides online still describe the old version.</p>
-<h2>When to make one</h2>
-<p>Make a project when the work keeps going: a product, a website, a long migration. For a single task, a normal session is enough. My site is the ongoing kind. The redesign, a new favicon, a few small experiments and this blog all happened in the same project.</p>
-<h2>Let Claude set it up</h2>
-<p>I didn't write my setup myself. My first message in the new project was:</p>
+<p>Anthropic <a href="https://claude.com/blog/projects-redesigned">redesigned Projects</a> in September 2026.</p>
+<p>Before, a project was a folder: some files, some instructions, some chats.</p>
+<p>Now it's a chat with a coordinator. You tell it what you want. It answers, or it starts a thread. Each thread is a full Claude Code session with its own copy of your code. Threads share a memory and report back when they're done.</p>
+<p>It's in beta on Pro and Max, on the web, desktop and mobile apps (<a href="https://code.claude.com/docs/en/claude-projects">docs</a>). Most guides online still describe the old folder version.</p>
+<h2>1. Let Claude set it up</h2>
+<p>I didn't write my setup. My first message was:</p>
 <blockquote>
 <p>Help me set up this new project from my recent work. Look through my recent sessions and repositories, identify the main thread of work, and propose a project setup: a short name, the repositories it should include, an environment, concise project instructions drawn from what kept coming up, and one or two optional routines. Show me the proposal before changing anything.</p>
 </blockquote>
-<p>Claude came back with a name, instructions and a weekly check of the live site, and I said yes.</p>
-<h2>Keep the instructions short</h2>
-<p>Project instructions are the rules every thread reads first. Keep them short: where the code is, how to check changes and what needs your OK. Mine are one paragraph:</p>
+<p>It came back with a name, instructions and a weekly check of the live site. I said "yes".</p>
+<h2>2. Keep the instructions short</h2>
+<p>Instructions are the brief every thread reads first. Mine are one paragraph:</p>
 <blockquote>
 <p>Site is davit.cc, built from the main branch of davit-khaburdzania.github.io and served by a Cloudflare Worker (wrangler.jsonc). Davit is the only one working on the site, so don't open pull requests: commit and push straight to main. Every push to main deploys davit.cc automatically within about a minute (Cloudflare's GitHub connection), so a push is a production change: show Davit a preview of visual changes before pushing. Keep profile details (location "Tbilisi, Georgia", website davit.cc) consistent across the site, GitHub and LinkedIn. Verify changes on the live site after each push.</p>
 </blockquote>
-<p>The first version got the branch wrong, and the first thread fixed it after reading the code. Rules get added as you go. "No pull requests" came a day later, when I said I'm the only one working on the site.</p>
-<h2>Instructions, memory and CLAUDE.md</h2>
+<p>The first version got the branch wrong. The first thread read the code and fixed it.</p>
+<p>The rest got added as I went. "No pull requests" came on day two, when I told it I'm the only one working on the site.</p>
+<h2>3. Know where things go</h2>
 <p>A project keeps context in three places:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Where</th>
 <th>What goes in it</th>
-<th>Example from davit.cc</th>
+<th>Example from my site</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Project instructions</td>
-<td>Rules every thread needs from the start</td>
-<td>Push straight to main, and show a preview first</td>
+<td>Instructions</td>
+<td>Rules every thread needs</td>
+<td>"Show a preview before pushing"</td>
 </tr>
 <tr>
-<td>Project memory</td>
-<td>Decisions Claude picks up as you work</td>
-<td>The favicon uses the pixel-art Shiba</td>
+<td>Memory</td>
+<td>Decisions you make along the way</td>
+<td>"Unposed goes last in the Projects list"</td>
 </tr>
 <tr>
-<td><code>CLAUDE.md</code> or <code>AGENTS.md</code> in the repo</td>
-<td>How the code is built and styled</td>
-<td>"Never use green accents."</td>
+<td><code>AGENTS.md</code> in the repo</td>
+<td>How the code is built</td>
+<td>"Never use green accents"</td>
 </tr>
 </tbody>
 </table></div>
-<p>Memory fills up when you ask, like "remember that Unposed goes last in the Projects list". If you only write one of the three, make it the file in your repo, because every session reads it, in a project or not.</p>
-<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="An open wooden index card box with blank cards, next to a folded sheet of paper and a pencil" src="/assets/images/writing/index-card-box.webp"></figure>
-<h2>Send work and walk away</h2>
-<p>Talk to the coordinator like a colleague. Questions get answered right away, and new work becomes a thread. When a thread needs a decision, it asks with a few options and a recommendation, and you pick one. You can also tell it how you like to work, like "ask before starting new threads".</p>
-<p>One thing isn't obvious: when a thread needs your approval, you answer inside that thread. Saying "go ahead" to the coordinator doesn't reach it.</p>
-<h2>Run work on your own computer</h2>
-<p>Some work needs your own machine. For me that's Paper, a design app that only runs on my Mac. A project can run that one thread on your computer through Remote Control while the rest stays in the cloud. Turn it on in the desktop app under Settings &gt; Claude Code, then pick "Work locally" in the project chat.</p>
-<h2>Keep usage under control</h2>
-<p>Projects use your plan faster than a single chat, because every thread is a full session and several can run at once. You can switch to cheaper models in the project settings. Long threads get expensive too, so start a fresh thread for new work and close the ones you're done with.</p>
+<p>Memory fills itself when you say "remember". If you only write one of these, write the repo file. Every session reads it, project or not.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="An open wooden index card box with blank cards, next to a folded sheet of paper and a pencil" src="/assets/images/writing/index-card-box.webp"><figcaption>Memory. Fills up faster than you'd think.</figcaption></figure>
+<h2>4. Send work, then walk away</h2>
+<p>Talk to the coordinator like a colleague. Questions get answered. Work becomes a thread.</p>
+<p>When a thread needs a decision, it asks with a few options and a recommendation. When my CV needed updating, it asked whether it should edit the PDF or I'd do it myself. I picked "I'll do it".</p>
+<p>One thing isn't obvious: if a thread needs your approval, answer in that thread. Saying "go ahead" to the coordinator doesn't reach it.</p>
+<h2>5. Use your own computer when you have to</h2>
+<p>Some of my work needs my Mac. Paper, the design app I use, only runs there.</p>
+<p>So that one thread runs on my machine through Remote Control, and everything else stays in the cloud. Turn it on in the desktop app under Settings &gt; Claude Code, then pick "Work locally" in the project chat.</p>
+<h2>6. Watch your usage</h2>
+<p>Every thread is a full session and several run at once, so a project uses your plan faster than a chat.</p>
+<p>Two habits help:</p>
+<ol>
+<li><strong>New work, new thread.</strong> Long threads get expensive. My redesign thread hit 165 replies before I let it go.</li>
+<li><strong>Close what you're done with.</strong> A thread that watches a pull request wakes up every time CI fails.</li>
+</ol>
+<p>You can also switch to cheaper models in the project settings.</p>
 <h2>Frequently asked questions</h2>
 <h3>When should I use a project instead of a chat?</h3>
 <p>When the work keeps going, like a product or a site you keep improving. A quick question is fine in a chat.</p>
 <h3>What's the difference between Claude Projects and Claude Code?</h3>
-<p>Projects are built on Claude Code. Every thread is a Claude Code session, and the project adds the coordinator, shared instructions and memory.</p>
+<p>Projects are built on Claude Code. Every thread is a Claude Code session. The project adds the coordinator, shared instructions and memory.</p>
 <h3>Can I share a Claude Project with my team?</h3>
 <p>Not yet. During the beta a project belongs to one person.</p>
 <h3>Do cloud threads get my local skills and MCP servers?</h3>
-<p>No. Cloud threads get the connectors and skills from your claude.ai account and whatever is in your repo. Anything installed only on your laptop needs a thread running on your computer.</p>
-<p>I wrote more about how I work day to day in <a href="/writing/agentic-coding-workflow/">my agentic coding workflow</a>, and my <a href="/cv/">CV</a> has the rest.</p>
+<p>No. They get the connectors and skills from your claude.ai account and whatever is in your repo. Anything installed only on your laptop needs a thread running on your computer.</p>
+<h2>The short version, again</h2>
+<p>Brief it once. Let it remember the rest.</p>
+<p>Here's <a href="/writing/agentic-coding-workflow/">how I work day to day</a>, and here's <a href="/cv/">my CV</a>.</p>
   </article>
   <aside class="more" aria-label="More writing">
     <h2>More writing</h2>

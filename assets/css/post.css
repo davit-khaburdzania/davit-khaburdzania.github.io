@@ -30,6 +30,13 @@
 .prose pre{padding:18px 20px;border-radius:14px;background:var(--surface);overflow-x:auto;font-size:14px;line-height:1.6}
 .prose pre code{padding:0;background:none;font-size:inherit;white-space:pre-wrap}
 .prose figure{margin:34px 0}
+.prose figcaption,.post-hero figcaption{margin-top:12px;text-align:center;font-style:italic;font-size:15px;line-height:1.5;color:var(--muted)}
+/* small step diagram written in the Markdown as <div class="flow"><span>… */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px;margin:34px 0;font-size:15px;line-height:1.4;color:var(--ink)}
+.flow span{position:relative;display:flex;align-items:center;padding:14px 16px;border-radius:14px;background:var(--surface)}
+.flow span:last-child{display:block;background:var(--lilac)}
+.flow span+span::before{content:"→";position:absolute;left:-22px;top:50%;transform:translateY(-50%);color:var(--lilac-deep);font-size:16px}
+.flow b{font-weight:600}
 .table-wrap{overflow-x:auto;margin-inline:-2px}
 .prose table{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.5;background:var(--surface);border-radius:14px;overflow:hidden}
 .prose th,.prose td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
@@ -53,4 +60,6 @@
   .prose blockquote{padding:14px 16px;font-size:15px}
   .post-hero img,.prose img{border-radius:14px}
   .byline .sep{display:none}
+  .flow{grid-template-columns:1fr;gap:26px}
+  .flow span+span::before{content:"↓";left:50%;top:-22px;transform:translateX(-50%)}
 }
