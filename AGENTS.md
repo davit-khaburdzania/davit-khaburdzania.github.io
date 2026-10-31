@@ -28,8 +28,23 @@ Plain static HTML, CSS and JS. No framework, no build step, no package.json. (Bl
 | `.claude/skills/write-blog-post/` | How to write and publish a post (style, voice, images, steps) and `build.py`, which generates the Writing pages |
 | `404.html` | Not-found page, served by the Worker's `404-page` handling |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Pixel-art Shiba head |
-| `src/index.js`, `wrangler.jsonc` | Worker: redirects http and www to https://davit.cc, then serves the repo root as static assets |
+| `src/index.js`, `wrangler.jsonc` | Worker: redirects http and www to https://davit.cc, serves the agent endpoints below, then the repo root as static assets |
+| `src/html.js`, `src/content.js` | Tiny HTML parser and HTML-to-Markdown converter; reads the live pages into data for the API and `llms.txt` |
+| `src/auth.js`, `src/discovery.js` | Optional OAuth for agents, and the discovery documents (API catalog, OpenAPI, ARD, Poppy, skills index, `llms.txt`) |
+| `auth.md`, `api/docs.md`, `.well-known/agent-skills/` | Hand-written docs for agents: how to get a token, the API guide, and the `about-davit` skill |
 | `.assetsignore` | Files the Worker must not serve. Add any new non-site file here (this one is listed) |
+
+## Agents
+
+davit.cc is "agent-ready" (Cloudflare's isitagentready.com scan). Everything is built at request time from the real pages, so nothing needs regenerating when content changes.
+
+- Markdown: any HTML page comes back as Markdown with `Accept: text/markdown`, or at `<path>/index.md`. HTML pages carry `Link` headers to the API catalog, OpenAPI, API docs, `llms.txt` and the ARD catalog.
+- API: read-only JSON at `/api` (profile, projects, playground, experience, posts), parsed from `index.html` and `writing/index.html` by CSS class (`wcard`, `ptile`, `xrow`, `post`). Keep those class names, or update `src/content.js`.
+- `robots.txt` has `Content-Signal: ai-train=yes, search=yes, ai-input=yes` (Davit's call to change).
+- OAuth: anonymous only, and a token grants nothing extra because everything is public. Tokens are HS256, keyed by the `AUTH_SECRET` Worker secret if set, otherwise by the deployed version id (so they reset on deploy).
+- Well-known: `api-catalog`, `oauth-authorization-server`, `oauth-protected-resource`, `jwks.json`, `ai-catalog.json`, `poppy.json`, `did.json`, `agent-skills/index.json` (digests computed live).
+- Left out on purpose: MCP server card, WebMCP, DNS-AID, and the commerce protocols (x402, MPP, UCP, ACP), since nothing is for sale.
+- Test locally with `npx wrangler dev --upstream-protocol https --host davit.cc` (plain `http.server` doesn't run the Worker).
 
 ## Run it locally
 
