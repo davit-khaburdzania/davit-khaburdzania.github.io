@@ -62,3 +62,5 @@ input[type=range].lab-range{-webkit-appearance:none;appearance:none;width:100%;h
 @media (prefers-reduced-motion: reduce){
   .lab-btn,.lab-home svg{transition:none}
 }
+/* Page title for search engines and screen readers; the crumb already shows it on screen */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
