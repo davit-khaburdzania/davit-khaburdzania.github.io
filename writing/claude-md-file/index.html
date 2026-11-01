@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKV2L39B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCKV2L39B9');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F6F9">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="davit.cc Writing" href="/writing/feed.xml">
+  <title>CLAUDE.md file: why I only keep an AGENTS.md – Davit Khaburdzania</title>
+  <meta name="description" content="What a CLAUDE.md file is, why Claude Code no longer needs one when you have an AGENTS.md, and the real AGENTS.md that runs this website.">
+  <link rel="canonical" href="https://davit.cc/writing/claude-md-file/">
+  <meta name="author" content="Davit Khaburdzania">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davit.cc/writing/claude-md-file/">
+  <meta property="og:site_name" content="davit.cc">
+  <meta property="og:title" content="CLAUDE.md file: why I only keep an AGENTS.md">
+  <meta property="og:description" content="What a CLAUDE.md file is, why Claude Code no longer needs one when you have an AGENTS.md, and the real AGENTS.md that runs this website.">
+  <meta property="og:image" content="https://davit.cc/assets/images/writing/claude-md-file-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Two small robots of different shapes reading the same open notebook on a desk, one from each side">
+  <meta property="article:published_time" content="2026-11-02T12:00:00+04:00">
+  <meta property="article:author" content="https://davit.cc/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dkhaburdzania">
+  <meta name="twitter:creator" content="@dkhaburdzania">
+  <link rel="preload" as="image" href="/assets/images/writing/two-robots-one-notebook.webp" fetchpriority="high">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://davit.cc/writing/claude-md-file/#post",
+  "mainEntityOfPage": "https://davit.cc/writing/claude-md-file/",
+  "url": "https://davit.cc/writing/claude-md-file/",
+  "headline": "I don't have a CLAUDE.md file",
+  "description": "What a CLAUDE.md file is, why Claude Code no longer needs one when you have an AGENTS.md, and the real AGENTS.md that runs this website.",
+  "image": [
+    "https://davit.cc/assets/images/writing/two-robots-one-notebook.webp",
+    "https://davit.cc/assets/images/writing/claude-md-file-og.jpg"
+  ],
+  "datePublished": "2026-11-02T12:00:00+04:00",
+  "dateModified": "2026-11-02T12:00:00+04:00",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davit.cc/#person",
+    "name": "Davit Khaburdzania",
+    "url": "https://davit.cc/"
+  },
+  "inLanguage": "en",
+  "wordCount": 1308,
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://davit.cc/writing/#blog",
+    "url": "https://davit.cc/writing/",
+    "name": "davit.cc Writing"
+  }
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/post.css">
+</head>
+<body class="post-page">
+<div class="page"><div class="inner">
+  <nav aria-label="Main">
+    <a class="logo" href="/" aria-label="davit.cc home"><svg class="logo-mark" width="32" height="32" aria-hidden="true" viewBox="3 4 58 56">
+  <path d="M11 27 C10 19 12 11 15 7.5 C16.5 6 17.5 6.5 19 8 L26.5 17 Q32 15.5 37.5 17 L45 8 C46.5 6.5 47.5 6 49 7.5 C52 11 54 19 53 27 C57 31 59 36 57.5 41 C59 44 57 48 53.5 49 C49 55 41 58 32 58 C23 58 15 55 10.5 49 C7 48 5 44 6.5 41 C5 36 7 31 11 27 Z" fill="#B9B7E6" stroke="#111114" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M15.5 12 C16.5 10 17.5 10.5 18.5 12 L23.5 18.5 C20.5 20 18 22.5 16 25 C15 21 15 16 15.5 12 Z M48.5 12 C47.5 10 46.5 10.5 45.5 12 L40.5 18.5 C43.5 20 46 22.5 48 25 C49 21 49 16 48.5 12 Z" fill="#E9E8FC"/>
+  <path d="M8.2 42 C10 36.5 16 33.5 22 35 C26 36 29 38.2 32 38.2 C35 38.2 38 36 42 35 C48 33.5 54 36.5 55.8 42 C56.6 45.5 54 48.4 51.3 48.9 C47 54.8 40 57.6 32 57.6 C24 57.6 17 54.8 12.7 48.9 C10 48.4 7.4 45.5 8.2 42 Z" fill="#FFFFFF"/>
+  <ellipse cx="24" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="40" cy="28.3" rx="2.1" ry="1.4" fill="#FFFFFF"/>
+  <ellipse cx="24.6" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <ellipse cx="39.4" cy="33" rx="2.3" ry="2.7" fill="#111114"/>
+  <path d="M29.4 49.4 Q32 55 34.6 49.4 Z" fill="#F2A7B5"/>
+  <path d="M28.6 41.6 Q32 40.3 35.4 41.6 Q35.2 44.6 32 45.7 Q28.8 44.6 28.6 41.6 Z" fill="#111114"/>
+  <path d="M32 45.7 V47.6 M25.5 46.6 Q28.3 51.2 32 47.6 Q35.7 51.2 38.5 46.6" fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>davit.cc</a>
+    <div class="links">
+      <a href="/#projects">Projects</a>
+      <a href="/#playground">Playground</a>
+      <a href="/#experience">Experience</a>
+      <a href="/writing/">Writing</a>
+      <a class="btn btn-dark nav-cta" href="#contact">Say hi</a>
+    </div>
+  </nav>
+</div></div>
+
+<div class="page">
+<main class="article">
+  <header class="post-head">
+    <span class="kicker"><a href="/writing/">Writing</a> · Claude</span>
+    <h1>I don&#x27;t have a CLAUDE.md file</h1>
+    <p class="dek">Claude reads AGENTS.md now. So that&#x27;s the one file I keep.</p>
+    <div class="byline"><a href="/">Davit Khaburdzania</a><span class="sep"></span><time datetime="2026-11-02">2 Nov 2026</time><span class="sep"></span><span>6 min read</span></div>
+  </header>
+  <figure class="post-hero"><img src="/assets/images/writing/two-robots-one-notebook.webp" alt="Two small robots of different shapes reading the same open notebook on a desk, one from each side" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Same notebook. Different robots.</figcaption></figure>
+  <article class="prose">
+<p>This website's code has no CLAUDE.md file. It has an <code>AGENTS.md</code>, and Claude Code reads that instead.</p>
+<p>A CLAUDE.md file is a plain Markdown file that Claude Code reads at the start of every session. It's where you tell Claude what it can't work out from the code: how you ship, what you've already rejected, what never to touch.</p>
+<p><a href="https://agents.md">AGENTS.md</a> is the same idea under the name other coding tools use: "a README for agents". Codex, Cursor, Copilot and Gemini CLI read it. Since version 2.1.277, <a href="https://code.claude.com/docs/en/memory#agents-md">Claude Code reads it too</a>, so one file covers all of them.</p>
+<p>Here's what's in this post:</p>
+<ol>
+<li>What Claude does with AGENTS.md.</li>
+<li>What my AGENTS.md says.</li>
+<li>What stays out.</li>
+<li>How it stays right.</li>
+</ol>
+<h2>1. What Claude does with AGENTS.md</h2>
+<p>When a Claude Code session starts, Claude looks for a <code>CLAUDE.md</code> or <code>CLAUDE.local.md</code> in the folder you opened and the folders above it. If there isn't one, it loads every <code>AGENTS.md</code> it finds there instead, and you see a line like this:</p>
+<pre><code class="language-text">no CLAUDE.md found; AGENTS.md loaded: /home/you/repo/AGENTS.md
+</code></pre>
+<p>A few more things from <a href="https://code.claude.com/docs/en/memory#agents-md">Anthropic's docs</a> that are worth knowing:</p>
+<ul>
+<li>An <code>AGENTS.md</code> inside a subfolder loads when Claude opens a file in that folder.</li>
+<li>Your own <code>~/.claude/CLAUDE.md</code> still loads next to it, so your personal rules don't go away.</li>
+<li>If the repo has a <code>CLAUDE.md</code> or a <code>CLAUDE.local.md</code>, Claude reads that and skips <code>AGENTS.md</code>, unless you change <strong>Project instructions</strong> in <code>/config</code> to read both.</li>
+<li>Older Claude Code versions don't read <code>AGENTS.md</code> on their own. On those, a <code>CLAUDE.md</code> with the single line <code>@AGENTS.md</code> pulls it in.</li>
+</ul>
+<p>That last trick is what I used to have. My <code>CLAUDE.md</code> was that one line. Claude reads <code>AGENTS.md</code> by itself now, so I deleted it.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A small round robot reading a single index card pinned to a door, with a thick notebook lying open on the floor behind it" src="/assets/images/writing/robot-reads-door-note.webp"><figcaption>It checks the door for a note first. Then it reads the notebook.</figcaption></figure>
+<h2>2. What my AGENTS.md says</h2>
+<p>It has seven short sections, in this order:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it tells Claude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ship it</td>
+<td>Every push to <code>main</code> goes live. Show me a preview first</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>Plain HTML, CSS and JS, and what each file is for</td>
+</tr>
+<tr>
+<td>Agents</td>
+<td>The Markdown pages, API and discovery files the site serves to AI agents</td>
+</tr>
+<tr>
+<td>Run it locally</td>
+<td>One command, and the screen widths to check</td>
+</tr>
+<tr>
+<td>Design rules</td>
+<td>Colours, type, the hero, the logo, and what I already said no to</td>
+</tr>
+<tr>
+<td>Content rules</td>
+<td>Facts that must match my CV, and how blog posts get built</td>
+</tr>
+<tr>
+<td>Code style</td>
+<td>Match the code around you. Short comments, plain commit messages</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first section matters most, because it's the one Claude can't guess from the code:</p>
+<pre><code class="language-md">## Ship it
+
+- Every push to `main` deploys davit.cc within about a minute.
+- Work directly on `main`. Davit is the only person on this repo:
+  no pull requests, no feature branches.
+- Because a push is a deploy, show Davit a preview of any visual change
+  and push once he's happy. Copy fixes and small bug fixes can go straight in.
+</code></pre>
+<p>That second rule exists because I typed this into a thread once:</p>
+<blockquote>
+<p>since i am only one working on this no need to create prs just push to main</p>
+</blockquote>
+<p>I said it once. It's been in the file since.</p>
+<p>The design rules work the same way. Each one is a decision I already made, written down so I don't make it again:</p>
+<pre><code class="language-md">- Light only. Mostly cool grey with a faint lavender glow.
+  Davit found stronger lilac &quot;too colourful&quot;. Never use green accents.
+- Project cards: the same dust in each product's own soft colour.
+  Illustrated scenes and redrawn product UIs were tried and rejected.
+</code></pre>
+<p>"Tried and rejected" saves the most time. Without that line, a new session has no way to know I already turned those ideas down.</p>
+<p>The content rules are short facts with no room for guessing: "15+ years of experience", the section is called "Projects", not "Work", and "Experience must match Davit's CV".</p>
+<h2>3. What stays out</h2>
+<p><strong>Anything the code already says.</strong> Claude can see the framework, the folders and the function names. Repeating them just makes the file longer.</p>
+<p><strong>Long how-tos.</strong> Writing a blog post here takes a style guide, image rules and a build script. That lives in a <a href="https://code.claude.com/docs/en/skills">skill</a> in <code>.claude/skills/</code>, which Claude loads only when it writes a post. My <code>AGENTS.md</code> gives it one line: follow the <code>write-blog-post</code> skill.</p>
+<p><strong>Rules that must never break.</strong> These files are advice, and Claude can miss advice. If something must never happen, the docs point you to a <a href="https://code.claude.com/docs/en/hooks-guide">hook</a> that blocks it instead.</p>
+<p><strong>Secrets.</strong> The file is in git. Mine names the <code>AUTH_SECRET</code> setting but never its value.</p>
+<p>Anthropic suggests <a href="https://code.claude.com/docs/en/memory">keeping each file under 200 lines</a>, because longer files get followed less. Mine is about 80.</p>
+<figure><img width="1600" height="900" loading="lazy" decoding="async" alt="A small robot holding a single sheet of paper next to a tall wobbly stack of paper it has decided not to carry" src="/assets/images/writing/robot-one-sheet.webp"><figcaption>It took the one page that mattered.</figcaption></figure>
+<h2>4. How it stays right</h2>
+<p>Instructions go stale like any other doc. My first project instructions for this site still said it deployed from the <code>master</code> branch through GitHub Pages, after I had moved it to <code>main</code> and Cloudflare.</p>
+<p>Now the rule is simple. When a convention changes, <code>AGENTS.md</code> changes in the same commit. And when I correct a choice, like "too colourful", it becomes a line in the file.</p>
+<p>So the file keeps growing, one line per "no", and I rewrite lines when they stop being true.</p>
+<h2>Questions people ask</h2>
+<h3>Do I still need a CLAUDE.md file?</h3>
+<p>Only in a few cases: you want rules that only Claude should read, or you're on a Claude Code version older than 2.1.277. Otherwise an <code>AGENTS.md</code> is enough. If you do keep both, put <code>@AGENTS.md</code> at the top of the <code>CLAUDE.md</code>, because Claude reads the <code>CLAUDE.md</code> and skips the other one.</p>
+<h3>Should AGENTS.md be in git?</h3>
+<p>Yes, so everyone on the project, people and agents, gets the same rules. Personal rules go in <code>~/.claude/CLAUDE.md</code>, which stays on your machine. Skip <code>CLAUDE.local.md</code> here: having one makes Claude stop reading <code>AGENTS.md</code>.</p>
+<h3>Is it the same as Claude Projects instructions?</h3>
+<p>No. <code>AGENTS.md</code> lives in the code and travels with it. Project instructions live in <a href="/writing/how-to-use-claude-projects/">Claude Projects</a> and cover how you work: where the repo is, who approves what. I keep both short. They overlap only on how to ship, because that rule matters everywhere.</p>
+<h2>Start yours</h2>
+<ol>
+<li>Run <code>/init</code> in Claude Code. It reads the codebase and writes a first <code>CLAUDE.md</code>.</li>
+<li>Rename it to <code>AGENTS.md</code>, so every agent reads it.</li>
+<li>Delete everything Claude could find by reading the code.</li>
+<li>Add how you ship and what you've already said no to.</li>
+<li>Each time you correct Claude, add one line.</li>
+</ol>
+<p>Write down the "no". Skip the rest.</p>
+<p>More on how this site gets built in <a href="/writing/agentic-coding-workflow/">my agentic coding workflow</a>, or see what I've worked on in <a href="/cv/">my CV</a>.</p>
+  </article>
+  <aside class="more" aria-label="More writing">
+    <h2>More writing</h2>
+    <div class="post-list">
+      <a class="post reveal" href="/writing/agentic-coding-workflow/"><span class="pshot"><img src="/assets/images/writing/agentic-coding-workflow-card.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></span><div class="pbody"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">AI workflow</span></div><h3>My agentic coding workflow</h3><p>How I build with AI agents every day: what I hand off, what I keep, and the setup behind it.</p></div></a>
+      <a class="post reveal" href="/writing/how-to-use-claude-projects/"><span class="pshot"><img src="/assets/images/writing/how-to-use-claude-projects-card.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></span><div class="pbody"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">Claude</span></div><h3>How to use Claude Projects the right way</h3><p>Threads, memory and shared files: how I run real work, like this site, inside Claude Projects.</p></div></a>
+      <a class="post reveal" href="/writing/languages-and-frameworks-dont-matter/"><span class="pshot"><img src="/assets/images/writing/languages-and-frameworks-dont-matter-card.webp" alt="" width="800" height="450" loading="lazy" decoding="async"></span><div class="pbody"><div class="post-top"><span class="pdate"><time datetime="2026-10-23">23 Oct 2026</time></span><span class="ptopic">Opinion</span></div><h3>Languages and frameworks don&#x27;t matter anymore</h3><p>After 15+ years across Rails, Elixir, React and Node, why the stack matters less than ever with AI.</p></div></a>
+    </div>
+  </aside>
+</main>
+</div>
+
+<div class="page">
+<footer class="inner" id="contact">
+  <p class="big">Let's build something.</p>
+  <div class="contact">
+    <a href="mailto:davit.khaburdzania@gmail.com">davit.khaburdzania@gmail.com</a>
+    <a href="https://github.com/davit-khaburdzania" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/dkhaburdzania" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/dkhaburdzania" target="_blank" rel="noopener">Twitter</a>
+    <a href="/cv/v4.pdf" download="Davit-Khaburdzania-CV.pdf">CV (PDF)</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -4,8 +4,130 @@
   <link href="https://davit.cc/writing/"/>
   <link rel="self" href="https://davit.cc/writing/feed.xml"/>
   <id>https://davit.cc/writing/</id>
-  <updated>2026-10-25T12:00:00+04:00</updated>
+  <updated>2026-11-02T12:00:00+04:00</updated>
   <author><name>Davit Khaburdzania</name><uri>https://davit.cc/</uri></author>
+  <entry>
+    <title>I don&#x27;t have a CLAUDE.md file</title>
+    <link href="https://davit.cc/writing/claude-md-file/"/>
+    <id>https://davit.cc/writing/claude-md-file/</id>
+    <published>2026-11-02T12:00:00+04:00</published>
+    <updated>2026-11-02T12:00:00+04:00</updated>
+    <summary>What a CLAUDE.md file is, why Claude Code no longer needs one when you have an AGENTS.md, and the real AGENTS.md that runs this website.</summary>
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://davit.cc/assets/images/writing/two-robots-one-notebook.webp&quot; alt=&quot;Two small robots of different shapes reading the same open notebook on a desk, one from each side&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This website&#x27;s code has no CLAUDE.md file. It has an &lt;code&gt;AGENTS.md&lt;/code&gt;, and Claude Code reads that instead.&lt;/p&gt;
+&lt;p&gt;A CLAUDE.md file is a plain Markdown file that Claude Code reads at the start of every session. It&#x27;s where you tell Claude what it can&#x27;t work out from the code: how you ship, what you&#x27;ve already rejected, what never to touch.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://agents.md&quot;&gt;AGENTS.md&lt;/a&gt; is the same idea under the name other coding tools use: &quot;a README for agents&quot;. Codex, Cursor, Copilot and Gemini CLI read it. Since version 2.1.277, &lt;a href=&quot;https://code.claude.com/docs/en/memory#agents-md&quot;&gt;Claude Code reads it too&lt;/a&gt;, so one file covers all of them.&lt;/p&gt;
+&lt;p&gt;Here&#x27;s what&#x27;s in this post:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What Claude does with AGENTS.md.&lt;/li&gt;
+&lt;li&gt;What my AGENTS.md says.&lt;/li&gt;
+&lt;li&gt;What stays out.&lt;/li&gt;
+&lt;li&gt;How it stays right.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;1. What Claude does with AGENTS.md&lt;/h2&gt;
+&lt;p&gt;When a Claude Code session starts, Claude looks for a &lt;code&gt;CLAUDE.md&lt;/code&gt; or &lt;code&gt;CLAUDE.local.md&lt;/code&gt; in the folder you opened and the folders above it. If there isn&#x27;t one, it loads every &lt;code&gt;AGENTS.md&lt;/code&gt; it finds there instead, and you see a line like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;no CLAUDE.md found; AGENTS.md loaded: /home/you/repo/AGENTS.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A few more things from &lt;a href=&quot;https://code.claude.com/docs/en/memory#agents-md&quot;&gt;Anthropic&#x27;s docs&lt;/a&gt; that are worth knowing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An &lt;code&gt;AGENTS.md&lt;/code&gt; inside a subfolder loads when Claude opens a file in that folder.&lt;/li&gt;
+&lt;li&gt;Your own &lt;code&gt;~/.claude/CLAUDE.md&lt;/code&gt; still loads next to it, so your personal rules don&#x27;t go away.&lt;/li&gt;
+&lt;li&gt;If the repo has a &lt;code&gt;CLAUDE.md&lt;/code&gt; or a &lt;code&gt;CLAUDE.local.md&lt;/code&gt;, Claude reads that and skips &lt;code&gt;AGENTS.md&lt;/code&gt;, unless you change &lt;strong&gt;Project instructions&lt;/strong&gt; in &lt;code&gt;/config&lt;/code&gt; to read both.&lt;/li&gt;
+&lt;li&gt;Older Claude Code versions don&#x27;t read &lt;code&gt;AGENTS.md&lt;/code&gt; on their own. On those, a &lt;code&gt;CLAUDE.md&lt;/code&gt; with the single line &lt;code&gt;@AGENTS.md&lt;/code&gt; pulls it in.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That last trick is what I used to have. My &lt;code&gt;CLAUDE.md&lt;/code&gt; was that one line. Claude reads &lt;code&gt;AGENTS.md&lt;/code&gt; by itself now, so I deleted it.&lt;/p&gt;
+&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A small round robot reading a single index card pinned to a door, with a thick notebook lying open on the floor behind it&quot; src=&quot;https://davit.cc/assets/images/writing/robot-reads-door-note.webp&quot;&gt;&lt;figcaption&gt;It checks the door for a note first. Then it reads the notebook.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h2&gt;2. What my AGENTS.md says&lt;/h2&gt;
+&lt;p&gt;It has seven short sections, in this order:&lt;/p&gt;
+&lt;div class=&quot;table-wrap&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Section&lt;/th&gt;
+&lt;th&gt;What it tells Claude&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ship it&lt;/td&gt;
+&lt;td&gt;Every push to &lt;code&gt;main&lt;/code&gt; goes live. Show me a preview first&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stack&lt;/td&gt;
+&lt;td&gt;Plain HTML, CSS and JS, and what each file is for&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Agents&lt;/td&gt;
+&lt;td&gt;The Markdown pages, API and discovery files the site serves to AI agents&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Run it locally&lt;/td&gt;
+&lt;td&gt;One command, and the screen widths to check&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Design rules&lt;/td&gt;
+&lt;td&gt;Colours, type, the hero, the logo, and what I already said no to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content rules&lt;/td&gt;
+&lt;td&gt;Facts that must match my CV, and how blog posts get built&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Code style&lt;/td&gt;
+&lt;td&gt;Match the code around you. Short comments, plain commit messages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;The first section matters most, because it&#x27;s the one Claude can&#x27;t guess from the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;## Ship it
+
+- Every push to `main` deploys davit.cc within about a minute.
+- Work directly on `main`. Davit is the only person on this repo:
+  no pull requests, no feature branches.
+- Because a push is a deploy, show Davit a preview of any visual change
+  and push once he&#x27;s happy. Copy fixes and small bug fixes can go straight in.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That second rule exists because I typed this into a thread once:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;since i am only one working on this no need to create prs just push to main&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I said it once. It&#x27;s been in the file since.&lt;/p&gt;
+&lt;p&gt;The design rules work the same way. Each one is a decision I already made, written down so I don&#x27;t make it again:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-md&quot;&gt;- Light only. Mostly cool grey with a faint lavender glow.
+  Davit found stronger lilac &amp;quot;too colourful&amp;quot;. Never use green accents.
+- Project cards: the same dust in each product&#x27;s own soft colour.
+  Illustrated scenes and redrawn product UIs were tried and rejected.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&quot;Tried and rejected&quot; saves the most time. Without that line, a new session has no way to know I already turned those ideas down.&lt;/p&gt;
+&lt;p&gt;The content rules are short facts with no room for guessing: &quot;15+ years of experience&quot;, the section is called &quot;Projects&quot;, not &quot;Work&quot;, and &quot;Experience must match Davit&#x27;s CV&quot;.&lt;/p&gt;
+&lt;h2&gt;3. What stays out&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Anything the code already says.&lt;/strong&gt; Claude can see the framework, the folders and the function names. Repeating them just makes the file longer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Long how-tos.&lt;/strong&gt; Writing a blog post here takes a style guide, image rules and a build script. That lives in a &lt;a href=&quot;https://code.claude.com/docs/en/skills&quot;&gt;skill&lt;/a&gt; in &lt;code&gt;.claude/skills/&lt;/code&gt;, which Claude loads only when it writes a post. My &lt;code&gt;AGENTS.md&lt;/code&gt; gives it one line: follow the &lt;code&gt;write-blog-post&lt;/code&gt; skill.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rules that must never break.&lt;/strong&gt; These files are advice, and Claude can miss advice. If something must never happen, the docs point you to a &lt;a href=&quot;https://code.claude.com/docs/en/hooks-guide&quot;&gt;hook&lt;/a&gt; that blocks it instead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Secrets.&lt;/strong&gt; The file is in git. Mine names the &lt;code&gt;AUTH_SECRET&lt;/code&gt; setting but never its value.&lt;/p&gt;
+&lt;p&gt;Anthropic suggests &lt;a href=&quot;https://code.claude.com/docs/en/memory&quot;&gt;keeping each file under 200 lines&lt;/a&gt;, because longer files get followed less. Mine is about 80.&lt;/p&gt;
+&lt;figure&gt;&lt;img width=&quot;1600&quot; height=&quot;900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;A small robot holding a single sheet of paper next to a tall wobbly stack of paper it has decided not to carry&quot; src=&quot;https://davit.cc/assets/images/writing/robot-one-sheet.webp&quot;&gt;&lt;figcaption&gt;It took the one page that mattered.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h2&gt;4. How it stays right&lt;/h2&gt;
+&lt;p&gt;Instructions go stale like any other doc. My first project instructions for this site still said it deployed from the &lt;code&gt;master&lt;/code&gt; branch through GitHub Pages, after I had moved it to &lt;code&gt;main&lt;/code&gt; and Cloudflare.&lt;/p&gt;
+&lt;p&gt;Now the rule is simple. When a convention changes, &lt;code&gt;AGENTS.md&lt;/code&gt; changes in the same commit. And when I correct a choice, like &quot;too colourful&quot;, it becomes a line in the file.&lt;/p&gt;
+&lt;p&gt;So the file keeps growing, one line per &quot;no&quot;, and I rewrite lines when they stop being true.&lt;/p&gt;
+&lt;h2&gt;Questions people ask&lt;/h2&gt;
+&lt;h3&gt;Do I still need a CLAUDE.md file?&lt;/h3&gt;
+&lt;p&gt;Only in a few cases: you want rules that only Claude should read, or you&#x27;re on a Claude Code version older than 2.1.277. Otherwise an &lt;code&gt;AGENTS.md&lt;/code&gt; is enough. If you do keep both, put &lt;code&gt;@AGENTS.md&lt;/code&gt; at the top of the &lt;code&gt;CLAUDE.md&lt;/code&gt;, because Claude reads the &lt;code&gt;CLAUDE.md&lt;/code&gt; and skips the other one.&lt;/p&gt;
+&lt;h3&gt;Should AGENTS.md be in git?&lt;/h3&gt;
+&lt;p&gt;Yes, so everyone on the project, people and agents, gets the same rules. Personal rules go in &lt;code&gt;~/.claude/CLAUDE.md&lt;/code&gt;, which stays on your machine. Skip &lt;code&gt;CLAUDE.local.md&lt;/code&gt; here: having one makes Claude stop reading &lt;code&gt;AGENTS.md&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Is it the same as Claude Projects instructions?&lt;/h3&gt;
+&lt;p&gt;No. &lt;code&gt;AGENTS.md&lt;/code&gt; lives in the code and travels with it. Project instructions live in &lt;a href=&quot;https://davit.cc/writing/how-to-use-claude-projects/&quot;&gt;Claude Projects&lt;/a&gt; and cover how you work: where the repo is, who approves what. I keep both short. They overlap only on how to ship, because that rule matters everywhere.&lt;/p&gt;
+&lt;h2&gt;Start yours&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;/init&lt;/code&gt; in Claude Code. It reads the codebase and writes a first &lt;code&gt;CLAUDE.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Rename it to &lt;code&gt;AGENTS.md&lt;/code&gt;, so every agent reads it.&lt;/li&gt;
+&lt;li&gt;Delete everything Claude could find by reading the code.&lt;/li&gt;
+&lt;li&gt;Add how you ship and what you&#x27;ve already said no to.&lt;/li&gt;
+&lt;li&gt;Each time you correct Claude, add one line.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Write down the &quot;no&quot;. Skip the rest.&lt;/p&gt;
+&lt;p&gt;More on how this site gets built in &lt;a href=&quot;https://davit.cc/writing/agentic-coding-workflow/&quot;&gt;my agentic coding workflow&lt;/a&gt;, or see what I&#x27;ve worked on in &lt;a href=&quot;https://davit.cc/cv/&quot;&gt;my CV&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>My agentic coding workflow</title>
     <link href="https://davit.cc/writing/agentic-coding-workflow/"/>

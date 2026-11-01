@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://davit.cc/writing/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://davit.cc/writing/agentic-coding-workflow/</loc>
@@ -39,5 +39,9 @@
   <url>
     <loc>https://davit.cc/projects/space-invaders/</loc>
     <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://davit.cc/writing/claude-md-file/</loc>
+    <lastmod>2026-11-02</lastmod>
   </url>
 </urlset>
